@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+
+            .clock {
+            border: 7px solid #545271;
+            border-radius: 50%;
+            background: #fff url(https://th.bing.com/th/id/Rd499eec04ada4d0e234b44d03f53ad03?rik=Imh18PAOJrnSIg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fdT7%2feG4%2fdT7eG4Mjc.png&ehk=9wv2yFD8v3rIobR4%2fvmsMp6MrkbyJRLklavGusitCt0%3d&risl=&pid=ImgRaw) no-repeat center;
+                
+            background-size: 120%;
+            height: 20em;
+            padding-bottom:0;
+            position: relative;
+            width: 20em;
+            }
+
+            .clock.simple:after {
+            background: #000;
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 5%;
+            height: 5%;
+            z-index: 10;
+            }
+
+            .minutes-container, .hours-container, .seconds-container 
+            {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            }
+
+            .hours {
+            background: #000;
+            height: 20%;
+            left: 48.75%;
+            position: absolute;
+            top: 30%;
+            transform-origin: 50% 100%;
+            width: 2.5%;
+            }
+
+            .minutes {
+            background: #000;
+            height: 37%;
+            left: 49%;
+            position: absolute;
+            top: 14.5%;
+            transform-origin: 50% 100%;
+            width: 2%;
+            }
+
+            .seconds {
+            background: rgb(255, 2, 2);
+            height: 32%;
+            left: 49.5%;
+            position: absolute;
+            top: 17%;
+            transform-origin: 50% 80%;
+            width: 2%;
+            z-index: 8;
+            }
+
+            @keyframes rotate 
+            {
+            100% {
+                transform: rotateZ(360deg);
+                }
+            }
+
+            .hours-container {
+            animation: rotate 43.200s infinite steps(0);
+            }
+            .minutes-container {
+            animation: rotate 36.00s infinite steps(0);
+            transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
+            }
+            
+            .seconds-container {
+            animation: rotate 60s infinite steps(60);
+            transition: transform 0.2s cubic-bezier(.4,2.08,.55,.44);
+            }
+            
+            .hand_cap{
+            width: 5%;
+            height: 5%;
+            position: absolute;
+            top: 47.5%;
+            left: 47.5%;
+            background-color: rgb(241, 0, 0);
+            border-radius: 100%;
+            display: block;
+            }
+    </style>
+</head>
+<body>
+    <article class="clock">
+        
+        <div class="hours-container">
+          <div class="hours"></div>
+        </div>
+
+        <div class="minutes-container">
+          <div class="minutes"></div>
+        </div>
+        
+        <div class="seconds-container">
+          <div class="seconds"></div>
+        </div>
+
+        <div class="hand_cap">
+            <div class="cap"></div>
+          </div>
+      
+    </article>
+</body>
+</html>
