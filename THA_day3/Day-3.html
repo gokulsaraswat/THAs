@@ -10,65 +10,62 @@
     <style type = text/css>
      @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital@1&display=swap');
      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-           
-     
-    body
-    {
-        margin: 0 auto;
-        padding: 0 5% 5%;
-        height: 1000px;
-        width: 1200px;
-        border:solid #0095ff;
-        border-radius: 99px;
-        font-style: italic;
-        font-family: 'Fira Sans Condensed', sans-serif;;
-        font-size: 1em;
-        text-align: center;
-    }    
-    
-    
-    .firrstcolumn{
-                height: 100px;
-                width: 300px;
-                background-color: transparent;
-                font-family: 'Noto Sans', sans-serif;
-                color: #fbff09;
-                font-size: 15px;
-                display: inline-block;
-                margin:30;
-                border-left-width: 12px;
-                border-left-color: #000;
-    }
-    .secondcolumn{
-                 height: 100px;
-                width: 300px;
-                background-color: transparent;
-                font-family: 'Noto Sans', sans-serif;
-                color: #5eff00;
-                font-size: 15px;
-                margin:30;
-                display: inline-block;
-                 
+
+        body{
+            margin: 100px 300px;
+            background-color: skyblue;
+            border: 20px solid rgb(102, 5, 5);
+            padding: 18px;
+            align-items: center;
             
+          
+            }
+
+     .firstcoloumn{
+         /* border: 2px solid black; */
+         width:415px;
+     }
+
+     .secondcoloumn{
+         /* border: 2px solid black; */
+         position: absolute;
+         top: 163px;
+         left:770px;
+         width:415px;
+         
+     }
+
+     
+   
+   .barrier{
+                height: 565px;
+                width: 1px;
+                border-right:5px solid rgb(255, 0, 0) ;
+                position: absolute;
+                top:186px;
+                left: 755px;
+                display:inline;
+             }
+
+    h1{
+        background-color:skyblue;
+        width:auto;
+        display:inline;
+        padding: 10px;
+        position: absolute;
+        left:675px;
+        top:55px;
     }
 
+    .table{
+        position:relative;
+        align-items:center;width:415px;
+        /*border:2px dotted red;
+    */}
 
-    h1 , h2 , h3 {
-            color: purple ;font-style: normal;
-            font-family: 'Noto Sans', sans-serif;
     }
-    
-    
-    #applyCSS * {
-        margin:10px;
-        mix {border-style: dotted dashed rigid double;}
-        
-    }
-
-    body {background-color: rgb(254, 255, 220);} // styles applied to body tag
-
     </style>
-    
+   
    
 </head>
 <body>
@@ -76,8 +73,8 @@
 <div id="applyCSS">
 
 <!-- all the elements here must follow a concrete CSS rules-->
-    <h1 style="text-align: center;">PhantomOz</h1>
-    <p style="text-align: center;">SDE</p>
+    <h1 style="text-align: center;">Kennizey</h1>
+    <p style="text-align: center;"> <b>    SDE</b></p>
     <div class="firstcoloumn">
     <h3>Personal Profile</h3>
     <p>Lorem ipsum dolor  sit amet consectetur 
@@ -95,10 +92,10 @@
       </ul>
 
 
-    <h3>Contacts Detalis</h3>
-        <table>
-            <thead>
-                <tr>
+    <h3>Contacts Details</h3>
+        <table class="table" style="text-align: center;">
+            <thead >
+                <tr >
                     <th>Type:</th>
                     <th>Detail</th>
                 </tr> 
@@ -121,7 +118,7 @@
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td>ram london nagar, chandni chowk , ludiana</td>
+                    <td>london nagar, chandni chowk , ludiana</td>
                 </tr>
             </tbody>
         </table>
