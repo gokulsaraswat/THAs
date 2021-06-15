@@ -26,3 +26,35 @@ console.log("After deleting: ",Object.values(student).toString());
 // }
 
 
+// 6th 
+
+var library = [ { title: 'The Road Ahead', author: '7Bill Gates', libraryID: 1254 }, { title:'Walter Isaacson', author: '3Steve Jobs', libraryID: 4264 }, { title: '5Mockingjay: The FinalBook of The Hunger Games', author: 'Suzanne Collins', libraryID: 3245 }]; 
+
+function compare( a, b ) {
+    if ( a.libraryID < b.libraryID ){
+      return 1;
+    }
+    if ( a.libraryID > b.libraryID ){
+      return -1;
+    }
+    return 0;
+  }
+  
+//  console.log(library.sort(compare));
+
+//  var result=library.sort(compare);
+
+//  var key={author,libraryID,title};
+ 
+//  for(let i =0 ; i<library.length ; i++){
+// 	var object = result[i];
+
+// 	var final_result = Object.keys(object).map(e => object[e]);
+// 	//console.log(result);
+
+// 	final_result.push(final_result.shift());
+// 	//console.log(result);
+
+// 	let ans = Object.assign({},final_result);
+// 	console.log(`${keys[i]}  ${ans}`);
+// }
