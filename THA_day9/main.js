@@ -29,6 +29,8 @@ Array.prototype.forEach.call(box, (el)=>{
 
 
 
+
+
 // let squares = document.getElementsByClassName('baksa');
 
 // Array.prototype.forEach.call(squares, (el)=>{

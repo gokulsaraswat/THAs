@@ -1,0 +1,25 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+	flex-wrap: wrap;
+	 /* margin: 0 15rem 0 15rem; */
+	 padding: 9rem  15rem;
+	
+
+
+}
+
+.card{
+	height:161.2px;
+	width:216.2px;
+	background-color: red;
+	margin:0.1rem;
+}

@@ -10,6 +10,15 @@ body{
 
 }
 
+.container{
+	display:flex;
+	margin-top: 15rem ;
+}
+
+.left{
+	text-align: center;
+}
+
 #imgtv1{
 	width:600px;
 
@@ -34,17 +43,26 @@ body{
 	color:#f1faee;
 	background-color:#457b9d;
 	border: 2px solid #1d3557;
+	display: flex;
+	text-align: center;
 	
 }
 
-h1 , .total {
+.part1, .part2{
+	flex-grow: 1;
+	
+}
 
-	margin-left: 22%;
+.stamp{
+	position: absolute;
+	z-index: 1;
+	transform: rotate(-45deg);
 }
 
 h1{
 	color:#023047;
 	padding-left: 7%;
+
 }
 .seats , .bookbox {
 
