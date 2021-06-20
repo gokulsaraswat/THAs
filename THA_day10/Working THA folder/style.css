@@ -1,0 +1,76 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+	flex-wrap: wrap;
+	 /* margin: 0 15rem 0 15rem; */
+	 padding: 9rem  15rem;
+	
+
+
+}
+
+.card , img {
+	height:161.2px;
+	width:241.2px;
+	background-color: rgb(121, 0, 0);
+	margin:0.1rem;
+}
+
+
+
+.flip-card {
+	background-color: transparent;
+	min-height:162.2px;	
+	min-width:241.2px;	
+	perspective: 1000px;
+}
+/* technique to print both sides in css */
+
+/* 
+.flip-card , img{
+	background-color: transparent;
+	min-height:162.2px;	
+	min-width:241.2px;	
+	perspective: 1000px;
+} */
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.flip-card-front {
+	background-color: #bbb;
+	color: black;
+}
+
+.flip-card-back {
+	background-color: #2980b9;
+	color: white;
+	transform: rotateY(180deg);
+}
