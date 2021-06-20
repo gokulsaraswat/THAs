@@ -1,3 +1,18 @@
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+	src: local('Material Icons'),
+	  local('MaterialIcons-Regular'),
+	  url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+	  url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+	  url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+      }
+
+      .material-icons.orange600 { color: #FB8C00; }
+      .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+      .material-icons.md-48 { font-size: 48px; color:red;}
 *{
 	margin: 0;
 	padding: 0;
@@ -15,6 +30,11 @@
 	
 
 
+}
+
+form{
+	position: absolute;
+	bottom:20%;
 }
 
 .card , img {
