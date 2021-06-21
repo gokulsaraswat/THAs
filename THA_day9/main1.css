@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 body{
-	background-color: #f1faee;
-	color:#1d3557;
+	/* background-color: #f1faee;
+	 */
+	 background-image: url('bg.svg');
+	color:#e63946;
+	font-weight:700;
+	font-size:1.3rem;
 	position:absolute;     
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 
 
+}
+
+p , h2 , h1{
+	background-color:white;
+	border-radius: 13%;
 }
 
 .container{
@@ -24,6 +34,12 @@ body{
 
 }
 
+#RemainingSeats , #BookedSeats{
+	
+	font-family: 'Bree Serif', serif;
+	font-size: 6rem;
+}
+
 .allelem{
 	/* Not working? */
 	background-image: url(download.jpg)  ;
@@ -32,7 +48,7 @@ body{
 	padding:2%  0 2% 7% ;
 	width:650px;
 	height: auto;
-	margin-left:12.5%;
+	margin-left:2.5%;
 	
 }
 
@@ -45,11 +61,14 @@ body{
 	border: 2px solid #1d3557;
 	display: flex;
 	text-align: center;
+	padding-top:1rem;
 	
 }
 
 .part1, .part2{
 	flex-grow: 1;
+	font-size:2rem;
+
 	
 }
 

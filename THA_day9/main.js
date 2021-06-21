@@ -2,14 +2,14 @@
 var total = 36;
 var taken = 0;
 
-let totalseats = 50
-var seatsdiv = document.getElementById('seats')
-for (let index = 0; index < totalseats; index++) {
-    const seatelement = document.createElement("div");
-    seatelement.setAttribute('id',index) //giving an id just to recall in js , diffrent id's for each !
-    seatelement.setAttribute('class',"seats")
-    document.body.insertBefore(seatelement, seatsdiv);
-}
+// let totalseats = 50
+// var seatsdiv = document.getElementById('seats')
+// for (let index = 0; index < totalseats; index++) {
+//     const seatelement = document.createElement("div");
+//     seatelement.setAttribute('id',index) //giving an id just to recall in js , diffrent id's for each !
+//     seatelement.setAttribute('class',"seats")
+//     document.body.insertBefore(seatelement, seatsdiv);
+// }
 
 
 const box = document.getElementsByClassName('allseats');
