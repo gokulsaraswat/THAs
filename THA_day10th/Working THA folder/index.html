@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Flip game temp</title>
 	<link rel="stylesheet" href="style.css">
-	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -16,45 +16,51 @@
 	<span class="material-icons md-light md-active">face</span>
 	<span class="material-icons orange600">face</span>
 	<span class="material-icons">rowing</span> -->
+	<header>
+		<div class="timer">30</div>
+	</header>
 
 	<div class="left">
 		<div class="out">
-			<div class="instrutions">
-				<!-- Work on this -->
-				<h3>How to Play?</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Architecto doloribus autem impedit culpa explicabo exercitationem,
-					. Possimus laborum sit aliquid ad.</p>
-			</div>
-			<div class= "gamescores">
-			<form action="" type="input">
-				<label for="moves">Total Cards Seen</label><br>
-				<input type="text" id="moves" name="moves" placeholder="Current Moves">
-				<br>
-				<label for="accuracy">Total Accuracy</label><br>
-				<input type="text" id="accuracy" name="accuracy" placeholder="Your Accuracy">
-				<br>
 
+			<div class="gamescores">
 
-				<button input type="button" class="myButton"><span
-						class="material-icons md-48">cancel_schedule_send</span> Give
-					up</button>
-			</form>
+				<form action="" type="input">
+
+					
+					<label for="moves">Total Cards Seen</label><br>
+					<input type="text" id="moves" name="moves" placeholder="Current Moves">
+					<br>
+					<br>
+					<label for="accuracy">Total Accuracy</label><br>
+					<input type="text" id="accuracy" name="accuracy" placeholder="Your Accuracy">
+					<br>
+					<button input type="button" class="myButton"><span
+							class="material-icons md-48">cancel_schedule_send</span> Give up</button>
+					<div class="instrutions">
+						<h3>How to Play?</h3><hr>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Architecto
+							doloribus autem impedit culpa explicabo exercitationem,.
+							Possimus laborum sit aliquid ad.</p>
+					</div>
+				</form>
 			</div>
 		</div>
 
 	</div>
-	<h1>Flip the Card</h1>
+
+
 	<div class="container right">
+		<h1>Flip the Card</h1>
 		<div class="cards1 card">
 			<div class="flip-card" onclick="this.classList.toggle('hover');">
 				<!-- apply this property to all to have toogle by click -->
 				<div class="flip-card-inner ">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="OIP.jpg" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -63,10 +69,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="OIP.jpg" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -75,10 +81,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="1.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -87,10 +93,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="1.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -99,10 +105,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="2.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -112,10 +118,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="2.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -124,10 +130,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="3.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -136,10 +142,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="3.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -148,10 +154,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="4.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -160,10 +166,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="4.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -172,10 +178,10 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="5.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
@@ -184,15 +190,25 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="imgfront.png" alt="Avatar">
+						<img src="front" alt="alternate">
 					</div>
 					<div class="flip-card-back">
-						<img src="5.png" alt="">
+						<img src="back" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+	<script
+		src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js">
+	</script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+	<script>
+		window.console = window.console || function (t) {};
+	</script>
+	<script src="style.js"></script>
 
 </body>
 

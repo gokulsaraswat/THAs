@@ -20,6 +20,33 @@
 	
 }
 
+header {
+	height: 10vh;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+      }
+header .timer {
+	position: absolute;
+	top: 14%;
+	right: 3%;
+	font-size: 5rem;
+	background: #FFAD29;
+	width:12vh;
+	height: 12vh;
+	line-height: 8vh;
+	border-radius: 6vh;
+	text-align: center;
+	padding: .7rem 0 0 0;
+      }
+      
+
+.container h1{
+		font-size: 5rem;
+		width: 56rem;
+		text-align : center;
+	}
+
 body{
 	background-image: url(paper.svg) ;
 	background-size: 20%;
@@ -37,9 +64,21 @@ div .out {
 	
 }
 
-div .instrut{
-	width:1.5rem;
-	
+.instrutions {
+	display: flex;
+	width:15rem;
+	border: 1px solid black;
+	padding: 1rem 1rem;
+	padding-right: ;
+	margin-left:1rem;
+}
+
+.instrutions p  {
+	padding-left: .7rem;;
+}
+
+.instrutions h3{
+	padding-right: .3rem;
 }
 label  {
 	text-align: center;
@@ -47,7 +86,8 @@ label  {
 	font-size: 1.5rem;
 	width:1rem;
 	height:1rem;
-	border:1px solid #ccc;
+	/* border:1px solid #ccc; */
+	border:none;
 	margin: 1rem 1rem ;
 
 
@@ -56,7 +96,8 @@ label  {
 	text-align: center;
 	padding: .5rem  ;
 	font-size: 1.3rem;
-	border:1px solid #ccc;
+	/* border:1px solid #ccc; */
+	border: none;
 	margin: 1rem 1rem;
 	font-weight: 700;
 	width: 11rem;
@@ -69,7 +110,7 @@ label  {
 	height:100vh;
 	flex-wrap: wrap;
 	 /* margin: 0 15rem 0 15rem; */
-	 padding: 9rem  15rem;
+	 padding: 6rem  15rem;
 	
 
 
@@ -77,7 +118,7 @@ label  {
 
 form{
 	position: absolute;
-	bottom:20%;
+	bottom:2%;
 }
 
 .card , img {
@@ -111,7 +152,7 @@ form{
 	height: 100%;
 	text-align: center;
 	transition: transform 0.6s;
-	/* transform-style: preserve-3d; */
+	transform-style: preserve-3d;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
@@ -163,3 +204,36 @@ form{
 	position:relative;
 	top:1px;
 }
+
+
+/* all images used in game */
+      #linux {
+	background: white url("linux.png") no-repeat center;
+	background-size: contain;
+      }
+      
+      #ubuntu {
+	background: white url("ubuntu.png") no-repeat center;
+	background-size: contain;
+      }
+      
+      #windows {
+	background: white url("windows.png") no-repeat center;
+	background-size: contain;
+      }
+      
+      #discord {
+	background: white url("discord.png") no-repeat center;
+	background-size: contain;
+      }
+      
+      #sandroid {
+	background: white url("chotu\ android.jpg") no-repeat center;
+	background-size: contain;
+      }
+      
+      #android {
+	background: white url("android.png") no-repeat center;
+	background-size: contain;
+      }
+     
