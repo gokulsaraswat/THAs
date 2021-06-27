@@ -1,3 +1,7 @@
+// ----------------Background--------------------------------
+
+
+// ----------------------------------------------------------------Game ----------------------------------------------------------------
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var ballRadius = 10;
@@ -126,7 +130,7 @@ function draw() {
   drawLives();
   collisionDetection();
 setInterval(()=>{
-  if(x + dx > canvas.width-ballRadius  || x + dx < ballRadius) {
+  if(x + dx > canvas.width-ballRadius   || x + dx < ballRadius) {
     dx = -dx;
   }
   if(y + dy < ballRadius) {
@@ -138,6 +142,7 @@ setInterval(()=>{
     }
     else {
       lives--;
+      if(lives > 0) {setTimeout(function() { alert('\t Quantity should be less than Remaining Quantity! \n \t\t\t Remaining Quantity'); }, 10);}      
       if(!lives) {
         alert("GAME OVER");
         document.location.reload();
@@ -164,7 +169,11 @@ setInterval(()=>{
 
   x += dx;
   y += dy;
+ 
   requestAnimationFrame(draw);
+
 }
 
 draw();
+
+
