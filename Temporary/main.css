@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ff7b7b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 1px;
+    background-image: url('http://hdwallpaperfun.com/wp-content/uploads/2015/07/3D-Logo-Game-Picture.jpg');
+    background-size: cover ;
+}
+
+
+
+#inner {
+    width: 60%;
+    height: 90%;
+    /* background: #fff; */
+    display: flex;
+    position: relative;
+    border-radius: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    perspective: 1000px;
+}
+
+.question {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+   
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 0.4s;
+}
+
+.stats {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    font-size: 1.2rem;
+}
+
+.question-div {
+    width: 84%;
+    height: 45%;
+    display: flex;
+    padding-left:15%;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    background: rgb(201, 163, 163);
+    border-radius: 30px 30px 0 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.options-div {
+    padding: 50px 0;
+    width: 100%;
+    height: 45%;
+    border-radius: 0 0 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: rgba( 45, 252, 211, 0.1 ); */
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+
+.options-div>button {
+    width: 80%;
+    height: 60px;
+    margin: 10px 0;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    border: 1px solid rgb(144, 231, 191);
+    background: rgb(255, 203, 203);
+    color: rgb(39, 39, 39);
+    letter-spacing: 1px;
+}
+
+.option-correct {
+    background-color: #66DE93 !important;
+    border: none !important;
+}
+
+.option-wrong {
+    background-color: #D83A56 !important;
+    border: none !important;
+}
+
+.score-div {
+    background-color: rgb(82, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    display: none;
+    text-align: center;
+    border-radius: 30px;
+}
+
+h1 {
+    padding: 0 20px;
+}
+
+.score-div i {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.score-div p {
+    font-size: 1.3rem;
+    opacity: 0.5;
+}
+
+.score-div h3 {
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+button:active,
+button:focus {
+    outline: none;
+}
+
+@media(max-width:600px) {
+    #inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .question {
+        border-radius: 0;
+    }
+
+    #inner {
+        border-radius: 0;
+    }
+
+    .options-div {
+        border-radius: 0;
+    }
+
+    .options-div>button {
+        font-size: 1.1rem;
+    }
+
+    .score-div {
+        border-radius: 0;
+    }
+}
