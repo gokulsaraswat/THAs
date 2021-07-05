@@ -4,6 +4,14 @@
  	object-fit: cover;
 
  }
+ 
+/* .save {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/390561/save.svg);
+      }
+
+.dl {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/390561/download.svg);
+      }       */
 
  #canvas {
  	border: 1px solid black;

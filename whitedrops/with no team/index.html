@@ -3,16 +3,20 @@
 	<canvas id="canvas"></canvas>
 	<div class="features">
 
-		
-		
+
+
 		<button onclick="Restore()">Undo</button>
 		<button onclick="Clear()">Clear canvas</button>
-		<button onclick="change_color('#ff0000')" style="background:rgb(255, 0, 0); "class="stroke-color" id="color-slctr"></button>
-	<button onclick="change_color('#0000ff')" style="background:blue" class="stroke-color" id="color-slctr"></button>
-	<button onclick="change_color('#00ff00')" style="background:green" class="stroke-color" id="color-slctr"></button>
-	<button    onclick="change_color('#ffff00')" style="background:yellow" class="stroke-color" id="color-slctr"></button>
-	<button onclick="erase(this)" style="background:white" class="stroke-color" id="color-slctr"><span><img
-		    src="eraser-solid.svg" alt=""></span></button>
+		<button onclick="change_color('#ff0000')" style="background:rgb(255, 0, 0); " class="stroke-color"
+			id="color-slctr"></button>
+		<button onclick="change_color('#0000ff')" style="background:blue" class="stroke-color"
+			id="color-slctr"></button>
+		<button onclick="change_color('#00ff00')" style="background:green" class="stroke-color"
+			id="color-slctr"></button>
+		<button onclick="change_color('#ffff00')" style="background:yellow" class="stroke-color"
+			id="color-slctr"></button>
+		<button onclick="erase(this)" style="background:white" class="stroke-color" id="color-slctr"><span><img
+					src="eraser-solid.svg" alt=""></span></button>
 		<!-- 
 		<div onclick="change_color(this)" style="background:red" class="stroke-color"></div>
 		<div onclick="change_color(this)" style="background:blue" class="stroke-color"></div>
@@ -22,27 +26,30 @@
 					src="eraser-solid.svg" alt=""></span></button> -->
 		<input type="color" oninput="stroke_color = this.value" placeholder="Colors">
 		<input type="range" min="1" max="100" oninput="stroke_width = this.value">
+		
 		<!-- <select name="shapes" id="shape">
 			<option value="circle">Circle</option>
 			<option value="rect">Rectangle</option>
 			<option value="line">line</option>
 			<option value="curve">curve</option>
 		</select> -->
-		<button class='test' onclick="drawRec">Click me boi</button>
-		<button class="dark"></button>
+		<!-- <button class='test' onclick="drawRec">Click me boi</button> -->
+		
+		
+		<!-- <button class="dark"></button> -->
 		<section>
-		<ul>
-			<li>
-				<label for="lineCap">Line Cap</label>
-				<select name="lineCap">
-					<option value="round" selected>Round</option>
-					<option value="butt">Butt</option>
-					<option value="square">Square</option>
-				</select>
-			</li>
-			
-		</ul>
-		</section>	
+			<ul>
+				<li>
+					<label for="lineCap">Line Cap</label>
+					<select name="lineCap">
+						<option value="round" selected>Round</option>
+						<option value="butt">Butt</option>
+						<option value="square">Square</option>
+					</select>
+				</li>
+
+			</ul>
+		</section>
 	</div>
 	</div>
 	<script src="script.js"></script>

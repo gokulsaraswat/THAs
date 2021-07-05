@@ -81,6 +81,25 @@ function getY(event) {
   else {return event.pageY - canvas.offsetTop}
 }
 
+
+function saveCanvas() {
+  localStorage.setItem("canvas", canvas.toDataURL()), localStorage.setItem(
+      "canvasBg",
+      canvasBg.toDataURL()
+    ), (isSaveTool = !isSaveTool) &&
+    (
+      saveTool.classList.add("active"),
+      setTimeout(function () {
+        saveTool.classList.remove("active");
+      }, 250)
+    );
+}
+
+function downloadCanvas(e, a, t) {
+  (e.href = document.getElementById(a).toDataURL()), (e.download = t);
+}
+
+
 function draw_rect(){
   
 }
