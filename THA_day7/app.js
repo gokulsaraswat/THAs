@@ -40,7 +40,8 @@ function compare( a, b ) {
     return 0;
   }
   
-//  console.log(library.sort(compare));
+//  console
+.log(library.sort(compare));
 
 //  var result=library.sort(compare);
 
