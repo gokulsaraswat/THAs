@@ -1,4 +1,4 @@
-fetch(`https://api.github.com/users/${new URL(location.href).searchParams.get('q') || "Ayan-Dhara"}`)
+fetch(`https://api.github.com/users/${new URL(location.href).searchParams.get('q') || "Gokul-saraswat"}`)
 .then((response)=>{
     return response.json()
 })
