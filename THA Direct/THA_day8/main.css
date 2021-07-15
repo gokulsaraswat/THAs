@@ -1,0 +1,22 @@
+.uparwala{
+	height: 400px;
+	width: 400px;
+	background-color: teal;
+	display: grid;
+	grid-template-rows: repeat(20, 1fr);
+	grid-template-columns: repeat(20,1fr);
+	border-radius: 5px;
+	overflow: hidden;
+    }
+    
+    .baksa{
+	border:solid 1px white;
+    }
+    
+    /* .baksa:hover{
+	background-color: tomato;
+    } */
+    
+    .active{
+	background-color: tomato;
+    }

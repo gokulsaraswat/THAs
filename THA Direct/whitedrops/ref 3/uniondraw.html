@@ -1,0 +1,218 @@
+<link rel="stylesheet" href="uniondraw.css">
+
+
+<body>
+  <div class="container-fluid" id="main">
+    <div class="row">
+      <div class="boardContainer col-md-12" onclick="saveCoords()">
+        <div class="row">
+          <div class="col-md-12 buttonColours">
+            
+            <button class="colour btn" data-value="DeepPink"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="red"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="orangered"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="orange"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="yellow"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="greenyellow"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="green"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="teal"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="blue"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="darkblue"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="indigo"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="purple"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="brown"><i class='fa fa-square fa-2x'></i></button>
+            <button class="colour btn" data-value="black"><i class='fa fa-square fa-2x'></i></button>
+          </div>
+        </div>
+        <canvas id="board" onmousemove="getCoords(event)" onmouseenter="enterBox()" onmouseleave="exitBox()">Please use a newer browser</canvas>
+        <div class="row">
+          <div class="col-md-12 clear">
+            <button onclick="clearAll()">Clear All</button>
+            <button onclick="undo()">Undo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- ---------------------------------------------------------------- -->
+<script>
+  // initialise the canvas and set its height/width
+var canvas = document.getElementById("board");
+canvas.width = 800;
+canvas.height = 400;
+var context = canvas.getContext("2d");
+document.getElementById('board').draggable = false;
+// variables to store coordinates and pen details
+var x;
+var y;
+var colour = 'black';
+var penWidth = 5;
+
+// set the colour of button icon
+$('.colour').each(function(){
+  colour = $(this).attr('data-value');
+  $(this).css('color', colour);
+})
+
+// set colour variable to whatever button was clicked
+$('.colour').on("click", function(event){
+    colour = $(this).attr('data-value');
+    console.log(colour);
+ });
+// clear the canvas
+function clearAll(){
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// true when inside canvas
+var canDraw = false;
+var mouseDown = false;
+
+// mouse coordinates on page (by pixel)
+function getCoords(event){
+  // size is where the canvas is in the page
+  var size = canvas.getBoundingClientRect();
+  /* clientX/Y are the pixel positions of mouse in page
+  For horizontal/x, minus the left offset to get back to 0
+  e.g. mouse pos in page is 10,0 while in top left corner of canvas
+  We want it at 0,0 (pos in canvas, not page),
+  so we minus the gap between page left and canvas start
+  which here would be 10 */
+  x = (event.clientX - size.left);
+  y = (event.clientY - size.top);
+ 
+}
+
+// called on mouseenter
+function enterBox(){
+  canDraw = true;
+}
+//called on mouseleave
+function exitBox(){
+  canDraw = false;
+}
+
+// array to store coordinates mouse moved over while clicked
+var savedCoords = [];
+// save line coords, colour and pen style
+var savedLines = [];
+
+// called when user clicks on board
+function saveCoords(){
+  if (canDraw && mouseDown){
+      //push coordinates to array
+      thisCoord = [x,y]
+      savedCoords.push(thisCoord);
+      savedLines.push({'x': x, 'y': y, 'colour': colour, 'penWidth': penWidth})
+      drawLine();
+   }
+}
+function undo(){
+  //console.log(savedLines);
+  //console.log(savedLines[0]['colour']);
+  // loop through lines from last object towards beginning
+  // splice result off array until you reach a 0.
+  //pop off zero at the end so you are on an object
+  //console.log(savedLines);
+  //console.log(savedLines.length);
+  if (savedLines[savedLines.length - 1] == 0){
+    savedLines.splice(savedLines.length - 1, 1);
+  }
+  console.log("running this loop " + savedLines.length + " times")
+  var copy = savedLines.slice(0);
+  for (let i = 0; i < copy.length -1; i++){
+    //loop through popping off objects until you find a 0
+    if (savedLines[savedLines.length-1] == 0){
+      //savedLines.splice(savedLines.length - 1, 1);
+      console.log("break!")
+      break;
+    } else {
+      savedLines.splice(savedLines.length - 1, 1);
+    }
+
+  }
+
+  //console.log(savedLines);
+  // draw the canvas agasin
+  redraw();
+}
+
+function redraw(){
+  //clear the canvas before re-drawing it
+  clearAll();
+  // set colour and width based on first object, skip 0
+  //draw until you reach a 0
+  //if first is a 0, remove it - this should move inside the whole loop
+  for (let i = 0; i < savedLines.length - 1; i++){
+    if (savedLines[i] == 0){
+
+      continue;
+
+    } else {
+      colour = savedLines[i]['colour'];
+      penWidth = savedLines[i]['penWidth'];
+      context.strokeStyle=colour;
+      context.lineWidth=penWidth;
+      context.beginPath();
+      context.moveTo(savedLines[i]['x'], savedLines[i]['y']);
+      context.lineTo(savedLines[i+1]['x'],savedLines[i+1]['y']);
+      context.stroke();
+      context.closePath();
+    }
+  }
+}
+
+function drawLine(){
+  //loop through the array of coordinates and connect them with a line if they are not directly next to each other
+  for (let i = 0; i < savedCoords.length-1; i++){
+    if (savedCoords.length > 1) {
+      // if x is not directly next to x, or y not next to y
+      if ((savedCoords[i][0] != savedCoords[i+1][0]+1) || (savedCoords[i][1] != savedCoords[i+1][1]+1)){
+        // set start and end, draw line between them
+        context.beginPath();
+        context.moveTo(savedCoords[i][0],savedCoords[i][1]);
+        context.lineTo(savedCoords[i+1][0],savedCoords[i+1][1]);
+        context.strokeStyle=colour;
+        context.lineWidth=5;
+        context.stroke();
+        context.closePath();
+      }
+    }
+  }
+}
+//Listeners
+document.addEventListener("mousedown", function(){
+    if (canDraw){
+      mouseDown = true;
+    }
+    saveCoords();
+});
+
+document.addEventListener("mouseup", function(){
+    mouseDown = false;
+    if (savedCoords.length == 1){
+      // being and end path so each line is a separate entity
+      context.beginPath();
+      context.fillStyle=colour;
+      context.fillRect(savedCoords[0][0], savedCoords[0][1], penWidth, penWidth);
+      context.closePath();
+    }
+    savedCoords = [];
+  // push a 0 to mark where one line ends and next begins
+  // if event triggers multiple times (bubbling) this prevents multiple 0s
+  //this should only happen if it's a mouse up from drawing
+  
+  if (canDraw && savedLines[savedLines.length - 1] != 0){
+    console.log("adding 0")
+    savedLines.push(0);
+  }
+  console.log(savedLines);
+    
+      
+});
+
+window.addEventListener('mousemove', saveCoords);
+
+//if a coord is not directly next to another (the x or y), draw a direct line between them
+</script>

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+body{
+	/* background-color: #f1faee;
+	 */
+	 background-image: url('bg.svg');
+	color:#e63946;
+	font-weight:700;
+	font-size:1.3rem;
+	position:absolute;     
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+
+}
+
+p , h2 , h1{
+	background-color:white;
+	border-radius: 13%;
+}
+
+.container{
+	display:flex;
+	margin-top: 15rem ;
+}
+
+.left{
+	text-align: center;
+}
+
+#imgtv1{
+	width:600px;
+
+}
+
+#RemainingSeats , #BookedSeats{
+	
+	font-family: 'Bree Serif', serif;
+	font-size: 6rem;
+}
+
+.allelem{
+	/* Not working? */
+	background-image: url(download.jpg)  ;
+	border: 10px solid #a8dadc;
+	border-radius: 4px;
+	padding:2%  0 2% 7% ;
+	width:650px;
+	height: auto;
+	margin-left:2.5%;
+	
+}
+
+
+.total{
+	width:350px;
+	height:25%;
+	color:#f1faee;
+	background-color:#457b9d;
+	border: 2px solid #1d3557;
+	display: flex;
+	text-align: center;
+	padding-top:1rem;
+	
+}
+
+.part1, .part2{
+	flex-grow: 1;
+	font-size:2rem;
+
+	
+}
+
+.stamp{
+	position: absolute;
+	z-index: 1;
+	transform: rotate(-45deg);
+}
+
+h1{
+	color:#023047;
+	padding-left: 7%;
+
+}
+.seats , .bookbox {
+
+	height: 400px;
+	width: 600px;
+	/* background-color: #457b9d;
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: repeat(6,1fr); */
+	grid-gap: 1px;
+	border-radius: 5px;
+	overflow: hidden;
+	border: 1px solid rgb(0, 0, 0);
+	      }
+
+    /* task  Have to flip the img */
+.allseats{
+	height: 50px;
+	width: 100px;
+	background-color: #dfd;
+	background-image: url(right.jpg) ;
+
+}
+
+.active{
+	height: 50px;
+	width: 100px;
+	background-color: #e63946;
+	background-image: url(wrong.jpg);
+
+    }
