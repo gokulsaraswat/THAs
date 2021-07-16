@@ -1,0 +1,35 @@
+[
+	{
+		"food": "Pitzah",
+		"calorie": 56
+	},
+	{
+		"food": "Borgir",
+		"calorie": 69
+	},
+	{
+		"food": "Cola",
+		"calorie": 500
+	},
+	{
+		"food": "Brownie",
+		"calorie": 1080
+	},
+	{
+		"food": "Fried Rice",
+		"calorie": 900
+	},
+    {
+		"food": "Crossan",
+		"calorie": 1500
+	},
+	{
+		"food": "Butter Scotch Mousse",
+		"calorie": 200
+	},
+	{
+		"food": "Tiramisu",
+		"calorie": 10
+	}
+]
+

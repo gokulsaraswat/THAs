@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+h1 {
+  background: rgb(239, 192, 244);
+  background: linear-gradient(
+    70deg,
+    rgba(36, 16, 0, 1) 0%,
+    rgba(0, 47, 6, 1) 9%,
+    rgba(0, 144, 133, 1) 22%,
+    rgba(0, 18, 113, 1) 38%,
+    rgba(59, 4, 199, 1) 52%,
+    rgba(72, 0, 255, 1) 66%,
+    rgba(92, 0, 107, 1) 76%,
+    rgba(228, 0, 189, 1) 84%,
+    rgba(255, 0, 78, 1) 93%,
+    rgba(172, 0, 61, 1) 100%
+  );
+  text-align: center;
+  padding: 0.3rem;
+  color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.templates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+.templates .template {
+  display: inline-block;
+  width: 30%;
+  height: 25rem;
+  background-size: cover;
+  background-position: center;
+  border: 0.2rem double cyan;
+  transform: scale(0.8);
+  cursor: pointer;
+}
+
+.memeContainer {
+  text-align: center;
+}
+.memeContainer .meme {
+  margin: 2rem 0 0 0;
+  height: 25rem;
+  border: 0.3rem double aliceblue;
+}
+
+.buttons {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1.2rem;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  background: rgb(239, 192, 244);
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  font-size: 1rem;
+  margin: 0.2rem 0.5rem;
+}
+.buttons:hover {
+  background: tomato;
+  border: 0.2rem solid rgb(0, 0, 0, 0.3);
+  color: black;
+  transform: scale(1.1);
+  transition: all 0.18s ease-in-out;
+}
+.buttons:not(:hover) {
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
+}
+.input-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.inputs {
+  height: 2.7rem;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  margin: 1.5rem 0.3rem;
+  outline: none;
+  border: none;
+  border: 0.2rem solid rgba(103, 16, 112, 0.418);
+}
+.msg {
+  font-size: 0.3rem;
+  margin: 0.3rem;
+  font-style: italic;
+}

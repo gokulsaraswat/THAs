@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Todo do list </title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+<body>
+	<h1 align="center">Adkroxx's Todo List</h1>
+	<br>
+
+	<!-- container -->
+	<div class="maincontainer">
+
+		<!-- left: -->
+		<div class="left">
+			<!-- <form action=""> -->
+			<input type="text" id="name" placeholder="Name:">
+			<input type="text" id="task" placeholder="Input Task:">
+			<div class="dateandbutton"><input type="date" id="date" placeholder="Date:">
+				<!-- 	user will press enter to insert the task -->
+				<button type="submit"> Add item </button>
+			</div>
+
+			<!-- </form> -->
+		</div>
+
+		<!-- right -->
+		<div class="todobody right">
+			<div class="container">
+				<input type="radio" class="radio" name="progress" value="five" id="five">
+				<label for="five" class="label">5%</label>
+		
+				<input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
+				<label for="twentyfive" class="label">25%</label>
+		
+				<input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+				<label for="fifty" class="label">50%</label>
+		
+				<input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+				<label for="seventyfive" class="label">75%</label>
+		
+				<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+				<label for="onehundred" class="label">100%</label>
+		
+				<div class="progress">
+					<div class="progress-bar"></div>
+				</div>
+			
+			<div class="alltasks">
+				
+				<input type="checkbox" class="task">
+				<label for="first">task number one </label>
+				<button class="deletetask"><span class="material-icons md-24">clear</span></button>
+			</div>
+			</div>
+
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+
+</html>
