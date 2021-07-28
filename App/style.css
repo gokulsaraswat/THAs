@@ -7,7 +7,7 @@
   width: 50vh;
   height: 90vh;
   padding: 6vh;
-  background: white;
+  background: url(login.png) ; 
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 }
 

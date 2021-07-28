@@ -5,6 +5,9 @@
   <title>CodePen - CSS/SVG Lines App Concept</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+	<script src="scirpt.js"></script>
 
 </head>
 <body>
@@ -20,10 +23,10 @@
         to Travel.
       </span>
     </header>
-    <input type="email" required pattern=".*\.\w{2,}" placeholder="Email Address" />
-    <input type="password" required placeholder="Password" />
+    <input type="email" required pattern=".*\.\w{2,}" placeholder="Email Address"  id="email"/>
+    <input type="password" required placeholder="Password" id="password"/>
    
-    <a href="https://www.facebook.com/" class="app-button">Login</a>
+    <a href="login.html" class="app-button" onclick="signIn()" id="signIn">Login</a>
    
     <div class="app-register">
       Don't have an account? <a href="/login.html">Sign Up</a>
