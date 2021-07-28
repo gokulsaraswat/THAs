@@ -29,6 +29,6 @@ auth.onAuthStateChanged(function (e) {
 	if (e) {
 		var a = e.email;
 		alert("Active User " + a),
-			window.location = "https://www.xyz.com"
+			window.location = "Event/index.html"
 	} else alert("No Active User")
 });
