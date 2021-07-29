@@ -12,13 +12,10 @@ body {
 	line-height: 26px;
 }
 
-.heading 
-{
-	height:13rem;
+.heading {
 	display: flex;
-	justify-content:space-around;
-	/* align-items: center; */
-
+	justify-content: space-around;
+	align-items: center;
 	color: #ffffff;
 	background: hsla(192, 95%, 50%, 1);
 
@@ -35,9 +32,8 @@ body {
 .heading img {
 	width: 4rem;
 	height: 4rem;
-	border-radius: 50%;
 	background: transparent;
-	margin-top:1.4rem;
+
 	/* padding:1rem 2.88rem 0 0; */
 
 }
@@ -46,55 +42,6 @@ body {
 	/* top:1rem; */
 	/* padding:0 0 0 1rem; */
 	font-size: 2rem;
-}
-.details p{
-	margin:0 0 0 2rem;
-	width:90%;
-}
-
-.btnplace{
-	color:white;
-	background-color:rgb(255, 255, 255);
-	justify-content: center;
-	align-items: center;
-	flex-direction: center;
-	width:90%;
-	margin:1rem 0 0 2rem;
-}
-.line{
-	background-color:black;
-	height:.4rem;
-	width:50%;
-	margin-left:25%;
-	margin-top:9%;
-	border-radius:1rem;
-	margin-bottom:3%;
-
-
-}
-.btnplace button{
-	color:white;
-	background-color:rgb(0, 47, 255);;
-	width:49%;
-}
-.infoanswer{
-	color:rgb(0, 47, 255);
-}
-hr{
-	width: 85%;
-	background-color:#000;
-}
-.details{
-	margin-top:-5rem;
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-}
-.details img{
-	width:90%;
-	justify-content: center;
-	align-self: center;	
-	border-radius: 10%;
 }
 
 .arrow {
@@ -337,8 +284,14 @@ ul li {
 	position: relative;
 }
 
+
+
 .back {
 	cursor: pointer;
+	height: 120px;
+	left: 18%;
+	position: absolute;
+	top: 6.5%;
 	transform: translateX(-50%) translateY(-50%);
 	transition: transform 0.1s;
 	width: 2rem;
@@ -347,10 +300,10 @@ ul li {
 .back-top,
 .back-bottom {
 	background-color: #666;
-	height: .2rem;
-	left: 1.4rem;
+	height: 4px;
+	left: -5px;
 	position: absolute;
-	top: 2.9rem;
+	top: 50%;
 	width: 100%;
 }
 
@@ -402,7 +355,65 @@ ul li {
 
 
 
+/* HORIZONTAL SCROLL */
+.scroll-container{
+	overflow: auto;
+	white-space: nowrap;
+	/* padding: 5px 70px 5px 20px; */
+	background: transparent;
+	height: 17%;
+	border-radius:15px;
+	display:flex;
+      }
+      
+      .gridscroll{
+	display:flex;
+	margin:0 0 0 1rem;
+	
+      }
+      
+      .gridscroll img {
+	margin-right:22px;
+	height:30%;
+	width:18%;
+	
+      }
 
+.pelace{
+	width:15rem;
+	border:1rem inset #a8f3ff;
+border-width:.2rem;
+border-style:inset;
+border-color:#a8f3ff;
+border-radius:0px 40px 0px 100px;
+-moz-border-radius:0px 40px 0px 100px;
+-webkit-border-radius:0px 40px 0px 100px;
+-webkit-box-shadow:22px -2px 0px 11px #303030 inset;
+-moz-box-shadow:22px -2px 0px 11px #303030 inset;
+box-shadow:22px -2px 0px 11px #303030 inset;
+	display:flex;
+	flex-direction:row;
+	z-index: 0;
+	overflow:hidden;
+	margin:0 1rem 0 0;
+background:black
+}
+
+
+.pelace img {
+height: 7rem;
+width:7rem;
+/* z-index: 0; */
+}
+.pelace p{
+
+	background-color:black;
+	color:white;
+	/* justify-content:center; */
+	padding:0 0 0 0;
+	margin:0;
+	/* z-index: 1; */
+}
 
 .circular-menu {
 	position: fixed;
