@@ -1,0 +1,60 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+/** Reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Lato, sans-serif;
+  background: #f8f9fb;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.container .content {
+  display: flex;
+  align-content: center;
+  height: 100%;
+}
+.container .content .sidebar {
+  user-select: none;
+  width: 50px;
+  background: #000000;
+  transition: width 0.5s ease-in;
+  box-shadow: 2px 0 2px 2px rgba(0, 0, 0, 0.21);
+  display: flex;
+  align-items: center;
+}
+.container .content .sidebar .menu, .container .content .sidebar li {
+  list-style: none;
+}
+.container .content .sidebar .menu li {
+  display: flex;
+  align-items: center;
+  margin: 0 0 5px 0;
+  padding: 10px 10px 10px 15px;
+  color: #EEEEEE;
+  border-left: 5px solid #000000;
+}
+.container .content .sidebar .menu li.selected, .container .content .sidebar .menu li:hover {
+  background: #1E88E5;
+  border-left-color: #E0E0E0;
+  color: #FFFF;
+}
+.container .content .sidebar .menu li .icon {
+  margin-right: 20px;
+  max-width: 30px;
+  font-size: 1.2em;
+  display: flex;
+}
+.container .content .sidebar .menu li .icon i {
+  width: 20px;
+}
+.container .content .sidebar:hover {
+  width: 150px;
+  cursor: pointer;
+}

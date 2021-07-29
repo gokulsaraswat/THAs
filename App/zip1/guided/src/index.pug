@@ -1,0 +1,7 @@
+mixin photos(n) 
+  while n--
+    .item
+      img(src=`//source.unsplash.com/featured?${n}`)
+
+.waterfall
+  +photos(100)
