@@ -3,13 +3,13 @@ body{
 }
 .container{
 	
-	width:35rem;
+	width:20rem;
 	height:100rem;
 }
 
 .circle{
-	width: 27rem;
-        height: 27rem;
+	width: 24rem;
+        height: 24rem;
         position: absolute;
         top: -9rem;
         left: -4rem;
@@ -24,11 +24,11 @@ body{
                 opacity: 0.3; */
 }
 .circle1{
-	width: 27rem;
-        height: 27rem;
+	width: 20rem;
+        height: 20rem;
         position: absolute;
         top: -9rem;
-        left: 12rem;
+        left: 10rem;
         opacity: .3;
 	z-index: -1;
         background: #ff01ea;
@@ -53,14 +53,14 @@ h2{
 }
 
 .buttons button{
-	width:20rem;
+	width:18rem;
 	height:4rem;
 	background-image: url(masd.png);
 	background-color: blue;
 	color:white;
 	font-size:1rem;
-	margin:.3rem;
-	border-top-left-radius: 40%;;
+	margin-top:.4rem;
+	border-radius: 10%;;
 }
 
 .line{
@@ -68,7 +68,7 @@ h2{
 	height:.4rem;
 	width:50%;
 	margin-left:25%;
-	margin-top:9%;
+	margin-top:11%;
 	border-radius:1rem;
 
 
@@ -76,7 +76,7 @@ h2{
 
 .overlay {
         z-index: 9;
-        margin: 30px;
+        margin: 3rem 0 0 3rem;
         /* background: #009938; */
       }
       
