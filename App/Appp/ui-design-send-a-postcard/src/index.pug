@@ -1,0 +1,53 @@
+.container
+	h1 Send a postcard
+	.info *
+		.more-info
+			.image
+				img(src="https://assets.codepen.io/567707/palette-reputation.png" alt="Taylor Swift album")
+			p Part of the 
+				a(href="https://codepen.io/collection/XPxJmz") UI Designs inspired by Taylor Swift Album Covers
+				|  collection. This is 
+				em reputation (2017)
+				|.
+	
+	.inner
+		.postcard
+			<svg class="close-this" xmlns="http://www.w3.org/2000/svg" id="Capa_1" enable-background="new 0 0 413.348 413.348" height="512" viewBox="0 0 413.348 413.348" width="512"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"/></svg>
+			.postcard__chosen
+				img.chosen-card(src="https://assets.codepen.io/567707/cat-molly.png")
+				.name Molly
+			.postcard__back
+				textarea Write your message here... &#13;&#10; &#13;&#10; &#13;&#10;&#13;&#10;p/s this doesn't actually send anything :(
+				.address
+					input(type="text" placeholder="Receiver's name")
+					input(type="email" placeholder="Receiver's email")
+					button Send
+					
+					
+					img.stamp(src="https://assets.codepen.io/567707/icon-stamp.svg" alt="paw stamp")
+					
+		.cover.cover__cat
+			a(data-type="cat").js-cat.circle Cat
+			img(src="https://assets.codepen.io/567707/pattern-cat.jpg" alt="Cat Pattern")
+			.options.cat-options
+				.options__item(data-name="Molly")
+					img(src="https://assets.codepen.io/567707/cat-molly.png" alt="Cat")
+				.options__item(data-name="Kato")
+					img(src="https://assets.codepen.io/567707/cat-kato.jpg" alt="Cat")
+				.options__item(data-name="Haru")
+					img(src="https://assets.codepen.io/567707/cat-underscore.png" alt="Cat")
+				.options__item(data-name="Whiskey")
+					img(src="https://assets.codepen.io/567707/cat-whiskey.jpg" alt="Cat")
+		.cover.cover__dog
+			a(data-type="dog").js-dog.circle Dog
+			img(src="https://assets.codepen.io/567707/pattern-dog.jpg" alt="Dog Pattern")
+			.options.dog-options
+				.options__item(data-name="Joey")
+					img(src="https://assets.codepen.io/567707/dog-joey.png" alt="Dog")
+				.options__item(data-name="Fred")
+					img(src="https://assets.codepen.io/567707/dog-pom-2.png" alt="Dog")
+				.options__item(data-name="Creamy")
+					img(src="https://assets.codepen.io/567707/dog-creamy.jpg" alt="Dog")
+				.options__item(data-name="Pepper")
+					img(src="https://assets.codepen.io/567707/dog-pepper.jpg" alt="Dog")
+	

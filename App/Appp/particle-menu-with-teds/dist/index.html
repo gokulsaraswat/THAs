@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Particle menu with Teds</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class='overlay'></div>
+<div class='c'>
+  <div class='i'>
+    <canvas height='350' id='main' width='350'></canvas>
+    <canvas height='350' id='def' width='350'></canvas>
+    <canvas height='350' id='statistics' width='350'></canvas>
+    <canvas height='350' id='security' width='350'></canvas>
+    <canvas height='350' id='notifications' width='350'></canvas>
+    <canvas height='350' id='users' width='350'></canvas>
+    <div class='buy'>
+      Buy Now
+    </div>
+    <div class='l'>
+      loading...
+    </div>
+    <div class='bar'>
+      <div class='bar_item' data-canvas='statistics' data-color='#E58471'>
+        My Teddy Bear
+        <span>Super cute teddy</span>
+      </div>
+      <div class='bar_item' data-canvas='security' data-color='#F4E1B0'>
+        My Dinosaur Bear
+        <span>Baby Dinosaur Teddy</span>
+      </div>
+      <div class='bar_item' data-canvas='notifications' data-color='#5D99A8'>
+        My Robert Robot
+        <span>Beep boop bop</span>
+      </div>
+      <div class='bar_item' data-canvas='users' data-color='#876869'>
+        My Bunny Teddy
+        <span>Ahhhh, what's up doc?</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/all.css");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+}
+#f1map {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#content-left,
+#content-right {
+  background-color: white;
+  position: fixed;
+  z-index: 9999;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  padding-right: 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  width: max-content;
+}
+#content-right{
+  width: max-content;
+}
+
+#content-right {
+  right: 0;
+}
+
+/* race popups */
+
+.f1_location_popup .leaflet-popup-content {
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.f1_location_popup .leaflet-popup-content h3 {
+  font-size: 1.5em;
+}
+.f1_location_popup .leaflet-popup-content p {
+  margin: 0;
+  font-weight: normal;
+}
+.f1_location_popup .leaflet-popup-content img {
+  width: 100%;
+  margin: 1em 0;
+}
+.f1_location_popup .leaflet-popup-content ul.detail-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.f1_location_popup .leaflet-popup-content ul.detail-grid span {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* race-list */
+#race-list {
+  font-size: 0.9em;
+  display: grid;
+  gap: 0.2em 0.5em;
+  list-style: none;
+  overflow-y: auto;
+  padding-right: 2em;
+}
+
+#race-list li > * {
+  pointer-events: none;
+}
+#race-list li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  padding: 0.2em 0.5em;
+  align-items: center;
+  white-space: nowrap;
+/*   overflow:auto; */
+}
+
+#race-list li .race-nr {
+  text-align: right;
+}
+#race-list li .race-nr:after {
+  content: ".";
+}
+#race-list li .race-fullname {
+  font-weight: bold;
+}
+#race-list li .race-date {
+  font-weight: normal;
+  font-size: 0.8em;
+  grid-column: 2
+}
+
+#race-list li.active {
+  background-color: rgba(0, 128, 0, 0.8);
+  color: white;
+  border-radius: 0.3em;
+}
+
+#race-list li.selected:not(.active) {
+  background-color: rgb(255, 165, 0, 0.8);
+  border-radius: 0.3em;
+}
+#race-list li:not(.active):not(.selected):hover {
+  background-color: rgba(150, 149, 149, 0.8);
+  border-radius: 0.3em;
+}
+
+.race-details {
+  display: none;
+  flex-direction: column;
+  gap: 0.5em;
+  overflow-y: auto;
+  padding-right: 1em;
+}
+
+.race-details.active {
+  display: flex;
+}
+
+.race-session {
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.race-details h3{
+  max-width: 180px;
+}
+.race-session-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(150, 149, 149, 0.8);
+  border-radius: 0.3em;
+  padding: 0.5em;
+  color: white;
+  cursor: pointer;
+}
+.race-session.finished .race-session-header {
+  background-color: rgba(0, 128, 0, 0.8);
+}
+
+.race-session.finished .race-session-title:before {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.5em;
+}
+.race-session.finished.active .race-session-title:before {
+  content: "\f106";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.5em;
+}
+
+.race-session-title {
+  font-weight: bold;
+}
+.race-session-result {
+  display: none;
+  height: 0;
+  gap: 0.5em;
+  transition: height 0.25s ease;
+}
+.race-session.active .race-session-result {
+  display: flex;
+  height: auto;
+}
+
+.race-session-result-pos {
+  width: 20px;
+  text-align: right;
+}
+.race-session-result-driver {
+  flex: 1;
+  font-weight: bold;
+}

@@ -1,0 +1,436 @@
+*{
+    box-sizing:border-box;
+    font-weight:normal;
+}
+@import url(https://fonts.googleapis.com/css?family=Damion);
+$pink: #e77572;
+
+body{
+    font-family: 'Damion', cursive;
+    background: rgb(251,239,236);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(251,239,236,1) 0%, rgba(218,180,180,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(251,239,236,1) 0%,rgba(218,180,180,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(251,239,236,1) 0%,rgba(218,180,180,1) 100%);
+    height:100vh;
+    overflow:hidden;
+    .birthday{
+        .add{
+            margin-top:40px;
+            clear:both;
+            font-family: 'Damion', cursive;
+            background:transparent;
+            border:2px solid $pink;
+            color:$pink;
+            font-size:22px;
+            padding:14px 28px;
+            border-radius:40px;
+            transition:all .23s;
+            outline:none;
+            cursor:pointer;
+
+            &:hover{
+                background:$pink;
+                color:white;
+            }
+
+        }
+        &_inner{
+            &__modal{
+                width:500px;
+                position:absolute;
+                left:0;
+                right:0;
+                transition:all .4s;
+                margin:auto;
+                text-align:center;
+                top:50%;
+                transform:translateY(-50%) scale(0);
+                background:white;
+                border-radius:20px;
+                z-index:2;
+                padding:40px 40px 100px 40px;
+                box-shadow: 0px 3px 10px 0px #E5B4B2;
+                .modal_image{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    transform: translateY(-60%);
+                    img{
+                        width:100px;
+                    }
+                }
+                h1{
+                    color:$pink;
+                    margin:0;
+                }
+                p{
+                    font-family:'georgia';
+                    font-size:13px;
+                    color:#b9918e;
+                }
+                button{
+                    background: #e77572;
+                    color: white;
+                    outline:none;
+                    padding: 20px 20px 20px 20px;
+                    border: none;
+                    width: 100%;
+                    font-size: 20px;
+                    font-family: 'Damion', cursive;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0px;
+                    -webkit-transition: all .2s;
+                    transition: all .2s;
+                    cursor: pointer;
+                    border-bottom-right-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    &:hover{
+                        background:darken($pink,5);
+                    }
+                }
+            }
+            .stage1{
+                display:block;
+            }
+            &__stage{
+                width:500px;
+                position:absolute;
+                left:0;
+                right:0;
+                margin:auto;
+                text-align:center;
+                top:50%;
+                display:none;
+                transform:translateY(-50%);
+                h1{
+                    color:$pink;
+                    margin:0;
+                }
+                h2{
+                    font-family: 'georgia';
+                    font-size: 12px;
+                    color: #b9918e;
+                    line-height: 18px;
+                    margin: 0;
+                }
+                .mix{
+                    margin: 80px 0px 10px 0px;
+                    position:relative;
+                    &_spoon{
+                        position: absolute;
+                        top: -37px;
+                        left: 200px;
+                        -webkit-transform: rotate(0deg) translateX(15px) translateY(3px) rotate(0deg) scale(1);
+                    }
+                    .move{
+                        animation: mix 1s 0s linear;
+                    }
+                }
+                img.intro{
+                    width:300px;
+                    transform:scale(0);
+                    animation:bounce .6s 1s forwards,moveup .6s 2s forwards;
+                    position:relative;
+                    top:0px;
+                }
+                .oven{
+                    margin-top:50px;
+                    margin-bottom:-40px;
+                    img{
+                        width:290px;
+                        position: relative;
+                        left: -10px;
+                    }
+                }
+                .tin{
+                    img{
+                        width:90px;
+                    }
+                }
+                .candle{
+                    position:Relative;
+                    opacity:0;
+                    animation: candle 1s 1.3s forwards;
+                    top:10px;
+                    img{
+                        width:10px;
+                    }
+
+                }
+                .startagain{
+                    position: absolute;
+                    right: 0;
+                    top: 350px;
+                    font-size: 24px;
+                    color:$pink;
+                }
+                .cakemake{
+                    margin-top:230px;
+                    clear:both;
+                    text-align:center;
+                    %piece{
+                        height:40px;
+                        margin:0 auto;
+                        border-top-left-radius:6px;
+                        border-top-right-radius:6px;
+                        margin-bottom:-10px;
+                        position:relative;
+                        background-image: -webkit-repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(255,255,255,.2) 5px, rgba(255,255,255,.2) 10px);
+                        div{
+                            width:10px;
+                            height:10px;
+                            position:absolute;
+                            background:Red;
+                            border-radius:100px;
+                            top:-5px;
+                            z-index:4;
+
+                            @for $i from 1 through 10{
+                                &:nth-of-type(#{$i}){
+                                    left: ($i - 1) * 20%;
+                                    margin-left:6px;
+                                }
+                            }
+                        }
+                    }
+                    %filling{
+                        height:10px;
+                        margin:0 auto;
+                        border-top-left-radius:6px;
+                        border-top-right-radius:6px;
+                        margin-bottom:-1px;
+                        position:relative;
+                        z-index:1;
+                        top: 9px;
+                        div{
+                            display:block;
+                            width:12.5%;
+                            float:left;
+                            height:16px;
+                            background:black;
+                            border-radius:100%;
+                        }
+                    }
+                    .base{
+                        width:200px;
+                        background-color:#ffd296;
+                        @extend %piece;
+                    }
+                    .sponge{
+                        width:200px;
+                        @extend %piece;
+                    }
+                    .filling{
+                        width:200px;
+                        @extend %filling;
+                    }
+                    .sponge-vanilla{
+                        background-color:#ffd296;
+                        div{
+                            background: #CAA068;
+                        }
+                    }
+                    .sponge-strawberry{
+                        background-color:#ff99a3;
+                        div{
+                            background: #E27983;
+                        }
+
+                    }
+                    .sponge-fruit{
+                        background-color:#d5ccb2;
+                        div{
+                            background: #A9A088;
+                        }
+                    }
+                    .filling-jam{
+                        background:#e75656;
+                        div{
+                            background:#e75656;
+                        }
+                    }
+                    .filling-cream{
+                        background:#fff;
+                        div{
+                            background:#fff;
+                        }
+                    }
+                    .filling-choc{
+                        background:#9f3d28;
+                        div{
+                            background:#9f3d28;
+                        }
+                    }
+                    .filling-lemon{
+                        background:#e8e086;
+                        div{
+                            background:#e8e086;
+                        }
+                    }
+                }
+                .options{
+                    position:relative;
+                    left:12px;
+                    .sponges{
+                        margin-right:40px;
+                    }
+                    .inactive{
+                        opacity:0.6;
+                        pointer-events:none;
+                    }
+                    .sponges,.fillings{
+                        float:left;
+                        position:relative;
+                        h3{
+                            text-align:left;
+                            color:#a25a58;
+                            font-size:20px;
+                        }
+                        h5{
+                            float:right;
+                            margin:0;
+                            color:$pink;
+                            position:absolute;
+                            top:20px;
+                            right:14px;
+                            font-size:20px;
+                        }
+                        .item{
+                            float:left;
+                            margin-right:14px;
+                            &_inner{
+                                cursor:pointer;
+                                width:50px;
+                                height:50px;
+                                border: 3px solid rgba(0, 0, 0, 0.07);
+                                border-radius:8px;
+                                margin-bottom:5px;
+                                transition: all .12s;
+                                &:hover{
+                                    border: 3px solid white;
+                                }
+                            }
+                            .vanilla{
+                                background:#ffd296;
+                            }
+                            .strawberry{
+                                background:#ff99a3;
+                            }
+                            .fruit{
+                                background:#d5ccb2;
+                            }
+                            .jam{
+                                background:#e75656;
+                            }
+                            .cream{
+                                background:#fff;
+                            }
+                            .choc{
+                                background:#9f3d28;
+                            }
+                            .lemon{
+                                background:#e8e086;
+                            }
+                            h4{
+                                margin:0;
+                                color:$pink;
+                            }
+                        }
+                    }
+                }
+                button{
+                    clear:both;
+                    font-family: 'Damion', cursive;
+                    background:transparent;
+                    border:2px solid $pink;
+                    color:$pink;
+                    font-size:22px;
+                    padding:14px 28px;
+                    border-radius:40px;
+                    transition:all .23s;
+                    outline:none;
+                    cursor:pointer;
+
+                    &:hover{
+                        background:$pink;
+                        color:white;
+                    }
+                }
+                .start{
+                    margin-top:30px;
+                    animation: in .8s 2.9s forwards;
+                    position:relative;
+                    top:-20px;
+                    opacity:0;
+                }
+            }
+        }
+    }
+}
+
+.sa{
+    margin-top:70px;
+    display:none;
+}
+.svg{
+    margin-bottom:40px;
+
+}
+svg{
+    width: 390px;
+    height: 90px;
+    margin-bottom:-20px;
+    display:none;
+}
+@keyframes bounce{
+    0%{transform:scale(0);}
+    25%{transform:scale(1.06);}
+    50%{transform:scale(.965);}
+    75%{transform:scale(1.02);}
+    100%{transform:scale(1);}
+}
+
+@keyframes in{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes moveup{
+    from{top:0}
+    to{top:-30px}
+}
+
+@keyframes mix {
+    0%  {transform: translateX(0px)  ;}
+    50%  { transform: translateX(28px)  ;}
+    100%  { transform: translateX(0px) ;}
+}
+
+@keyframes candle {
+    from{opacity:0}
+    to{opacity:1}
+}
+.text{
+    path{
+        animation: dash_loader 4s 2s forwards;
+    }
+}
+@keyframes dash_loader {
+    to {
+        stroke-dasharray: 920;
+    }
+}
+path,polyline,line {
+    stroke-dasharray: 718;
+    stroke-dashoffset: 750;
+    stroke-width: 1px;
+    stroke-miterlimit: 40;
+    stroke-linejoin: round;
+    fill: none;
+    stroke: #e77572;
+    z-index: 1;
+    opacity: 1;
+}

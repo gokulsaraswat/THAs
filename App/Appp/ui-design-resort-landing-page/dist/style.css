@@ -1,0 +1,422 @@
+:root {
+  --green-30: #a5ac9a;
+  --green-50: #677e64;
+  --green-70: #28502e;
+  --green-90: #053225;
+  --brown-5: #f6f5f4;
+  --brown-10: #e3e0de;
+  --brown-20: #cdc1b8;
+  --brown-30: #b6a291;
+  --brown-60: #875149;
+  --brown-80: #6f4733;
+  --brown-100: #573d1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://assets.codepen.io/567707/background-paper-brown.png");
+  font-family: Special Elite, serif;
+  line-height: 1.6;
+}
+
+.container {
+  overflow-x: hidden;
+}
+
+button {
+  text-transform: uppercase;
+  background: var(--green-70);
+  color: var(--brown-10);
+  padding: 1.2rem 2rem;
+  border: none;
+  font-family: "Prata", serif;
+  letter-spacing: 0.05rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+  box-shadow: 0 0 0 2px var(--green-30), 0 0 0 5px var(--green-70);
+}
+button:hover {
+  background: var(--green-50);
+  box-shadow: 0 0 0 2px var(--green-30), 0 0 0 5px var(--green-50);
+}
+button:focus, button:active {
+  background: var(--green-90);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--green-30), 0 0 0 5px var(--green-90);
+}
+
+.nav {
+  height: 4.5rem;
+  font-family: Prata, serif;
+  display: flex;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  background-image: url("https://assets.codepen.io/567707/background-paper-brown.png");
+  z-index: 10;
+  border-bottom: 1px solid var(--brown-20);
+  margin-bottom: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+@media (min-width: 650px) {
+  .nav {
+    justify-content: center;
+    overflow: unset;
+    padding-bottom: 0;
+  }
+}
+.nav::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+.nav::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.nav::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+.nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.nav__logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  min-width: 4.5rem;
+  background: var(--brown-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid var(--brown-20);
+  border-width: 0 1px 1px;
+}
+@media (min-width: 650px) {
+  .nav__logo {
+    order: 3;
+    margin: 0 1.8rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.nav__logo svg {
+  width: 80%;
+  fill: var(--brown-100);
+}
+.nav__item {
+  height: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.5rem 0;
+  position: relative;
+  margin: 0 0.5rem;
+}
+.nav__item:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--brown-100);
+  height: 0.2rem;
+  transition: width 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.nav__item:hover {
+  color: var(--brown-100);
+}
+.nav__item:active:before, .nav__item:focus:before {
+  width: 100%;
+}
+@media (min-width: 650px) {
+  .nav__item:nth-child(2) {
+    order: 1;
+  }
+  .nav__item:nth-child(3) {
+    order: 2;
+  }
+  .nav__item:nth-child(4) {
+    order: 4;
+  }
+  .nav__item:nth-child(5) {
+    order: 5;
+  }
+}
+.hero,
+.persuader {
+  min-height: 95vh;
+  background: url("https://assets.codepen.io/567707/room-6.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem 1rem 1rem;
+  color: var(--brown-10);
+  text-align: center;
+}
+.hero p,
+.persuader p {
+  font-style: italic;
+  font-family: Playfair Display, serif;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  margin: 1rem 0 3rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: "Prata";
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: var(--brown-10);
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-size: clamp(2.2rem, 4vw, 4.8rem);
+  color: var(--brown-100);
+  line-height: 1.1;
+}
+
+.commitment {
+  min-height: 100vh;
+  position: relative;
+  padding: 3rem 2rem 0;
+  font-size: 120%;
+}
+.commitment__shield svg {
+  fill: var(--brown-30);
+  opacity: 0.25;
+  position: absolute;
+  width: 50%;
+  max-width: 25rem;
+  right: 4rem;
+  top: 4rem;
+}
+.commitment__info {
+  position: relative;
+}
+.commitment__info__paragraph {
+  margin: 2rem 0 0;
+}
+@media (min-width: 900px) {
+  .commitment__info__paragraph p {
+    opacity: 0;
+    transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1) 0.6s;
+    transform: translateY(10%);
+  }
+}
+.commitment__photo {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.commitment__photo img {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 20rem;
+}
+.commitment__photo img:nth-child(2) {
+  margin-top: 10rem;
+}
+@media (min-width: 900px) {
+  .commitment__photo img {
+    width: auto;
+    height: 25rem;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  .commitment__photo img:nth-child(1) {
+    margin: 4rem 5rem 0 auto;
+    transition-delay: 1.5s;
+  }
+  .commitment__photo img:nth-child(2) {
+    margin: 20rem auto 0 5rem;
+    transition-delay: 2.2s;
+  }
+}
+@media (min-width: 900px) {
+  .commitment {
+    padding: 8rem 3rem 8rem 8rem;
+  }
+  .commitment__info__paragraph {
+    position: relative;
+    width: 70%;
+    max-width: 45rem;
+    margin-left: 30%;
+    margin-top: 5rem;
+    text-align: justify;
+  }
+  .commitment__info__paragraph p {
+    column-count: 2;
+    column-gap: 3rem;
+  }
+  .commitment__info__paragraph:before {
+    content: "";
+    position: absolute;
+    height: 0.3rem;
+    width: 40%;
+    right: 108%;
+    top: 0.5rem;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, var(--brown-30) 50%);
+    transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  }
+  .commitment__info.active .commitment__info__paragraph:before {
+    background-position: -100% 0;
+  }
+  .commitment__info.active p {
+    opacity: 1;
+    transform: translate(0);
+  }
+  .commitment__info.active + .commitment__photo img {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.divider {
+  background-image: url("https://assets.codepen.io/567707/room-4.jpg");
+  height: 35rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+em {
+  font-style: italic;
+}
+
+.rooms {
+  min-height: 100vh;
+  position: relative;
+  padding: 3rem 2rem;
+  font-size: 110%;
+}
+.rooms__item {
+  border: 2px solid var(--brown-20);
+  margin: 2rem 0;
+}
+.rooms__item__photo {
+  line-height: 0;
+}
+.rooms__item__info {
+  background: var(--brown-5);
+  border: 2px solid var(--brown-20);
+  border-width: 2px 0 0;
+}
+.rooms__item__info .inner {
+  padding: 2rem;
+}
+.rooms__item__info p {
+  font-family: "Prata";
+}
+.rooms__item h5 {
+  font-size: 1.8rem;
+}
+.rooms__item img {
+  width: 100%;
+  margin-bottom: 0;
+}
+.rooms__item__cta {
+  width: 100%;
+  box-shadow: none !important;
+}
+@media (min-width: 700px) {
+  .rooms {
+    padding: 8rem 8rem 8rem 3rem;
+  }
+  .rooms__item {
+    border: none;
+    width: 80%;
+    max-width: 30rem;
+    position: relative;
+  }
+  .rooms__item img {
+    height: 30rem;
+    object-fit: cover;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  .rooms__item__info {
+    border-width: 2px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 90%;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  .rooms__item.active img {
+    opacity: 1;
+    transform: translate(0);
+    transition-delay: 0.35s;
+  }
+  .rooms__item.active .rooms__item__info {
+    opacity: 1;
+    transform: translate(0);
+    transition-delay: 0.5s;
+  }
+}
+@media (min-width: 1024px) {
+  .rooms h2 {
+    text-align: center;
+  }
+  .rooms__item__info {
+    width: 80%;
+    left: 70%;
+  }
+  .rooms__item:nth-child(2) {
+    margin-left: 10%;
+    margin-top: 5rem;
+  }
+  .rooms__item:nth-child(3) {
+    margin-left: 40%;
+    margin-top: 8rem;
+  }
+  .rooms__item:nth-child(4) {
+    margin-left: 20%;
+    margin-top: 7rem;
+  }
+}
+
+.persuader {
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  background-image: url("https://assets.codepen.io/567707/room-8.jpg");
+  height: 35rem;
+  min-height: 50vh;
+}
+
+.more-info {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.more-info a {
+  color: black;
+}
+.more-info .image {
+  flex: 0 0 30%;
+  max-width: 10rem;
+  line-height: 0;
+}
+.more-info .image img {
+  width: 100%;
+}
+.more-info p {
+  flex: 1;
+  padding: 0 1.5rem;
+}

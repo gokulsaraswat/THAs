@@ -1,0 +1,185 @@
+html, body{margin:0;padding:0;position: relative;height:100%;height:100vh;background: #111;color: #eee}
+
+$buttoncol: #38f;
+
+#game{
+	$gameWidth: 80vw;
+	position: absolute;
+	left: calc(50% - (#{$gameWidth} / 2) - 20px);
+	top: 50%;transform: translatey(-50%);
+	width: $gameWidth;min-width: 350px;
+	padding: 20px;
+	background: #222;;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	font-family: "Open Sans", Arial, sans-serif;
+	text-align: center;
+	-webkit-user-select: none;
+	.help{
+		width:100%;
+		position: absolute;
+		top:-2em;left:50%;
+		transform:translatex(-50%);
+		opacity: 0.5;
+	}
+	.stats{
+		font-size: 26px;
+		margin-bottom: 20px;
+		.rate{font-style: italic}
+		.progress-bar{
+			margin-top: 15px;
+			position: relative;
+			background: #444;
+			height:2px;width:100%;
+			.progress{
+				position: absolute;top:0;left:0;
+				height:2px;max-width: 100%;
+				background:$buttoncol;
+			}
+		}
+	}
+	.btn, .menu .item{
+		cursor: pointer;
+		padding: 10px;
+		margin: 10px 0 0;
+		font-size: 15px;
+		background: $buttoncol;
+		&:not(:active):hover{background: lighten($buttoncol, 5%);}
+	}
+	.menu.item.disabled, .inc.btn.disabled{opacity: .5;}
+	.menu-wrapper{
+		margin: 20px 0;
+		max-height: 300px;
+		overflow-y: auto;
+	}
+	.menu{
+		position: relative;
+		margin: 0 10px;
+		.left, .right{
+			padding: 10px;
+			width: calc(50% - 30px);
+			background: rgba(0,0,0,.25);
+			box-shadow: inset 1px 1px 2px rgba(0,0,0,.25), inset -1px -1px 2px rgba(255,255,255,.1);
+		}
+		.right{
+			position: absolute;
+			top: 32px;
+			left: calc(50% + 10px);
+		}
+		.title{padding: 0 0 10px}
+		.label, .title{position: relative;text-align: left;}
+		.item.disabled{color: #aaa !important;}
+		.item.progress{
+			z-index: 1;
+			position: relative;
+			background: rgba(255,255,255,.025);//$buttoncol;
+			box-shadow: inset 0 0 2px 0 rgba(0,0,0,.75);
+			color: #aaa;
+			&:hover{background: rgba(255,255,255,.025) !important;}
+			&:hover:after{background: lighten($buttoncol, 5%) !important;}
+			&:after{
+				z-index: -1;
+				content:"";
+				position: absolute;
+				left:0;top:0;
+				width:0%;max-width:100%;
+				height:100%;
+				background: $buttoncol;
+			}
+			&.loaded{color: #fff;}
+		}
+		.tip i.fa{
+			position: absolute;
+			right:0;top:0;
+			font-size: 20px;
+			&:hover{color: #fff;cursor: pointer;}
+		}
+		&:not(:last-child){margin-bottom: 10px;}
+	}
+	
+	#console{
+		height:calc(100% - 16px);
+		margin-top: 20px;
+		padding:8px;
+		background: rgba(0,0,0,.25);
+		font-size:12px;
+		text-align: left;
+		.wrapper{
+			height:100px;
+			overflow-y: auto;
+			word-wrap:break-word;
+			p{margin: .25em 6px}
+		}
+	}
+	
+	#tooltip{
+		$back-color: #222;
+		$border-color: #444;
+		$border-size: 2px;
+		$arrowSize: 12px;
+		z-index: 999999999;
+		position: absolute;
+		top:0px;right:0px;
+		display:none;
+		width: 300px;
+		padding: 10px;
+		border-radius: 4px;
+		text-align: center;
+		background: $back-color;
+		border: $border-size solid $border-color;
+		cursor: default;
+		p{margin:0}
+		.arrow{
+			position: absolute;
+			width:0;height:0;
+			bottom: -$arrowSize;left: calc(95% - #{$arrowSize});
+			border-left: $arrowSize solid transparent;
+			border-right: $arrowSize solid transparent;
+			border-top: $arrowSize solid $border-color;
+			&:after{
+				content: "";
+				position: absolute;
+				left: calc(-#{$arrowSize} + #{$border-size*2});
+				top: -$arrowSize;
+				width:0;height:0;
+				border-left: #{$arrowSize - $border-size*2} solid transparent;
+				border-right: #{$arrowSize - $border-size*2} solid transparent;
+				border-top: #{$arrowSize - $border-size*2} solid $back-color;
+			}
+		}
+	}
+	
+	::-webkit-scrollbar{width: 10px;}
+	::-webkit-scrollbar-track {background: rgba(0,0,0,.25);}
+	::-webkit-scrollbar-thumb {background: rgba(255,255,255,.1);}
+	
+}
+
+.red{color:#f66!important}.orange{color:#fa6!important}.yellow{color:#ff6!important}
+.green{color:#afa!important}.blue{color:#6af!important}.purple{color:#a6f!important}
+.pink{color:#faf!important}.white{color:#fff!important}.gray,.grey{color:#aaa!important}
+.dgray,.dgrey{color:#333!important}.black{color:#000!important}
+.big{font-size:32px!important}.normal{font-size:16px!important}.small{font-size:12px!important}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

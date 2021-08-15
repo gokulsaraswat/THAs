@@ -1,0 +1,169 @@
+body, html{
+  margin-left:10%;
+  overflow:hidden;
+}
+
+@keyframes parent1{
+  0%  { left: -300px;}
+  100%{ left: -1100px;}
+}
+@keyframes body1{
+  0%  { transform: rotateX( 25deg);}
+  50% { transform: rotateX(-25deg);}
+  100%{ transform: rotateX( 25deg);}
+}
+@keyframes kbody1{
+  0%  { transform: rotateX( 30deg);}
+  50% { transform: rotateX(-30deg);}
+  100%{ transform: rotateX( 30deg);}
+}
+@keyframes face1{
+  0%  { width:15px;}
+  50% { width:50px;}
+  100%{ width:15px;}
+}
+@keyframes kface1{
+  0%  { width:8px;}
+  50% { width:17px;}
+  100%{ width:8px;}
+}
+@keyframes eye1{
+  0%  { margin-left:10px;}
+  30%{height:10px;}
+  50% { height:1px;margin-left:20px;}
+  70%{height:10px;}
+  100%{ margin-left:10px;}
+}
+@keyframes keye1{
+  0%  { margin-left:2px;}
+  30%{height:5px;}
+  50% { height:1px;margin-left:6px;}
+  70%{height:5px;}
+  100%{ margin-left:2px;}
+}
+@keyframes beek1{
+  0%  { height:7px ;}
+  50% { height:14px;}
+  100%{ height:7px ;}
+}
+@keyframes kbeek1{
+  0%  { height:3px ;}
+  50% { height:5px;}
+  100%{ height:3px ;}
+}
+@keyframes feet1{
+  0%  { transform: translateX(0px ) translateY(-10px) rotateX(45deg);}
+  50% { transform: translateX(10px) translateY(0px) rotateX(80deg);}
+  100%{ transform: translateX(0px ) translateY(-10px) rotateX(45deg);}
+}
+@keyframes hand1{
+  0%  { transform:rotateZ(20deg); margin-left:10px;}
+  50% { transform:rotateZ(-20deg); margin-left:50px;}
+  100%{ transform:rotateZ(20deg); margin-left:10px;}
+}
+@keyframes khand1{
+  0%  { transform:rotateZ(-120deg); margin-left:20px;}
+  50% { transform:rotateZ(-120deg); margin-left:20px;}
+  100%{ transform:rotateZ(-120deg); margin-left:20px;}
+}
+
+
+
+@keyframes parent2{
+  0%  { left: 00px;}
+  100%{ left: -400px;}
+}  
+@keyframes body2{
+  0%  { transform: rotateX( -25deg);}
+  50% { transform: rotateX(25deg);}
+  100%{ transform: rotateX( -25deg);}
+}
+@keyframes kbod2y{
+  0%  { transform: rotateX( -30deg);}
+  50% { transform: rotateX(30deg);}
+  100%{ transform: rotateX( -30deg);}
+}
+@keyframes face2{
+  0%  { width:50px;}
+  50% { width:15px;}
+  100%{ width:50px;}
+}
+@keyframes kface2{
+  0%  { width:17px;}
+  50% { width:8px;}
+  100%{ width:17px;}
+}
+@keyframes eye2{
+  0%  { margin-left:20px;}
+  30%{height:1px;}
+  50% { height:10px;margin-left:10px;}
+  70%{height:1px;}
+  100%{ margin-left:20px;}
+}
+@keyframes keye2{
+  0%  {margin-left:6px;}
+  30%{height:5px;}
+  50% { height:1px;margin-left:2px;}
+  70%{height:5px;}
+  100%{ margin-left:6px;}
+}
+@keyframes beek2{
+  0%  { height:14px ;}
+  50% { height:7px;}
+  100%{ height:14px ;}
+}
+@keyframes kbeek2{
+  0%  { height:5px ;}
+  50% { height:3px;}
+  100%{ height:5px ;}
+}
+@keyframes feet2{
+  0%  { transform: translateX(10px ) translateY(0px) rotateX(80deg);}
+  50% { transform: translateX(0px) translateY(-10px) rotateX(45deg);}
+  100%{ transform: translateX(10px ) translateY(0px) rotateX(80deg);}
+}
+@keyframes hand2{
+  0%  { transform:rotateZ(-20deg); margin-left:50px;}
+  50% { transform:rotateZ(20deg); margin-left:10px;}
+  100%{ transform:rotateZ(-20deg); margin-left:50px;}
+}
+@keyframes khand2{
+  0%  { transform:rotateZ(-120deg); margin-left:20px;}
+  50% { transform:rotateZ(-120deg); margin-left:20px;}
+  100%{ transform:rotateZ(-120deg); margin-left:20px;}
+}
+#move{
+  display:flex;
+  margin-top:200px;
+  margin-left:0px;
+}
+#hide1{
+  position:absolute;
+  width:500px;
+  height:200%;
+  margin-left:0px;
+  margin-top:-400px;
+  background:white;
+}
+#hide2{
+  position:absolute;
+  width:100%;
+  height:200%;
+  margin-top:-400px;
+  margin-left:1400px;
+  background:white;
+}
+#load{
+  font-family: 'Julius Sans One', sans-serif;
+  position:absolute;
+  margin-left: 900px;
+  margin-top:200px;
+  font-weight: 10px;
+}
+body{
+  margin-left:-200px;
+}
+#canvas{
+  width:100px;
+  height:100px;
+}

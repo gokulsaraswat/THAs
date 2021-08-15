@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Pure CSS 3D Movie Booking App UI</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://codepen.io/jcoulterdesign/pen/da7a8632485e8bcee7c8e668300b0b00'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class='app'>
+  <div class='app_inner'>
+    <div class='app_inner__header'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/movieAppHeader.png'>
+    </div>
+    <div class='app_inner__movies'>
+      <input id='scene4' type='checkbox'>
+      <input id='scene3' type='checkbox'>
+      <input id='scene2' type='checkbox'>
+      <input id='scene1' type='checkbox'>
+      <div class='column left'>
+        <label for='scene1'>
+          <div class='movie click'>
+            <div class='movie_poster hateful'>
+              <i class='fa fa-play'></i>
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/h8Gif.gif'>
+            </div>
+            <div class='movie_title'>
+              <h2>The Hateful Eight</h2>
+              <h3>2H35 - Tarantino</h3>
+            </div>
+          </div>
+        </label>
+        <div class='movie none'>
+          <div class='movie_poster martian'></div>
+          <div class='movie_title'>
+            <h2>The Martian</h2>
+          </div>
+        </div>
+      </div>
+      <div class='column right'>
+        <div class='movie'>
+          <div class='movie_poster break'></div>
+          <div class='movie_title'>
+            <h2>Point Break</h2>
+          </div>
+        </div>
+        <div class='movie'>
+          <div class='movie_poster furious'></div>
+          <div class='movie_title'>
+            <h2>Furious 7</h2>
+          </div>
+        </div>
+      </div>
+      <div class='bookings'>
+        <label for='scene2'>
+          <div class='bookings_top'>
+            <div class='bookings_top__left'>
+              <h4>Select showtime</h4>
+              <h5>The Hateful Eight</h5>
+              <h6>7:00 pm</h6>
+            </div>
+            <div class='bookings_top__right'>
+              <h5>
+                Sun, Jan 10
+                <i class='fa fa-chevron-down'></i>
+              </h5>
+            </div>
+          </div>
+          <div class='bookings_bottom'>
+            <div class='bookings_bottom__time'>
+              12:00 pm
+            </div>
+            <div class='bookings_bottom__time'>
+              3:30 pm
+            </div>
+            <div class='bookings_bottom__time'>
+              7:00 pm
+            </div>
+            <div class='bookings_bottom__time'>
+              10:30 pm
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class='block'>
+        <label for='scene3'>
+          <div class='wrap'>
+            <div class='block_section'>
+              <div class='block_section__left'>
+                $4
+              </div>
+              <div class='block_section__mid'>
+                $9
+              </div>
+              <div class='block_section__right'>
+                $4
+              </div>
+            </div>
+            <div class='block_section'>
+              <div class='block_section__left'>
+                $4
+              </div>
+              <div class='block_section__mid'>
+                $9
+              </div>
+              <div class='block_section__right'>
+                $4
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class='seats'>
+        <label for='scene4'>
+          <div class='seats_bar'></div>
+          <div class='seats_inner'>
+            <div class='seats_inner__seat'>
+              1
+            </div>
+            <div class='seats_inner__seat'>
+              2
+            </div>
+            <div class='seats_inner__seat'>
+              3
+            </div>
+            <div class='seats_inner__seat'>
+              4+
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class='confirm'>
+        <div class='confirm_block title'>
+          <h4>The Hateful Eight</h4>
+        </div>
+        <div class='confirm_block summary'>
+          <div class='confirm_block__left'>
+            <h5>Sun, Jan 10</h5>
+            <h6>7:00 pm</h6>
+          </div>
+          <div class='confirm_block__right'>
+            <h5>Section 6</h5>
+            <h6>2 seats</h6>
+          </div>
+        </div>
+        <div class='confirm_id'>
+          <div class='confirm_id__top'>
+            <h5>total</h5>
+            <h6>$8</h6>
+          </div>
+          <div class='confirm_id__bottom'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fingerPrint.png'>
+            <span>Touch id to confirm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='_pen_title'>Pure CSS 3D Movie Booking App UI</div>
+<div class='_video_id'>yWXS-xuVGcM</div>
+<div class='_pen_id'>48112071604bdba85853a96c8958abcc</div>
+<div class='b_overlay'></div>
+<div class='bar'>
+  <div class='bar_inner'>
+    <div class='bar_inner__left'>
+      <div class='brand'>
+        <a href='https://codepen.io/jcoulterdesign/' target='_blank'></a>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bar_logo.png'>
+      </div>
+      <div class='selection'>
+        <i class='fa fa-codepen'></i>
+        <span class='pen_name'>Current Pen name</span>
+        <i class='fa fa-chevron-up'></i>
+        <div class='selection_list'></div>
+      </div>
+    </div>
+    <div class='bar_inner__right'>
+      <div class='codepen'>
+        <i class='fa fa-codepen'></i>
+        <a href='https://codepen.io/jcoulterdesign/' target='_blank'></a>
+        <span>Follow me</span>
+      </div>
+      <div class='tweet'>
+        <i class='fa fa-twitter'></i>
+        <a href='#'></a>
+        <span>Tweet this</span>
+      </div>
+      <div class='youtube'>
+        <i class='fa fa-play'></i>
+        How was this pen made?
+        <i class='fa fa-chevron-right'></i>
+        <div class='v_preview'></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='owl'>
+  <div class='left-eye'>
+    <div class='left-pupil'></div>
+  </div>
+  <div class='right-eye'>
+    <div class='right-pupil'></div>
+  </div>
+  <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bob_owl.svg'>
+  <img class='love' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bob_love.svg'>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://codepen.io/jcoulterdesign/pen/01b9068757aee968ce90c9e8b6782c41.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

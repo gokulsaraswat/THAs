@@ -1,0 +1,60 @@
+$gap: 100;
+$amount: 150;
+$offset: 1000;
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    height: 100vh;
+    overflow: hidden;    
+    background: #feae1c;
+    perspective: 800px;
+
+    & div {
+        transform-style: preserve-3d;
+    }
+}
+
+.m {
+    color: white;
+    position: absolute;
+    z-index: 1;
+    left: 0;font-family: 'Amatic SC', cursive;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.w {
+    height: 100vh;
+    position: absolute;
+    transform: translateZ(calc((-#{$amount + vw}) - #{$offset + px}));
+    width: 100%;
+
+    .s {
+        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)) ;
+        background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/leafframe.png');
+        background-size: cover;
+        background-position: center;
+        width: 500px;
+        height: 460px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        @for $i from 1 through 30 {
+            &:nth-of-type(#{$i}) {
+                transform: translateY(-50%) translateZ($gap * $i + px) rotate($gap * $i + 0deg);
+                opacity: 1;
+            }
+        }
+    }
+}
+

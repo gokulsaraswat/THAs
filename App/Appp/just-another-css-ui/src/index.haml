@@ -1,0 +1,59 @@
+.stage
+    %input#trigger{:type => 'checkbox'}
+    .stage_bg
+    .stage_inner
+        .stage_inner__logo
+            THE
+            %span HEALTH
+        .stage_inner__menu
+            .menu
+                -(1..3).each do
+                    .menu_part
+        .stage_inner__footer
+            %i.fab.fa-facebook
+            %i.fab.fa-twitter
+            %i.fab.fa-instagram
+            .f
+                %input{:placeholder => 'Your question'}
+        %h5 Topics
+        .stage_inner__articleTwo
+            %h3 Should You Be Taking Fish Oil? What a Cardiologist Tells His Patients
+            %p The story of fish oil and heart health started with the observation that several populations ...
+            %p.auth Delia Freeman
+            %p.date 21 Feb 2019
+        .stage_inner__article
+            %h2.fade Article of the day
+            %h3 How Sugar Really Affects Your Cholesterol
+            %p If you're like most people, you probably think it's high-cholesterol foods like eggs or shrimp that are the worst for your cholesterol levels. But that's not really the case.
+            %p.auth Delia Freeman
+            %p.date 21 Feb 2019
+        .stage_inner__bottom
+            -(1..3).each do
+                .link.fade
+                    %a{:href => '#'} These are the best health books that came out in 2018
+                    %p Sam Knight
+                    %p.date 28.12.2018
+        .stage_inner__list
+            %li Nutrition &amp; healthy food
+            %li Mind and mood
+            %li Fitness and sport
+            %li Beauty and skincare
+        .stage_inner__centerbox
+            .illustration
+            .arrow
+                %label{:for => 'trigger'}
+                    <i class="fas fa-arrow-right"></i>
+            .text
+                .title
+                    Heart Health
+                .articles
+                    78 Articles
+        .stage_inner__right
+            .input
+                %input{:placeholder => 'Symptom Checker'}
+            %h2.fade Popular
+            -(1..3).each do
+                .link.fade
+                    %a{:href => '#'} These are the best health books that came out in 2018
+                    %p Sam Knight
+                    %p.date 28.12.2018

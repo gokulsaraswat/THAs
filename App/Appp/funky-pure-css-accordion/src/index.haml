@@ -1,0 +1,28 @@
+- @tabs = [{:c => 'checked', :tab => '1', :time => '8am - 10am', :title => 'Jamie talks design', :schedule => 'Monday - Thursday',:description => 'I talk a bunch of rubbish', :icon => 'ion-android-color-palette'},{:c => 'false', :tab => '2', :time => '10am - 12am', :title => 'Arctic Monkeys Live', :schedule => 'Monday - Wednesday',:description => 'Music for your lug holes', :icon => 'ion-music-note'},{:c => 'false', :tab => '3', :time => '12am - 4pm', :title => 'Steven Fry podcast', :schedule => 'Staurday - Sunday',:description => 'Steven Fry says words', :icon => 'ion-android-microphone'},{:c => 'false', :tab => '4', :time => '4pm - 8pm', :title => 'Massive event', :schedule => 'Monday - Friday',:description => 'Some kind of music festival', :icon => 'ion-android-bar'}]
+.left
+  .left_inner
+    %h1 Funky Pure CSS Accordion
+    %h2 Go on, give it some clicks
+    %a.download{:href => 'https://codepen.io/jcoulterdesign/pens/popular/',:target => '_blank'} 
+      <i class="icon ion-eye"></i> <span>View my other pens</span>
+    %a.follow{:href => 'https://codepen.io/jcoulterdesign/',:target => '_blank'} 
+      <i class="icon ion-social-codepen-outline"></i> <span>Follow me on codepen</span>
+.right
+  .app
+    .app_inner
+      - @tabs.each do |i|
+        %input{:type => 'radio',:id => "tab-#{i[:tab]}",:name => 'buttons', :"#{i[:c]}" => ""}
+        %label{:for => "tab-#{i[:tab]}"}
+          .app_inner__tab
+            %h2 
+              %i.icon.ion-android-alarm-clock 
+              #{i[:time]}
+            .tab_left
+              %i.icon.big{:class => "#{i[:icon]}"}
+              .tab_left__image
+                %i.icon{:class => "#{i[:icon]}"}
+            .tab_right
+              %h3 #{i[:title]}
+              %h4 #{i[:schedule]}
+              %p #{i[:description]}
+              %button More information

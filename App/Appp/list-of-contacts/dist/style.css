@@ -1,0 +1,26 @@
+:root {
+  --orange: #fe5d26ff;  
+}
+header h2 {
+  margin: 1em 0;
+}
+.h2--highlight {
+  color: var(--orange);
+}
+.sec span {
+  font-size: 1.5em;
+  padding: 2%;
+  background-color: #545945;
+}
+.con {
+  padding: 2% 1%;
+}
+.con:nth-child(2) {
+  margin-top: 2em;
+}
+.con:nth-child(2n) {
+  background-color: #7c5138;
+}
+.con:last-child {
+  margin-bottom: 2em;
+}

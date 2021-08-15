@@ -1,0 +1,389 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  font-family: "Bebas Neue", cursive;
+  background: #222;
+}
+body svg {
+  position: absolute;
+}
+body #wrap {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #222;
+  z-index: 2;
+}
+body #wrap:before {
+  content: "2020 TOP 10";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  color: transparent;
+  font-size: 60vmin;
+  line-height: 0.75;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-text-stroke: 0.25vmin #fff;
+  opacity: 0.15;
+  transition: 0.3s ease-in-out;
+}
+body #wrap .next,
+body #wrap .prev {
+  transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body #wrap * {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+body #wrap.loaded * {
+  opacity: 1;
+}
+body #wrap.loaded .next,
+body #wrap.loaded .prev {
+  transition-delay: 2s;
+}
+body #wrap.loaded:before {
+  opacity: 0;
+}
+body #wrap .backdrop {
+  position: absolute;
+  width: calc(100% + 100px);
+  height: calc(100% + 100px);
+  left: -50px;
+  top: -50px;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+}
+body #wrap .inner {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: calc(50% - 200px);
+  top: calc(50% - 200px);
+  transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+}
+body #wrap .inner .record {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: bottom;
+  background-size: 0px;
+}
+body #wrap .inner .record:nth-of-type(odd) h2 {
+  filter: url(#wave2);
+}
+body #wrap .inner .record h2 {
+  position: absolute;
+  font-size: 100px;
+  display: block;
+  text-align: left;
+  top: -25%;
+  line-height: 0.75;
+  margin: 0;
+  color: transparent;
+  max-width: 400px;
+  padding: 10px;
+  overflow: hidden;
+  left: calc(50% - 300px);
+  filter: url(#wave);
+  z-index: 9;
+  transform: scaleY(1.25);
+  transform-origin: bottom;
+}
+body #wrap .inner .record h2.small {
+  font-size: 75px;
+}
+body #wrap .inner .record h2:nth-of-type(2) {
+  top: 90%;
+  left: 50%;
+  font-size: 75px;
+  text-align: right;
+}
+body #wrap .inner .record h2:nth-of-type(2).small {
+  font-size: 50px;
+}
+body #wrap .inner .record h2:nth-of-type(2):before, body #wrap .inner .record h2:nth-of-type(2):after {
+  left: 50%;
+}
+body #wrap .inner .record h2:nth-of-type(2):after {
+  transform-origin: left;
+}
+body #wrap .inner .record h2:before, body #wrap .inner .record h2:after {
+  content: attr(data-text);
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transition: 0.3s ease-in-out;
+  transform: translateX(-50%) translateY(150%);
+  display: inline-block;
+  width: 100%;
+}
+body #wrap .inner .record h2:after {
+  transform-origin: right;
+  color: transparent;
+  transform: none;
+  bottom: 0px;
+  border-bottom: 5px solid #fff;
+  padding-bottom: 3px;
+  transform: translateX(-50%) scaleX(0);
+  transition: 0.4s ease-in-out;
+}
+body #wrap .inner .record:before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 3s ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+body #wrap .inner .record.current {
+  z-index: 10;
+}
+body #wrap .inner .record.current ~ .record img {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+body #wrap .inner .record.current a.info {
+  transform: scale(1) rotate(0deg);
+  transition-delay: 2s;
+}
+body #wrap .inner .record.current a:not(.info) {
+  transform: scale(1);
+  transition-delay: 1.5s;
+}
+body #wrap .inner .record.current h2:before {
+  left: 50%;
+  transition-delay: 1s;
+  transform: translateX(-50%) translateY(0);
+}
+body #wrap .inner .record.current h2:after {
+  transition-delay: 0.6s;
+  transform: translateX(-50%) scaleX(1);
+  -webkit-animation: scaleOut 0.4s ease-in-out 1 forwards;
+          animation: scaleOut 0.4s ease-in-out 1 forwards;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+@-webkit-keyframes scaleOut {
+  from {
+    transform-origin: left;
+    transform: translateX(-50%) scaleX(1);
+  }
+  to {
+    transform-origin: left;
+    transform: translateX(-50%) scaleX(0);
+  }
+}
+@keyframes scaleOut {
+  from {
+    transform-origin: left;
+    transform: translateX(-50%) scaleX(1);
+  }
+  to {
+    transform-origin: left;
+    transform: translateX(-50%) scaleX(0);
+  }
+}
+body #wrap .inner .record.current h2:nth-of-type(2):before {
+  transition-delay: 1.2s;
+}
+body #wrap .inner .record.current h2:nth-of-type(2):after {
+  transition-delay: 0.8s;
+  -webkit-animation: scaleOut2 0.4s ease-in-out 1 forwards;
+          animation: scaleOut2 0.4s ease-in-out 1 forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+@-webkit-keyframes scaleOut2 {
+  from {
+    transform-origin: right;
+    transform: translateX(-50%) scaleX(1);
+  }
+  to {
+    transform-origin: right;
+    transform: translateX(-50%) scaleX(0);
+  }
+}
+@keyframes scaleOut2 {
+  from {
+    transform-origin: right;
+    transform: translateX(-50%) scaleX(1);
+  }
+  to {
+    transform-origin: right;
+    transform: translateX(-50%) scaleX(0);
+  }
+}
+body #wrap .inner .record.current img {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition-delay: 0.3s;
+}
+body #wrap .inner .record.current:before {
+  opacity: 0.75;
+  transform: translate(-50%, -50%) scale(1);
+}
+body #wrap .inner .record img {
+  width: 112.5%;
+  height: 112.5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: -webkit-clip-path 0.3s ease-in-out;
+  transition: clip-path 0.3s ease-in-out;
+  transition: clip-path 0.3s ease-in-out, -webkit-clip-path 0.3s ease-in-out;
+  z-index: -1;
+}
+body #wrap .inner .record a.info {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/bc.png");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: -50px;
+  left: -50px;
+  border-radius: 100%;
+  filter: invert(1);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px #000;
+  z-index: 9;
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(0) rotate(-90deg);
+}
+body #wrap .inner .record a.info.spotify {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/spotify.png");
+  background-size: 80%;
+}
+body #wrap .inner .record a.info:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+body #wrap .inner .record a:not(.info) {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  z-index: 9;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px #fff;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body #wrap .inner .record a:not(.info).playing {
+  pointer-events: none;
+}
+body #wrap .inner .record a:not(.info).playing span.play {
+  transform: translateY(50px);
+}
+body #wrap .inner .record a:not(.info).playing ~ a:not(.info) {
+  pointer-events: all;
+}
+body #wrap .inner .record a:not(.info).playing ~ a:not(.info) span.pause {
+  transform: translateY(0px);
+}
+body #wrap .inner .record a:not(.info) ~ a:not(.info) {
+  pointer-events: none;
+}
+body #wrap .inner .record a:not(.info) span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body #wrap .inner .record a:not(.info) span.pause {
+  transform: translateY(-50px);
+}
+body #wrap .inner .record a:not(.info) span.pause:before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  height: 50%;
+  background: #fff;
+  width: 4px;
+  top: 25%;
+  box-shadow: 15px 0 0 #fff;
+}
+body #wrap .inner .record a:not(.info) span.play:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: inset 0 6px 0 0 #fff, inset -6px 0 0 0 #fff;
+  background: linear-gradient(45deg, transparent calc(50% - 3px), #fff calc(50% - 3px), #fff calc(50% + 3px), transparent calc(50% + 3px));
+  transform: translateX(-7.5%) scale(0.5) rotate(45deg);
+}
+body iframe {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  z-index: -9999;
+  position: absolute;
+}
+body .next,
+body .prev {
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% + 325px);
+  cursor: pointer;
+  transform: scaleY(1);
+  transition: all 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-delay: 0.5s;
+}
+body .next:before,
+body .prev:before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 0;
+  top: 25%;
+  background: linear-gradient(-45deg, transparent 50%, #fff 50%);
+  transform: rotate(135deg);
+}
+body .prev {
+  right: auto;
+  left: calc(50% - 350px);
+}
+body .prev:before {
+  transform: rotate(-45deg);
+}

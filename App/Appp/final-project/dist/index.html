@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Final Project</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Common | Find Your Home in NYC</title>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+<!--   FAVICON -->
+  <link rel="icon" type="image/x-icon" href="https://www.common.com/static/favicons/favicon.ico" />
+<!--    SWIPER  -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">  
+<!--   MAPBOX -->
+<link
+  href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"
+  rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+    <!-- MATERIALIZE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--   FONTAWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--   NO UI SLIDER -->
+  <link href="https://materializecss.com/extras/noUiSlider/nouislider.css" rel="stylesheet">
+  <!-- DRIFT -->
+<script>
+!function() {
+  var t;
+  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+  t.factory = function(e) {
+    return function() {
+      var n;
+      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+    };
+  }, t.methods.forEach(function(e) {
+    t[e] = t.factory(e);
+  }), t.load = function(t) {
+    var e, n, o, i;
+    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
+    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
+    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+  });
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('f7s3w4cxih3a');
+</script>
+<!-- End of Async Drift Code -->
+<script>
+function getJsonFromUrl(hashBased){var query;if(hashBased){var pos=location.href.indexOf("?");if(pos==-1)return[];query=location.href.substr(pos+1)}else{query=location.search.substr(1)}
+var result={};query.split("&").forEach(function(part){if(!part)return;part=part.split("+").join(" ");var eq=part.indexOf("=");var key=eq>-1?part.substr(0,eq):part;var val=eq>-1?decodeURIComponent(part.substr(eq+1)):"";var from=key.indexOf("[");if(from==-1)result[decodeURIComponent(key)]=val;else{var to=key.indexOf("]",from);var index=decodeURIComponent(key.substring(from+1,to));key=decodeURIComponent(key.substring(0,from));if(!result[key])result[key]=[];if(!index)result[key].push(val);else result[key][index]=val}});return result};var UTM_QUERY_PARAM_FORMATTER={'utm_source':'utmSource','utm_medium':'utmMedium','utm_campaign':'utmCampaign'};var queryParams=getJsonFromUrl();window.drift.on("ready",function(){Object.keys(UTM_QUERY_PARAM_FORMATTER).forEach(function(key){if(queryParams[key]){window.drift.track(UTM_QUERY_PARAM_FORMATTER[key]+": "+queryParams[key])}})})
+  
+</script>
+</head>
+
+<body>
+<!--   <h1 id="window-size" style="font-size: 1.5em;">
+    Media Queries: <span id="size"></span>
+  </h1> -->
+  
+<!-- FIXED HEADER: START -->
+<div class="GridRow-jyRKfm fixed-header-outer-container ">
+  <div class="GridColumn-khBkHc fixed-header-padding">
+    <div class="mb0 fixed-header-flex">
+      
+<!--     BUTTON  -->
+      
+      <button type="button" kind="primary" class="button-style" action="#filter">
+        <a href="#filter" class="fixed-header" id="goBackToFilter">
+        <span> Change Filters</span>
+        <span class="SVGInline" style="margin-left: 10px;">
+          <svg class="SVGInline-svg" width="10" height="8" viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7l4-5 4 5" stroke="#252729" stroke-width="2" fill="none" fill-rule="evenodd"></path>
+          </svg>
+        </span>
+        </a>
+      </button>
+      
+      
+<!--       MOBILE MAP TOGGLE: START  -->
+      <div data-test-id="mobileMapToggleCheckbox" id="mobile-map-toggle-button">
+        <div class="togglePill__ToggleWrapper-eGLded dib">
+          <input type="checkbox" id="checkbox_31" readonly="" class="togglePill__Checkbox-liaSDB checkbox-none">
+          <label for="checkbox_31" class="togglePill__ToggleLabel-eUMplG AGMZS togglepill-outer">
+            
+<!--             TOGGLE: START-->
+            <div class="togglePill__ToggleInner-gOZvFi togglepill-inner">
+             
+<!--               LISTING -->
+              <div class="togglePill__LeftIconContainer-erEkpD togglepill-left">
+                <span class="SVGInline">
+                  <svg class="SVGInline-svg" width="18" height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5-3h10a1.5 1.5 0 0 1 0 3h-10a1.5 1.5 0 0 1 0-3zm0-5h10a1.5 1.5 0 0 1 0 3h-10a1.5 1.5 0 0 1 0-3zm0-5h10a1.5 1.5 0 0 1 0 3h-10a1.5 1.5 0 0 1 0-3z" fill-rule="evenodd"></path>
+                  </svg>
+                </span>     
+              </div>
+<!--             MAP  -->
+              <div class="togglePill__RightIconContainer-jkFFER togglepill-right">
+                <span class="SVGInline">
+                  <svg class="SVGInline-svg" width="14" height="18" viewBox="0 0 14 18" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 18S0 10.479 0 6.75C0 3.022 3.134 0 7 0s7 3.022 7 6.75C14 10.48 7 18 7 18zM7 4.5c-1.289 0-2.333 1.008-2.333 2.25S5.71 9 7 9c1.289 0 2.333-1.008 2.333-2.25S8.29 4.5 7 4.5z"></path>
+                  </svg> 
+                </span>
+              </div>
+<!--               CIRCLE  -->
+              <div class="togglePill__Circle-hFncyK toggle-pill-circle"></div>
+            </div>
+            
+<!--            TOGGLE: END -->    
+          </label>
+        </div>
+    </div>
+<!--       MOBILE MAP TOGGLE: END  -->
+  </div>
+</div>
+</div>
+<!-- FIXED HEADER: END -->
+
+<!--  <div class="map mobile mobile-display">
+      <div id='map'>
+
+      </div>
+    </div>
+   -->
+  
+  <div class="main-container">
+
+    <!--  HEADER: START -->
+    <header>
+      <h1>New York City</h1>
+    </header>
+    <!--  HEADER: END -->
+    <!--     FILTER: START -->
+    <div class="filter" id="filter">
+      <!--       MOVE IN DATE FILTER: START -->
+      <div class="move-in-date">
+          <!--   DATEPICKER: START  -->
+  <div class="input-field ">
+    <div class="modal datepicker-modal" id="modal-80730916-b220-62cf-566d-d4731cc82564" tabindex="0" style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+      <div class="modal-content datepicker-container">
+        <div class="datepicker-date-display"><span class="year-text"></span><span class="date-text"></span></div>
+        <div class="datepicker-calendar-container">
+          <div class="datepicker-calendar">
+            <div id="datepicker-title-cz" class="datepicker-controls" role="heading" aria-live="assertive"><button class="month-prev" type="button"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path><path d="M0-.5h24v24H0z" fill="none"></path></svg></button>
+              <div class="selects-container">
+                <div class="select-wrapper select-month"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-4437af58-42e2-a730-8a8f-1d7a6d75395d"><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                  <select class="datepicker-select orig-select-month" tabindex="-1">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                    </select>
+                </div>
+                <div class="select-wrapper select-year"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-2bfff261-25ae-68ef-0833-3c816c9b98f1"><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                  <select class="datepicker-select orig-select-year" tabindex="-1">
+                    
+                   
+                    <option value="2019" selected="selected">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                  
+                    </select>
+                </div>
+              </div><button class="month-next" type="button"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path><path d="M0-.25h24v24H0z" fill="none"></path></svg></button></div>
+            <div class="datepicker-table-wrapper">
+              <table cellpadding="0" cellspacing="0" class="datepicker-table" role="grid" aria-labelledby="datepicker-title-cz">
+                <thead>
+                  <tr>
+                    <th scope="col"><abbr title="Sunday">S</abbr></th>
+                    <th scope="col"><abbr title="Monday">M</abbr></th>
+                    <th scope="col"><abbr title="Tuesday">T</abbr></th>
+                    <th scope="col"><abbr title="Wednesday">W</abbr></th>
+                    <th scope="col"><abbr title="Thursday">T</abbr></th>
+                    <th scope="col"><abbr title="Friday">F</abbr></th>
+                    <th scope="col"><abbr title="Saturday">S</abbr></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="datepicker-row">
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td data-day="1" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="1">1</button></td>
+                    <td data-day="2" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="2">2</button></td>
+                  </tr>
+                  <tr class="datepicker-row">
+                    <td data-day="3" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="3">3</button></td>
+                    <td data-day="4" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="4">4</button></td>
+                    <td data-day="5" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="5">5</button></td>
+                    <td data-day="6" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="6">6</button></td>
+                    <td data-day="7" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="7">7</button></td>
+                    <td data-day="8" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="8">8</button></td>
+                    <td data-day="9" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="9">9</button></td>
+                  </tr>
+                  <tr class="datepicker-row">
+                    <td data-day="10" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="10">10</button></td>
+                    <td data-day="11" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="11">11</button></td>
+                    <td data-day="12" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="12">12</button></td>
+                    <td data-day="13" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="13">13</button></td>
+                    <td data-day="14" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="14">14</button></td>
+                    <td data-day="15" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="15">15</button></td>
+                    <td data-day="16" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="16">16</button></td>
+                  </tr>
+                  <tr class="datepicker-row">
+                    <td data-day="17" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="17">17</button></td>
+                    <td data-day="18" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="18">18</button></td>
+                    <td data-day="19" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="19">19</button></td>
+                    <td data-day="20" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="20">20</button></td>
+                    <td data-day="21" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="21">21</button></td>
+                    <td data-day="22" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="22">22</button></td>
+                    <td data-day="23" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="23">23</button></td>
+                  </tr>
+                  <tr class="datepicker-row">
+                    <td data-day="24" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="24">24</button></td>
+                    <td data-day="25" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="25">25</button></td>
+                    <td data-day="26" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="26">26</button></td>
+                    <td data-day="27" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="27">27</button></td>
+                    <td data-day="28" class="is-today" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="28">28</button></td>
+                    <td data-day="29" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="29">29</button></td>
+                    <td data-day="30" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="30">30</button></td>
+                  </tr>
+                  <tr class="datepicker-row">
+                    <td data-day="31" class="" aria-selected="false"><button class="datepicker-day-button" type="button" data-year="2019" data-month="2" data-day="31">31</button></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                    <td class="is-empty"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="datepicker-footer"><button class="btn-flat datepicker-clear waves-effect" style="visibility: hidden;" type="button"></button>
+            <div class="confirmation-btns"><button class="btn-flat datepicker-cancel waves-effect" type="button">Cancel</button><button class="btn-flat datepicker-done waves-effect" type="button">Ok</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- input  -->
+    <input id="birthdate" type="text" class="datepicker z-depth-0">
+
+    <label for="birthdate" class="move-in-date"><i class="far fa-calendar-alt"></i>Move date</label>
+  </div>
+
+  <!--   DATEPICKER: END -->
+      </div>
+      <!--       MOVE IN DATE FILTER: END -->
+      <!--       LEASE LENGTH FILTER: START -->
+      <div class="lease-length">
+ <!--   LEASE LENGTH SELECT: START -->
+  <div class="lease-length-select">
+    <div class="input-field col s12">
+      <select class="lease-select z-depth-0">
+      <option value="" disabled selected>  Lease length</option>
+      <option value="3">3 months</option>
+      <option value="6">6 months</option>
+      <option value="12">12 months</option>
+    </select>
+      
+     
+      <div class="select-icon-container">
+         <svg class="select-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+      </div>
+     
+    </div>
+
+  </div>
+
+  <!--   LEASE LENGTH SELECT: END -->      </div>
+      <!--       LEASE LENGTH FILTER: END -->
+      <!--      NEIGHBORHOOD FILTER: START -->
+      <div class="neighborhood-container">
+          <div class="neighborhood-wrapper">
+    <input id="neighborhood" type="button" class="neighborhood" >
+    <label for="neighborhood" class="neighborhood"><i class="fas fa-map-pin"></i>
+Neighborhood</label>
+  </div>
+<!--         Neighborhood checkbox: Start -->
+         <div class="neighborhood-checkbox-popup">
+    <form action="#" class="neighborhood-form">
+      <p>
+        <label>
+        <input type="checkbox" value="Ridgewood"  name="neighborhood"/>
+          <span>Ridgewood</span>
+      </label>
+      </p>
+      <p>
+        <label>
+        <input type="checkbox" value="Crown Heights"  name="neighborhood"/>
+        <span>Crown Heights</span>
+      </label>
+      </p>
+      <p>
+        <label>
+        <input type="checkbox" value="Bed-Stuy"  name="neighborhood"/>
+        <span>Bed-Stuy</span>
+      </label>
+      </p>
+      <p>
+        <label>
+        <input type="checkbox" value="Williamsburg"  name="neighborhood"/>
+        <span>Williamsburg</span>
+      </label>
+      </p>
+      <p>
+        <label>
+        <input type="checkbox" value="Clinton Hill"  name="neighborhood"/>
+        <span>Clinton Hill</span>
+      </label>
+
+      </p>
+      <p>
+        <label>
+        <input type="checkbox" value="Hamilton Heights" name="neighborhood"/>
+        <span>Hamilton Heights</span>
+      </label>
+      </p>
+    </form>
+           <p id="neighborhood-close">Apply</p>
+  </div>
+<!--         Neighborhood Checkbox: End -->
+        
+      </div>
+      <!--       NEIGHBORHOOD FILTER: END -->
+      <!--       BUDGET FILTER: START -->
+      <div class="budget">
+          <div class="budget-wrapper">
+            
+    <input id="budget" type="button" class="budget">
+    <label for="budget" class="budget"><i class="fas fa-sliders-h"></i> &nbsp; Budget</label>
+  </div>
+ <div id="budget-range-wrapper">
+   
+
+   <div id="test-slider" >
+  </div>
+
+ 
+   <p>
+     <span>$</span><span class="example-val" id="slider-margin-value-min"></span>
+   <span> - </span>
+   <span>$</span><span class="example-val" id="slider-margin-value-max"></span>
+      <p id="budget-close" >Apply</p>
+   
+
+        </div>
+   
+ 
+      </div>
+      <!--       BUDGET FILTER: END -->
+    </div>
+    <!--      BUTTON ROW: START  -->
+    <div class="button-row">
+      <div class="button" id="filter-search">Find my home</div>
+      <div class="clear" id="reset">Clear filters</div>
+    </div>
+    <!--      BUTTON ROW: END  -->
+    <!--     LISTING : START  -->
+    <div class="listing">
+      <div class="pinbox">
+        <!--        HOME-1: START -->
+        <div class="listing-home" id="cypress">
+          <!--             SLIDER-1:   -->
+          <div class="listing-image cypress">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/2293699168_Cypress_Kitchen2-600.jpeg" class="footer"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1399025111_Cypress_Bedroom_600.jpeg" class="footer"></div> 
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1492879991_Cypress_Living_Room-600.jpeg" class="footer"></div>
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+          <!--             SLIDER-1: END  -->
+          <div class="listing-header">
+             <a href="https://codepen.io/juliekim-common/pen/VNjovo" target="_blank">
+            <h4>Common Cypress</h4>
+            <p>Ridgewood</p>
+            </a>
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,600</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 1</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/2KnaI4p9eoEMq0KQSSaQog/f93931b9147c4f79df08bfd18ee993d7/MTA_L_Train.svg" class="subway-photo" alt="">
+              <img src="https:////images.ctfassets.net/btt6ba5154de/2hlO7cOcpeUUMuQ6AQG6qK/d228481c7349d70456c4628e06668720/MTA_M_train.svg" class="subway-photo" alt="">
+              <img src="https://images.ctfassets.net/btt6ba5154de/DYgBDqFMSOS0OYQ8ywyg8/3e6acb5ababc42be601ece85128df5f8/MTA_J_Train.svg" class="subway-photo" alt=".">
+          
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-1: END -->
+        <!--        HOME-2: START -->
+        <div class="listing-home" id="hamilton">
+          <!--             SLIDER-2:   -->
+
+          <div class="listing-image hamilton">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/4011644647_Bedroom-Slider-1-600.jpeg"></div>
+            <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1620720158_Lounge-Slider-2-600.jpeg"></div>
+            <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/737116945_Kitchen-Slider-3-600.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+          </div>
+          <!--             SLIDER-2: END  -->
+
+          <div class="listing-header">
+            <a href="https://codepen.io/juliekim-common/pen/VNjovo" target="_blank">
+            <h4>Common Hamilton</h4>
+            <p>Hamilton Heights</p>
+              </a>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,650</div>
+          </div>
+          <div class="listing-content">
+            <div class="summary-wrapper">
+          
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 1</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/6tMENJEnV6UEqQUQE4s6Wg/310e985736a82b628130b94d3d157f23/subway-b.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4YnCFmfzAQ4yKCKaI4okSO/d696620e1291f33e671eb48c22f9637a/subway-d.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/c95CuK4oJUymwygUaiS0I/4b0162dbbdf51e6ddf1f1b9fdf81cecb/subway-a.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/7FbHQzI3JY82aciOQe0g0U/7442450f1ecba014721bd190a6ffc5a7/subway-c.svg" class="subway-photo" alt="B train MTA.">
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+<!--           Listing content: end -->
+        </div>
+
+        <!--        HOME-2: END -->
+        <!--        HOME-3: START -->
+        <div class="listing-home" id="lincoln">
+          <!--             SLIDER-3  -->
+
+          <div class="listing-image lincoln">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/19981359_lincoln-amenities-1-high-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/4006219599_lincoln-slider-1-high-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/591179546_Common_Lincoln_Bedroom_4_high-800-R.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-3: END  -->
+
+          <div class="listing-header">
+            <h4>Common Lincoln</h4>
+            <p>Crown Heights</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,575</div>
+          </div>
+          <div class="listing-content">
+            
+                        <div class="summary-wrapper">
+       
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>3, 6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 21</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/a645yy9Ad2o0UmqyYsYIW/64296df5b9cf7225dc7025c192dcc842/subway-2.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4FiyYbQgzS0qkkcYkSCo6q/4f1581e2fdc2ff6231f95eb957b57297/subway-5.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/6tMENJEnV6UEqQUQE4s6Wg/310e985736a82b628130b94d3d157f23/subway-b.svg" class="subway-photo" alt="B train MTA.">
+                            <img src="https://images.ctfassets.net/btt6ba5154de/FxlJS2PgIeQ8i8e60Y08O/3548088bf1bf784aa2945128d33833b0/subway-q.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/6VSx2DtKY8s6KoeOUGmQSe/f9fc3afc1e04b9477b8e25e3be6b9c59/S_Train_MTA.svg" class="subway-photo" alt="B train MTA.">
+            </div>
+          </div>
+          
+        </div>
+          </div>
+        </div>
+
+        <!--        HOME-3: END -->
+        <!--        HOME-4: START -->
+
+        <div class="listing-home active" id="fairview">
+          <div class="listing-image fairview">
+            <!--             SLIDER-4   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1225041942_SDC_CommonFairview_Staged__066.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3050795883_SDC_CommonFairview_Staged__049.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3022292500_SDC_CommonFairview_Staged__027.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-4:END  -->
+
+          <div class="listing-header">
+            <h4>Common Fairview</h4>
+            <p>Ridgewood</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,300</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 1</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/2hlO7cOcpeUUMuQ6AQG6qK/d228481c7349d70456c4628e06668720/MTA_M_train.svg
+" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/2KnaI4p9eoEMq0KQSSaQog/f93931b9147c4f79df08bfd18ee993d7/MTA_L_Train.svg
+" class="subway-photo" alt="B train MTA.">
+              
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-4: END -->
+       <!--        HOME-5: START -->
+
+        <div class="listing-home active" id="havemeyer">
+          <div class="listing-image havemeyer">
+            <!--             SLIDER-5   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/2502985150_havemeyer_slider_4_high_copy-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/2372192745_havemeyer_slider_3_high_copy.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3697391290_havemeyer_slider_2_high-800-R.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-5:END  -->
+
+          <div class="listing-header">
+            <h4>Common Havemeyer</h4>
+            <p>Williamsburg</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,800</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>3, 6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 21</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/2KnaI4p9eoEMq0KQSSaQog/f93931b9147c4f79df08bfd18ee993d7/MTA_L_Train.svg
+" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/DYgBDqFMSOS0OYQ8ywyg8/3e6acb5ababc42be601ece85128df5f8/MTA_J_Train.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/2hlO7cOcpeUUMuQ6AQG6qK/d228481c7349d70456c4628e06668720/MTA_M_train.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/2f1ulKvnm0KYAGukMsKKQ2/c704e956455c04e73d290070625948c8/MTA_G_Train.svg" class="subway-photo" alt="B train MTA.">
+            
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-5: END -->
+               <!--        HOME-6: START -->
+
+        <div class="listing-home active" id="herkimer">
+          <div class="listing-image fairview">
+            <!--             SLIDER-6   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/2474249487_herkimer-amenities-5_2x-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3198560433_slider-1_2x-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/4005591586_herkimer-slider-4_2x-800-R.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-6:END  -->
+
+          <div class="listing-header">
+            <h4>Common Herkimer</h4>
+            <p>Crown Heights</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,600</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>3, 6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>May 4</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+               <img src="https://images.ctfassets.net/btt6ba5154de/c95CuK4oJUymwygUaiS0I/4b0162dbbdf51e6ddf1f1b9fdf81cecb/subway-a.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/a645yy9Ad2o0UmqyYsYIW/64296df5b9cf7225dc7025c192dcc842/subway-2.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4GPVKtih1mIyW0eqUcu4ow/d6f8080d35912edfa9823655c8fd2639/subway-3.svg" class="subway-photo" alt="B train MTA.">
+           
+              <img src="https://images.ctfassets.net/btt6ba5154de/1JSXkIlft62eSWyIMaaU0G/837897324a75a4af27ac8a24b44e48c6/subway-4.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4FiyYbQgzS0qkkcYkSCo6q/4f1581e2fdc2ff6231f95eb957b57297/subway-5.svg
+" class="subway-photo" alt="B train MTA.">
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-6: END -->
+               <!--        HOME-7: START -->
+
+        <div class="listing-home active" id="tompkins">
+          <div class="listing-image tompkins">
+            <!--             SLIDER-7   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3653554178_Tompkins_Kitchen_Slider_1_600.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3068237876_Tompkins_Living_Room_Slider_2_600.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1460562279_Tompkins_Bedroom_Slider_3_600.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-7:END  -->
+
+          <div class="listing-header">
+            <h4>Common Tompkins</h4>
+            <p>Bed-Stuy</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,575</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 21</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/2f1ulKvnm0KYAGukMsKKQ2/c704e956455c04e73d290070625948c8/MTA_G_Train.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/DYgBDqFMSOS0OYQ8ywyg8/3e6acb5ababc42be601ece85128df5f8/MTA_J_Train.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/2hlO7cOcpeUUMuQ6AQG6qK/d228481c7349d70456c4628e06668720/MTA_M_train.svg" class="subway-photo" alt="B train MTA.">
+             
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-7: END -->
+               <!--        HOME-8: START -->
+
+        <div class="listing-home active" id="marcy">
+          <div class="listing-image marcy">
+            <!--             SLIDER-8   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/3428559008_Tompkins_Living_Room_600.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1691654575_SC1854_CommonMelrose_051.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1220991364_SC1854_CommonMelrose_147.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-8:END  -->
+
+          <div class="listing-header">
+            <h4>Common Marcy</h4>
+            <p>Williamsburg</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,950</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>May 15</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/6tMENJEnV6UEqQUQE4s6Wg/310e985736a82b628130b94d3d157f23/subway-b.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4YnCFmfzAQ4yKCKaI4okSO/d696620e1291f33e671eb48c22f9637a/subway-d.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/c95CuK4oJUymwygUaiS0I/4b0162dbbdf51e6ddf1f1b9fdf81cecb/subway-a.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/7FbHQzI3JY82aciOQe0g0U/7442450f1ecba014721bd190a6ffc5a7/subway-c.svg" class="subway-photo" alt="B train MTA.">
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-8: END -->
+               <!--        HOME-9: START -->
+
+        <div class="listing-home active" id="grand">
+          <div class="listing-image grand">
+            <!--             SLIDER-9   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/217052754_Grand-Living-Room-Slider-450.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1402132156_Grand-Kitchen-Slider-450.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1392892421_Grand-Bedroom-Slider-450.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-9:END  -->
+
+          <div class="listing-header">
+            <h4>Common Grand</h4>
+            <p>Clinton Hill</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,800</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>May 15</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/6tMENJEnV6UEqQUQE4s6Wg/310e985736a82b628130b94d3d157f23/subway-b.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4YnCFmfzAQ4yKCKaI4okSO/d696620e1291f33e671eb48c22f9637a/subway-d.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/c95CuK4oJUymwygUaiS0I/4b0162dbbdf51e6ddf1f1b9fdf81cecb/subway-a.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/7FbHQzI3JY82aciOQe0g0U/7442450f1ecba014721bd190a6ffc5a7/subway-c.svg" class="subway-photo" alt="B train MTA.">
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-9: END -->
+               <!--        HOME-10: START -->
+
+        <div class="listing-home active" id="albany">
+          <div class="listing-image albany">
+            <!--             SLIDER-4=10   -->
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/2558158148_albany-slider_5_high-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/1791051702_albany-amenities-1_high-800-R.jpeg"></div>
+                <div class="swiper-slide"><img src="https://assets.blinkloader.com/1968894823/4152770886_albany-amenities-5_high-800-R.jpeg"></div>
+
+              </div>
+              <!--  Pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!--  Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+
+            </div>
+
+          </div>
+          <!--             SLIDER-10:END  -->
+
+          <div class="listing-header">
+            <h4>Common Albany</h4>
+            <p>Crown Heights</p>
+
+          </div>
+          <div class="listing-price">
+            <div class="price-words">from</div>
+            <div class="price-number">$1,550</div>
+          </div>
+          <div class="listing-content">
+                        <div class="summary-wrapper">
+         
+          <div class="summary-2">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/869c1c58-3eb0-4e93-91d0-954580b54d26.png" class="icon" alt="">Lease lengths</p>
+            <p>3, 6 or 12 mo</p>
+          </div>
+          <div class="summary-3">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/62c7da7a-99d7-4102-ac45-e9fec4cd300a.png" class="icon"alt="">Available from</p>
+            <p>April 21</p>
+          </div>
+          <div class="summary-4">
+                  <p><img src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/a7bc3f8c-013f-4e9b-bfcf-41ed517d927e.png" class="icon"alt="">Close to</p>
+            <div class="subway-icon-container" >
+              <img src="https://images.ctfassets.net/btt6ba5154de/a645yy9Ad2o0UmqyYsYIW/64296df5b9cf7225dc7025c192dcc842/subway-2.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4GPVKtih1mIyW0eqUcu4ow/d6f8080d35912edfa9823655c8fd2639/subway-3.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/1JSXkIlft62eSWyIMaaU0G/837897324a75a4af27ac8a24b44e48c6/subway-4.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/4FiyYbQgzS0qkkcYkSCo6q/4f1581e2fdc2ff6231f95eb957b57297/subway-5.svg" class="subway-photo" alt="B train MTA.">
+              <img src="https://images.ctfassets.net/btt6ba5154de/c95CuK4oJUymwygUaiS0I/4b0162dbbdf51e6ddf1f1b9fdf81cecb/subway-a.svg" class="subway-photo" alt="B train MTA.">
+           
+            </div>
+          </div>
+          
+        </div>
+            
+          </div>
+        </div>
+        <!--        HOME-10: END -->
+<!--         NO AVAILABILITIES: RESET CTA -->
+        <div  class="no-avail" id="no-results">
+          <img class="no-avail"src="https://gallery.mailchimp.com/ec0a57365c32c3642e97fd2b3/images/9fa200a5-ec4d-4e03-b8f5-eeb64e570f25.png" alt="">
+          <h2 class="no-avail-text">Sorry, we couldn't find any spaces.</h2>
+          <p class="no-avail-text">We don’t have any homes matching your criteria in the selected area. Let's cast a wider net.</p>
+          <div class="reset" id="noResultsReset">Clear filters</div>
+        </div>
+      </div>
+    </div>
+    <div class="map mobile mobile-display is-not-visible">
+      <div id='map'>
+
+      </div>
+    </div>
+  </div>
+
+  <!--   JS -->
+  <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+          <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <!-- UNDERSCORE -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <!-- MATERIALIZE-->
+  <script src="https://materializecss.com/docs/js/prism.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--  SPACETIME -->
+   <script src="https://unpkg.com/spacetime@5.7.0/builds/spacetime.min.js"></script>
+   <!--   NOUISLIDER -->
+
+  <script src="https://materializecss.com/extras/noUiSlider/nouislider.js"></script>
+    <script>
+        var slider = document.getElementById('test-slider');
+      noUiSlider.create(slider, {
+       start: [1500, 2400],
+       connect: true,
+       step: 100,
+       orientation: 'horizontal',
+      
+
+       range: {
+         'min': 1200,
+         'max': 3500,
+       },
+       format: wNumb({
+         decimals: 0,
+         thousand: ',',
+        // prefix: '$',
+       })
+      });
+    
+    
+  </script>
+  <script>
+          var marginMin = document.getElementById('slider-margin-value-min'),
+    marginMax = document.getElementById('slider-margin-value-max'),
+              testSlider = document.getElementById('test-slider');
+
+testSlider.noUiSlider.on('update', function (values, handle) {
+    if (handle) {
+        marginMax.innerHTML = values[handle];
+    } else {
+        marginMin.innerHTML = values[handle];
+    }
+});
+  </script>
+   <script src="/index.js"></script>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/space/0.8.4/space.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

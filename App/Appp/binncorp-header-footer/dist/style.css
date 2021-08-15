@@ -1,0 +1,903 @@
+*,
+*::before, *:after{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/*=============================
+COLORES
+=============================*/
+/*---------------------LETRAS*/
+.color-blanco,
+.encabezado,
+.menu a,
+.cta,
+.pie-de-pagina,
+.seccion.planeacion
+{ color: rgb(250,250,250) }
+.color-negro
+.indicador a
+{ color: rgb(35,32,33) }
+.color.grisoscuro,
+body,
+.quienes-somos blockquote cite
+{ color: rgb(67, 64, 65) }
+.color-grisclaro
+{ color: rgb(200, 200, 200) }
+.color-svg-grisoscuro,
+svg
+{ fill: rgb(67, 64, 65) }
+.color-grisclaro,
+.pie-de-pagina,
+.seccion.planeacion p
+{ color: rgb(180,180,180) }
+.color-verdeprincipal,
+.especialidad .alcancia
+{ color: rgb(126,145,30) }
+.color-verde-brillante,
+.pie-de-pagina blockquote,
+.menu a:hover,
+.menu a:focus
+{ color: rgb(151,190,19) }
+.color-azul,
+a,
+.pie-de-pagina .fa,
+.indicador a:hover,
+.indicador a:focus,
+.seccion.planeacion p i,
+.quienes-somos blockquote
+{ color: rgb(0,155,221) }
+.color-svg-azul,
+.binnicon.statsup,
+.especialidad .pilamonedas
+{ fill: rgb(0,155,221) }
+
+/*---------------------FONDOS*/
+.fondo-negro,
+.encabezado,
+.pie-de-pagina,
+.seccion.planeacion
+{ background-color: rgb(35,32,33); }
+.fondo-negro-alfa50,
+.menu.navegacion,
+.encabezado::before
+{ background-color: rgba(35,32,33,.5); }
+.fondo-negro-alfa90,
+.seccion.planeacion::before
+{ background-color: rgba(35,32,33,.9); }
+.fondo-negropuro-alfa50,
+.pie-de-pagina .copy
+{ background-color: rgba(0,0,0,.5); }
+.fondo-grisclaro,
+.especialidad .icon-container,
+.seccion.localizacion
+{ background-color: rgb(245, 245, 245) }
+.fondo-verde-principal,
+.indicador .titulo::after
+{ background-color: rgb(126,145,30) ; }
+.fondo-verde-brillante,
+.cta,
+.valoracion:hover .icon-container,
+.mision-vision .ilustracion
+{ background-color: rgb(151,190,19) }
+.fondo-azul,
+.capital:hover .icon-container
+{ background-color: rgb(0,155,221) }
+.fondo-morado
+{ background-color: rgb(101,16,130) }
+.fondo-moradobrillante,
+.proyectos:hover .icon-container
+{ background-color: rgb(139,22,176) }
+
+/*---------------------SVG*/
+.color-svg-blanco,
+.grupo.especialidad:hover .binnicon
+{ fill: rgb(250,250,250) }
+.color-svg-verdeprincipal,
+.especialidad .alcancia
+{ fill: rgb(126,145,30) }
+.color-svg-verde-brillante,
+.binnicon.cajafuerte
+{ fill: rgb(151,190,19) }
+.color-svg-verde-oscuro
+{ fill: rgb(126,145,30) }
+.color-svg-morado,
+.especialidad .bolsasdinero
+{ fill: rgb(101,16,130) }
+.color-svg-morado-claro,
+.binnicon.escudodinero
+{ fill: rgb(139,22,176) }
+
+/*=============================
+TIPOGRAFIAS
+=============================*/
+/*---------------------MONTSERRAT*/
+body,
+a,
+cite
+{  font-family: 'montserrat', verdana, sans-serif; }
+/*---------------------RALEWAY*/
+p
+{  font-family: 'raleway', arial, sans-serif; }
+/*---------------------DROID SERIF*/
+.banner p,
+blockquote
+{  font-family: 'Droid Serif', georgia, serif; }
+
+/*=============================
+IMAGENES
+=============================*/
+.encabezado
+{ background-image: url('https://gutierrezedgar.com/binncorp/img/cover_subpagina-binncorp-medium.jpg'); }
+.inicio .encabezado
+{ background-image: url('https://gutierrezedgar.com/binncorp/img/cover_inicio-binncorp-medium.jpg'); }
+.inicio .seccion.planeacion
+{ background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-planeacion-medium.jpg'); }
+.inicio .mision-vision .ilustracion
+{ background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-misionvision-medium.jpg'); }
+@media (max-width: 900px){
+  .encabezado
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover_subpagina-binncorp-tiny.jpg'); }
+  .inicio .encabezado
+  {background-image: url('https://gutierrezedgar.com/binncorp/img/cover_inicio-binncorp-tiny.jpg'); }
+  .inicio .seccion.planeacion
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-planeacion-tiny.jpg'); }
+  .inicio .mision-vision .ilustracion
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-misionvision-tiny.jpg'); }
+}
+@media (min-width: 1600px){
+  .encabezado
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover_subpagina-binncorp-full.jpg'); }
+  .inicio .encabezado
+  {background-image: url('https://gutierrezedgar.com/binncorp/img/cover_inicio-binncorp-full.jpg'); }
+  .inicio .seccion.planeacion
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-planeacion-full.jpg'); }
+  .inicio .mision-vision .ilustracion
+  { background-image: url('https://gutierrezedgar.com/binncorp/img/cover-inicio-misionvision-full.jpg'); }
+}
+/*FONDO IMAGEN CENTRADA*/
+.imgbkg-center,
+.encabezado,
+.seccion.planeacion,
+.inicio .mision-vision .ilustracion{
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/*FONDO NEGRO CUBRECTOR*/
+.encabezado::before,
+.seccion.planeacion::before{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+/*FONDO IMAGEN CENTRADA*/
+.encabezado *,
+.seccion.planeacion *{
+  position: relative;
+  z-index: 2;
+}
+
+/*=============================
+SVGS DE FONDO
+=============================*/
+.planeacion .svg.grafico
+{ background-image: url('https://gutierrezedgar.com/binncorp/img/grafico-planeacion.svg'); }
+
+/*=============================
+ESTILOS GENERALES
+=============================*/
+
+body{  
+  text-align: center;
+}
+
+p{
+  padding: 0.5em 1em;  
+}
+
+a{  
+  font-weight: 600;
+  display: inline-block;
+}
+
+svg{
+  display: block;
+  width: 100%;
+}
+
+blockquote{
+  text-align: right;  
+}
+
+blockquote footer{
+  display: block;
+  width: 100%;
+}
+
+cite{
+  font-style: normal;  
+}
+
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fa{
+  font-size: 1.5em;
+  display: inline-block;
+  vertical-align: bottom;
+  padding-right: .5em;
+}
+
+.fa-phone{
+  transform: translateY(0.1em);
+}
+
+.cta{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.8em 1em;
+  border-radius: .35em;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  margin: 1em auto;
+  border: none;
+  font-weight: 700;
+}
+
+.grupo.enlinea{
+  display: inline-block;
+  vertical-align: middle;
+  width: 70%;
+  width: calc(100% - 6.5rem);
+}
+
+.grupo .titulo{
+  position: relative;
+}
+
+/*=============================
+ENCABEZADO
+=============================*/
+
+.encabezado{
+  text-align: center;
+  position: relative;
+}
+
+.logo{
+  display: inline-block;
+  width: 6rem;
+  vertical-align: middle;
+}
+
+.menu{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu li{
+  display: inline-block;
+}
+
+.menu a{
+  text-decoration: none; 
+  display: inline-block;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.menu.navegacion{
+  width: 100%;
+  padding: 1em 5%;
+}
+
+.menu .menu{
+  width: 100%;
+}
+
+.menu.contacto{
+  padding-bottom: 2vmin;
+}
+
+.menu.contacto li{
+  padding: 0 3vmin;  
+  text-align: center;
+}
+
+.menu.enlace a{
+  padding: 0 2vmin;  
+}
+
+.banner{
+  padding: 5em 8em;
+  padding: 15vmin 10%;
+  text-align: left;
+}
+
+.banner .titulo{
+  font-size: 4em;
+  line-height: 1em;
+}
+
+.banner p{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  max-width: 50em;
+  padding: 3em 1em;
+  padding: 3vmin;
+}
+
+.banner .cta{
+  display: block;
+  width: 13em;
+}
+
+.encabezado .grupo{  
+  text-align: right;
+}
+
+.inicio .banner{
+  text-align: center;
+  padding: 5em 10%;
+  padding: 20vmin 10%;
+}
+
+.inicio .encabezado{
+  min-height: 98vh;
+}
+
+/*=============================
+CONTENIDO
+=============================*/
+
+.enlaces .contenido{
+  padding: 1em 5%;
+}
+
+.seccion .grupo.introduccion{
+  text-align: justify;
+}
+
+.seccion{
+  padding: 3em 5% 5em;
+  padding: 3vmin 5% 5vmin;
+  display: inline-block;
+  max-width: 1600px;
+  width: 100%;
+}
+
+.introduccion .titulo{
+  font-weight: 600;
+  font-size: 2.6em;
+  line-height: 1em;
+  padding: 1em 0;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.titulo .decoracion {
+  position: absolute;
+  display: block;
+  width: 2em;
+  height: .1em;
+  background: #97be14;
+  /* transform: rotateZ(-45deg); */
+  left: 0;
+  bottom: 10%;
+  box-shadow: 3em 0 rgb(151, 190, 19);
+}
+
+.titulo .decoracion::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: .5em;
+  background: white;
+  height: 0.5em;
+  border: dashed .16em rgb(151, 190, 19);
+  border-radius: 50%;
+  transform: rotateZ(100deg);
+  left: 2.25em;
+  top: -.18em;
+}
+
+.introduccion p{
+  padding: 1em 0;
+  font-size: 1.4em;
+}
+
+.servicios .grupo.contenido{
+  font-size: 0;
+  letter-spacing: 0; 
+}
+
+.servicios .grupo.contenido .servicio{
+  font-size: 1rem;
+  letter-spacing: normal;   
+  width: 30%;
+  width: calc( 100% / 3);
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+.titulo.centrado {
+  text-align: center;
+}
+
+.titulo.centrado .decoracion {
+  left: calc(50% - 1.5em);
+  transform: translateX(-50%);
+}
+
+.grupo.especialidad {
+  width: calc(90% / 3.2);
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding: 2em 0 3em 4em;
+  padding: 5vmin 0 8vmin 4em;
+  box-shadow: inset 0 0 0 2px rgb(245, 245, 245);
+  margin: 0 2%;
+  transition: all ease .4s;
+}
+
+.grupo.especialidad.valoracion:hover{
+  box-shadow: inset 0 0 0 2px rgb(151, 190, 19);
+}
+
+.grupo.especialidad.proyectos:hover{
+  box-shadow: inset 0 0 0 2px rgb(139,22,176);
+}
+
+.grupo.especialidad.capital:hover{
+  box-shadow: inset 0 0 0 2px rgb(0,155,221);
+}
+
+.especialidad .icon-container {
+  position: absolute;
+  padding: 1em;
+  height: 3em;
+  width: calc(3em * 1.5);
+  border-radius: calc(3em / 6);
+  top: 50%;
+  left: 0;
+  transition: all ease .4s;
+  transform: translate(-50%, -50%);
+}
+
+.grupo.especialidad:hover .icon-container {
+  transform: translate(-50%, -50%) rotateY(1.5turn);
+}
+
+.especialidad .icon-container::before, 
+.especialidad .icon-container::after{
+  content:'';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.especialidad .icon-container::before{
+  transform: rotateZ(60deg)
+}
+
+.especialidad .icon-container::after{
+  transform: rotateZ(-60deg)
+}
+
+.icon-container .binnicon{
+  position: relative;
+  z-index: 2;
+}
+
+.especialidad .icon-container .binnicon {
+  position: relative;
+  z-index: 2;
+  width: 75%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contenido .grupo.contenido{
+  padding-top: 2em;
+  padding-top: 3vmin;
+}
+
+/*- INICIO PLANEACION*/
+
+.seccion.planeacion {
+  max-width: 100%;
+  padding: 3em;
+  padding: 5%;
+  position: relative;
+}
+
+.planeacion .grupo{
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 5%;
+  width: 49%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.planeacion .grupo.introduccion{
+  text-align: left;
+}
+
+.planeacion .introduccion .titulo{
+  font-weight: 500;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+}
+
+.planeacion .grupo p{
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+.planeacion p i{
+  display: inline-block;
+  font-style: normal;
+  max-width: 17em;
+  text-align: left;
+}
+
+.planeacion p b{
+  display: inline-block;
+  padding: 0.25em 0; 
+  font-weight: 600;
+}
+
+.planeacion .grupo.imagen{
+  height: 70vh;
+  padding: 0;
+}
+
+.planeacion .svg.grafico {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+.servicios .contenido{
+  padding: 0 2.5%;
+}
+
+.servicios .grupo.contenido .servicio {
+  font-size: 1rem;
+  letter-spacing: normal;
+  width: 30%;
+  width: calc( 100% / 3);
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+}
+
+.icon-container {
+  width: 4em;
+  padding: 1em 0;
+}
+
+.grupo.contenido .titulo{
+  font-size: 1.2em;
+  line-height: 1em;
+  padding: 1em 0em;
+  font-weight: 500;
+  text-align: left;
+}
+
+.grupo.contenido .titulo ~ p {
+  padding: .5em 2em 0.5em 0;
+  text-align: justify;
+  font-weight: 300;
+}
+
+.seccion.localizacion {
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.grupo.mapa {
+  padding: 0;
+}
+
+.grupo.mapa iframe {
+  min-width: 30em;
+  height: 40vh;
+  width: 100%;
+  margin-bottom: -0.5em;
+}
+
+.quienes-somos blockquote{
+  text-align: left;
+  font-size: 1.6em;
+  font-style: italic;
+}
+
+.quienes-somos blockquote footer{
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+}
+
+.quienes-somos blockquote cite{
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.quienes-somos .introduccion .grupo {
+  width: 55%;
+}
+
+.quienes-somos .introduccion .grupo.imagen {
+  width: 44%;
+  height: 50vmin;
+  margin: 5vmin 0;
+}
+
+.quienes-somos .logo.binncorp {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.seccion.quienes-somos {
+  max-width: 100%;
+  padding: 3em 0;
+}
+
+.quienes-somos>.grupo {
+  padding: 0 10%;
+}
+
+.grupo.mision-vision {
+  font-size: 1.5em;
+  padding: 8vh 10% 8vh 50%;
+  position: relative;
+}
+
+.grupo.mision-vision .titulo{
+  font-size: 1.7em;
+  font-weight: 600;
+  padding: .5em 0;
+}
+
+.grupo.mision-vision p{
+  padding-left: 0;
+}
+
+.mision-vision .sub.grupo{
+  text-align: justify;
+  padding: 1em 0;
+}
+
+.mision-vision .imagen,
+.mision-vision .ilustracion{
+  position: absolute;
+  left: 0;
+  top: 2.5%;
+  height: 95%;
+}
+
+.mision-vision .imagen{
+  width: 45%;  
+}
+
+.mision-vision .ilustracion{
+  width: 100%;
+}
+
+.mision-vision .titulo .decoracion {
+  width: 1.5em;
+  box-shadow: 2.5em 0 rgb(151, 190, 19);
+}
+
+.mision-vision .titulo .decoracion::before {
+  left: 1.8em;
+}
+
+.fundadores {
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+.quienes-somos .fundadores{
+  padding: 1.5em 10%;
+  padding: 3vmin 10%;
+}
+
+.fundadores .grupo {
+  width: 30%;
+  width: calc(100% / 3);
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  text-align: justify;
+  padding: 2em;
+}
+
+.fundadores .fotografia {
+  display: block;
+  min-height: 25em;
+  height: 40vmin;
+}
+
+.fundadores :nth-child(even) .fotografia    { background-color: rgb(240,240,240); }
+.fundadores :nth-child(odd) .fotografia   { background-color: rgb(225,225,225); }
+
+.fundadores .titulo {
+  padding: 1em 0;
+  font-weight: 600;
+  font-size: 1.6em;
+}
+
+.fundadores p {
+  font-size: 1.2em;
+  padding: 1.2em 0;
+}
+
+/*---------------------INDICADORES*/
+
+
+.indicadores{
+  font-size: 0;
+  letter-spacing: 0;  
+  text-align: left;
+}
+
+.indicador{
+  padding: 4%;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  letter-spacing: normal;
+  width: 32%;
+  width: calc(100% / 3);
+}
+
+.indicador .titulo{
+  padding: .6em 0 1em;
+  line-height: 1em;
+  font-size: 1.6em;
+  font-weight: 600;
+  position: relative;
+}
+
+.indicador:hover .titulo::after{
+  width: 100%;
+}
+
+.indicador .titulo::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 2.5em;
+  height: 0.15em;
+  bottom: 10%;
+  left: 0;
+  transition: all ease .5s;
+}
+
+.indicador a{
+  padding: 0.5em 0;
+  text-decoration: none;
+  position: relative;
+}
+
+.indicador a::after{
+  content: '\f0da';
+  font-family: 'fontawesome';
+  display: inline-block;
+  padding-left: 0.5em;
+  font-weight: 400;
+}
+
+/*=============================
+PIE DE PAGINA
+=============================*/
+
+.pie-de-pagina{ 
+}
+
+.pie-de-pagina .grupo{
+  text-align: center;
+  padding: 2em 5%; 
+}
+
+.pie-de-pagina blockquote{
+  display: inline-block;
+  padding-left: 1em;
+  vertical-align: middle;
+  width: 70%;
+  width: calc(100% - 6.5em);
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.pie-de-pagina p{
+  padding: 1em 0 1.5em;
+  font-size: 1.2em;
+  padding-left: 0;
+  text-align: center;
+}
+
+.pie-de-pagina .menu{
+  display: inline-block;
+  width: 90%;
+}
+
+.pie-de-pagina .menu li{
+  padding: .5vmin 3vmin;
+  max-width: 30em;
+}
+
+.pie-de-pagina .copy{
+  padding: 1em;
+}
+
+@media (max-width: 960px){
+  .menu{
+    font-size: 0.9em;
+  }
+  .logo{
+    width: 4rem;
+  }
+  .indicador{
+    width: 50%;
+    font-size: 0.8rem;
+  }
+  .inicio .banner{
+    padding: 10vmin 1em;
+  }
+  .banner .titulo{
+    font-size: 2.5em;
+    font-size: 9vmin;
+  }
+}
+
+@media (max-width: 700px){
+  .indicador{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .pie-de-pagina .grupo,
+  .encabezado .navegacion{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .banner{
+    padding: 18vmin 10%;
+  }
+  .seccion{
+    padding: 5vmin 5% 12vmin;
+  }
+  .seccion.planeacion{
+    padding: 12vmin 5%;
+    min-height: 95vh;
+  }
+}

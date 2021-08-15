@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #1A1717;
+  font-family: Monospace;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+}
+
+canvas {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#info {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+  padding: 5px;
+}
+
+.dg.ac {
+  z-index: 20 !important;
+}
+
+.dg.main,
+.dg.main .close-button.close-bottom {
+  min-width: 400px;
+}

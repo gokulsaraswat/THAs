@@ -1,0 +1,581 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+$scale: 1.65;
+$purplish-color: #8742cc;
+$pinkish-color: #a94a8c;
+$pale-pink-color: #ECC8DD;
+$bg-color: #372546;
+$font: Muli, sans-serif;
+
+@mixin particlesContainer($top) {
+  position: absolute;
+  width: 2px * $scale;
+  height: 2px * $scale;
+  left: 89px * $scale;
+  top: $top * $scale;
+  opacity: 0;
+
+  &--visible {
+    opacity: 1;
+  }
+}
+
+@mixin particle($sweep, $time) {
+  width: 1.5px * $scale;
+  height: 1.5px * $scale;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 1;
+  transition: all $time ease;
+  position: absolute;
+  will-change: transform;
+  
+  //phones can't handle the particles very well :(
+  @media (max-width: 400px) {
+    display: none;
+  }
+
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      left: (random($sweep) - $sweep / 2) * $scale + px;
+      @if random(100) > 50 {
+        background-color: $purplish-color;
+      }
+      @else {
+        background-color: $pinkish-color;
+      }
+    }
+    &--exploded:nth-child(#{$i}) {
+      transform: translate3d((random(110) - 55) * $scale + px, random(35) * $scale + px, 0);
+      opacity: 0;
+    }
+  }
+}
+
+.demo {
+  background: linear-gradient(45deg, lighten($pinkish-color, 10%), lighten($purplish-color, 10%));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+  
+  &__screen {
+    position: relative;
+    background-color: $bg-color;
+    overflow: hidden;
+    flex-shrink: 0;
+    &--clickable {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+  
+  &__logo {
+    font-family: $font;
+    font-weight: 600;
+    letter-spacing: 0.7px * $scale;
+    font-size: 7px * $scale;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    top: 10px * $scale;
+    transition: all 0.25s ease;
+    will-change: transform, opacity;
+    
+    &--hidden {
+      opacity: 0;
+      transform: translate3d(0, -20px * $scale, 0);
+    }
+  }
+  
+  &__logo-particles {
+    @include particlesContainer(15px);
+  }
+  
+  &__logo-particle {
+    @include particle(50, 1.7s);
+  }
+  
+  &__logo-name {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  &__logo-pic {
+    display: inline-block;
+    width: 16px * $scale;
+    height: 16px * $scale;
+    vertical-align: middle;
+    position: relative;
+    transform: scale(0.65);
+  }
+  
+  &__logo-glass {
+    border: 1px * $scale solid $pale-pink-color;
+    width: 7px * $scale;
+    height: 7px * $scale;
+    border-radius: 50%;
+    position: absolute;
+
+    &:after {
+      display: block;
+      content: '';
+      width: 4px * $scale;
+      height: 1px * $scale;
+      background-color: $pale-pink-color;
+      top: 50%;
+      position: absolute;
+      left: 5px * $scale;
+      top: 2px * $scale;
+    }
+    
+    &:nth-child(2) {
+      left: 12px * $scale;
+      transform: rotate(120deg);
+      border: 1px * $scale solid $pinkish-color;
+      
+      &:after {
+        background-color: $pinkish-color;
+      }
+    }
+    
+    &:nth-child(3) {
+      left: 6px * $scale;
+      top: 10px * $scale;
+      transform: rotate(240deg);
+      border: 1px * $scale solid $purplish-color;
+      
+      &:after {
+        background-color: $purplish-color;
+      }
+    }
+  }
+  
+  &__fprint-path {
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+    fill: none;
+    stroke: white;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    will-change: stroke-dashoffset, stroke-dasharray;
+    transform: translateZ(0);
+    
+    &--pinkish {
+      stroke: $pinkish-color;
+    }
+    
+    &--purplish {
+      stroke: $purplish-color;
+    }
+    
+    &--gradient {
+      stroke: url(#linear);
+      transition: stroke 0.3s ease;
+      transition-delay: 0.5s;
+    }
+    
+    &#demo__elastic-path {
+      will-change: opacity;
+      opacity: 1;
+    }
+  }
+  
+  &__hidden-path {
+    display: none;
+  }
+  
+  &__ending-path {
+    fill: none;
+    stroke-width: 2.5px;
+    stroke-dasharray: 60 1000;
+    stroke-dashoffset: 61;
+    stroke-linecap: round;
+    will-change: stroke-dashoffset, stroke-dasharray, opacity;
+    transform: translateZ(0);
+    transition: stroke-dashoffset 1s ease, stroke-dasharray 0.5s linear, opacity 0.75s ease;
+    
+    &--removed {
+      stroke-dashoffset: -130;
+      stroke-dasharray: 5 1000;
+    }
+    
+    &--transparent {
+      opacity: 0;
+    }
+    
+    &--pinkish {
+      stroke: $pinkish-color;
+    }
+    
+    &--purplish {
+      stroke: $purplish-color;
+    }
+  }
+  
+  &__fprint {
+    width: 180px * $scale;
+    height: 320px * $scale;
+    position: relative;
+    top: 20px * $scale;
+    overflow: visible;
+    background-image: url('https://kiyutink.github.io/svg/fprintBackground.svg');
+    background-size: cover;
+    &--no-bg {
+      background-image: none;
+    }
+  }
+  
+  &__bullet {
+    position: absolute;
+    width: 4px * $scale;
+    height: 4px * $scale;
+    background-color: white;
+    border-radius: 50%;
+    top: 210px * $scale;
+    left: 88px * $scale;
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+    will-change: transform, opacity;
+    
+    &--with-aura {
+      box-shadow: 0 0 0 3px * $scale rgba(255, 255, 255, 0.3);
+    }
+    
+    &--elevated {
+      transform: translate3d(0, -250px * $scale, 0);
+      opacity: 1;
+    }
+    
+    &--descended {
+      transform: translate3d(0, 30px * $scale, 0);
+      opacity: 1;
+      transition: all 0.6s cubic-bezier(0.285, 0.210, 0.605, 0.910);
+    }
+  }
+  
+  &__top-bullet {
+    position: absolute;
+    width: 2px * $scale;
+    height: 2px * $scale;
+    background-color: white;
+    top: 16px * $scale;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+    will-change: opacity, transform;
+    
+    &--1 {
+      left: 39px * $scale;
+      transform: translate3d($scale * 50px, 0, 0);
+      opacity: 0.2;
+    }
+    
+    &--2 {
+      left: 64px * $scale;
+      transform: translate3d($scale * 25px, 0, 0);
+      opacity: 0.4;
+    }
+    
+    &--3 {
+      background-color: transparent;
+      width: 6px * $scale;
+      height: 6px * $scale;
+      border: 2px solid white;
+      top: 14px * $scale;
+      left: 87px * $scale;
+      box-shadow: 0 0 8px * $scale white;
+    }
+    
+    &--4 {
+      left: 114px * $scale;
+      transform: translate3d(-$scale * 25px, 0, 0);
+      opacity: 0.4;
+    }
+    
+    &--5 {
+      left: 139px * $scale;
+      transform: translate3d(-$scale * 50px, 0, 0);
+      opacity: 0.2;
+    }
+    
+    &--hidden {
+      opacity: 0;
+    }
+    
+    &--spread {
+      transform: none;
+    }
+  }
+  
+  &__month {
+    width: 100%;
+    height: 20px * $scale;
+    position: absolute;
+    top: 25px * $scale;
+    text-align: center;
+    color: white;
+    font-size: 7px * $scale;
+    font-weight: 300;
+    font-family: $font;
+    opacity: 0;
+    transform: translate3d(0, -15px * $scale, 0);
+    transition: all 0.25s ease-out;
+    transition-delay: 0.3s;
+    will-change: transform, opacity;
+    
+    &--visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  &__money {
+    width: 100%;
+    height: 26px * $scale;
+    font-size: 26px * $scale;
+    position: absolute;
+    display: flex;
+    color: white;
+    font-family: $font;
+    font-weight: 300;
+    top: 70px * $scale;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translate3d(0, -30px * $scale, 0);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.3s;
+    will-change: transform, opacity;
+    overflow: hidden;
+    
+    &--visible {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  
+  &__money-particles {
+    @include particlesContainer(100px);
+  }
+  
+  &__money-particle {
+    @include particle(100, 1.5s);
+  }
+
+  &__money-currency {
+    display: flex;
+    align-items: center;
+    width: 17px * $scale;
+    line-height: 26px * $scale;
+  }
+  
+  &__money-digit {
+    width: 15px * $scale;
+    display: flex;
+    line-height: 26px * $scale;
+    will-change: transform;
+    justify-content: center;
+    align-items: center;
+    
+    &:nth-child(3) {
+      margin-right: 5px * $scale;
+    }
+    
+    @for $i from 2 through 6 {
+      &:nth-child(#{$i}) {
+        transition: transform 0.1s * $i + 0.2s ease;
+        transition-delay: 0.3s;
+        transform: translate3d(0, -26px * $scale * 8, 0);
+      }
+      
+      &--visible:nth-child(#{$i}) {
+        transform: none;
+      }
+    }
+  }
+  
+  &__under-curve {
+    fill: url(#linear);
+    opacity: 0;
+    transition: opacity 0.4s linear;
+    transition-delay: 0.6s;
+    will-change: opacity;
+    
+    &--visible {
+      opacity: 0.8;
+    }
+  }
+  
+  &__touch-id {
+    position: absolute;
+    font-family: $font;
+    font-size: 10px * $scale;
+    top: 90px * $scale;
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: all 0.25s ease;
+    will-change: transform, opacity;
+    
+    &--hidden {
+      opacity: 0;
+      transition: translate3d(0, -20px * $scale, 0);
+    }
+  }
+  
+  &__tip {
+    position: absolute;
+    top: 105px * $scale;
+    font-family: $font;
+    font-size: 6px * $scale;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    
+    &--hidden {
+      opacity: 0;
+    }
+  }
+  
+  &__dates {
+    position: absolute;
+    bottom: 5px * $scale;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translate3d(0, 20px * $scale, 0);
+    opacity: 0;
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+    
+    &--visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  &__member {
+    position: absolute;
+    width: 100%;
+    bottom: 10px * $scale;
+    text-align: center;
+    color: white;
+    font-family: $font;
+    font-size: 7px * $scale;
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+    
+    &--hidden {
+      transform: translate3d(0, 20px * $scale, 0);
+      opacity: 0;
+    }
+  }
+  
+  &__date {
+    border-radius: 50%;
+    height: 18px * $scale;
+    width: 18px * $scale;
+    color: white;
+    font-size: 7px * $scale;
+    font-family: $font;
+    margin: 0 2px * $scale;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:nth-child(4) {
+      border: 2px solid $pale-pink-color;
+    }
+  }
+  
+  &__buttons {
+    position: absolute;
+    width: 60px * $scale;
+    height: 55px * $scale;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    transform: translateY(-20px * $scale);
+    pointer-events: none;
+  }
+  
+  &__restart-button {
+    transform: translate3d(0, -100px * $scale, 0);
+  }
+  
+  &__codepen {
+    a {
+      color: black;
+    }
+    transform: translate3d(-100px * $scale, 0, 0);
+  }
+  
+  &__twitter {
+    a {
+      color: #1DA1F2;
+    }
+    transform: translate3d(100px * $scale, 0, 0);
+  }
+  
+  &__original {
+    a {
+      color: #ea4c89;
+    }
+    transform: translate3d(0, 100px * $scale, 0);
+  }
+  
+  &__button {
+    width: 25px * $scale;
+    height: 25px * $scale;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    font-size: 15px * $scale;
+    line-height: 25px * $scale;    
+    
+    &--visible {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      cursor: pointer;
+      &:hover {
+        background-color: white;
+        box-shadow: 0 0 5px * $scale white;
+      }
+    }
+  }
+  
+  &__restart-icon {
+    flex-shrink: 0;
+    width: 15px * $scale;
+    height: 15px * $scale;
+    fill: $bg-color;
+  }
+}
+
+.no-animation {
+  opacity: 0;
+  transition: none!important;
+}

@@ -1,0 +1,751 @@
+// Template includes Frame4. 
+// See https://codepen.io/jcoulterdesign/pen/da7a8632485e8bcee7c8e668300b0b00
+// Nunito included
+
+// Variables
+
+$appFontFamily: 'nunito';
+$appWidth: 332px;
+$appHeight: 560px;
+$appBG: white;
+$appRadius: 5px;
+$appShadow: 0px 2px 10px rgba(79, 95, 90, 0.39);
+$appPadding: 14px;
+
+$columnOffset: 160px;
+$columnWidth: 50%;
+
+$movieFontSize: 9px;
+$moviePosterHeight: 130px;
+
+$posterEndHeight: 200px;
+
+$movieScaleTo: 0.5;
+$movieBlurTo: 10px;
+
+$moveTitleTop: -70px;
+
+$globalEasing: cubic-bezier(0.8,-0.01, 0.21, 1);
+$globalTransitions: all 1s #{$globalEasing};
+$globalPerspective: 800px;
+
+$grey: #2b2929;
+$lightGrey: #6e6d6d;
+$darkGrey: #3a3838;
+$red: #d0021b;
+
+// Placeholders
+
+%center {
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+
+// Styles 
+
+body {
+	input {
+		display: none;
+	}
+
+	& .app {
+		@extend %center;
+
+		width: $appWidth;
+		height: $appHeight;
+		background: $appBG;
+		border-radius: $appRadius;
+		box-shadow: $appShadow;
+		font-family: $appFontFamily;
+		overflow: hidden;
+
+		&_inner {
+			padding: $appPadding;
+			padding-top: 75px + $appPadding;
+
+			&__header {
+				border-top-left-radius: $appRadius;
+				border-top-right-radius: $appRadius;
+				overflow: hidden;
+				position: absolute;
+				left:0;
+				top: 0;
+			}
+
+			&__movies {
+				& .click {
+					animation: pulse 1s infinite;
+					width: ($appWidth / 2) - ($appPadding * 1.5);
+					z-index: 2;
+					cursor: pointer;					
+				}
+
+				& .none {
+					width: ($appWidth / 2) - ($appPadding * 1.5);
+					position: absolute;
+				}
+
+				%movie {
+					transform: scale($movieScaleTo);
+					-webkit-filter: blur($movieBlurTo);
+					opacity: 0;
+				}
+
+				input[type="checkbox"]#scene1:checked {
+					& + .column {
+						.movie.none {
+							@extend %movie;
+
+							top: 199px; // Make dynamic
+						}
+
+						.movie.click {
+							transition: $globalTransitions;
+							width: $appWidth - ($appPadding * 2);
+							position: absolute;
+							z-index: 3;
+							animation: none;
+
+							& .movie_poster {
+								height: $posterEndHeight;
+								i {
+									opacity: 1;
+								}
+							}
+
+							& .movie_title {
+								position: relative;
+								top: 0;
+
+								h3 {
+									transition: height .4s $globalEasing, opacity 1s .2s $globalEasing, top 1s .2s $globalEasing;
+									height: 10px;
+									opacity: 1;
+									top: 0;
+								}
+							}
+						}
+
+						& + .column {
+							pointer-events: none;
+
+							& .movie {
+								@extend %movie;
+
+								pointer-events: none;
+							}
+
+							& + .bookings {
+								opacity: 1;
+								transform: scale(1);
+							}
+						}
+					}
+				}
+
+				input[type="checkbox"]#scene2:checked + input {
+					& + .column {
+						label {
+							pointer-events: none;	
+						}
+
+						.movie.click {
+							height: $posterEndHeight;
+
+							& .movie_title {
+								transform: translateY($moveTitleTop);
+								transition: $globalTransitions;
+								position: relative;
+								opacity: 0;
+							}
+
+							& .movie_poster {
+								border-radius: $appRadius;
+								transition: top 1s 0s $globalEasing, transform 1s 1.3s $globalEasing, border-top 1s 1.3s $globalEasing, box-shadow 1s 1.3s $globalEasing;
+								position: relative;
+								width: 100%;
+								top: 30px;
+								z-index: 2;
+								transform: rotateX(-74deg) scale(.7);
+								box-shadow: 0px 110px 290px 0px rgba(0, 0, 0, 0.29);
+								transform-origin: 50%;
+
+								img {
+									opacity: 1;
+								}
+
+								i {
+									opacity: 0;
+								}
+							}
+						}
+
+						& + .column {
+							& + .bookings {
+								animation: none;
+								pointer-events: none;
+
+								& .bookings_top {
+									border-radius: $appRadius;
+									position: relative;
+									top: 54px;
+
+									&__left {
+										h4 {
+											opacity: 0;
+										}
+
+										h5, h6 {
+											opacity: 1;
+										}
+									}
+
+									&__right {
+										opacity: 0;
+									}
+								}
+
+								& + .block {
+									pointer-events: auto;
+
+									.wrap {
+										transform: rotateX(0deg) scale(1);
+										opacity: 1;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				input[type="checkbox"]#scene3:checked + input + input {
+					& + .column {
+						.movie.click {
+							& .movie_poster {
+								transition: $globalTransitions, box-shadow .2s 0s;
+								transform: rotateX(0deg) scale(1) translateX(-90px) translateY(40px);
+								box-shadow: 0px 110px 290px 0px rgba(0, 0, 0, 0);
+								border-top: 0;
+								-webkit-filter: blur(5px);
+							}
+						}
+
+						& + .column {
+							& + .bookings {
+								pointer-events: none;
+
+								& +.block {
+									pointer-events: none;
+
+									.wrap {
+										transition: $globalTransitions, opacity .9s;
+										transform: rotateX(80deg) rotatez(-8deg) scale(1.7) translateX(-190px) translateY(261px);
+										opacity: 0;
+									}
+
+									& +.seats {
+										pointer-events: auto;
+										opacity: 1;
+										top: 260px;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				input[type="checkbox"]#scene4:checked + input + input + input {
+					& + .column {
+						.movie.click {
+							& .movie_poster {
+								transition: $globalTransitions;
+								transform: rotateX(0deg) scale(0.5) translateX(-90px) translateY(40px);
+								opacity: 0;
+							}
+						}
+						& + .column {
+							& + .bookings {
+								bottom: 44px;
+								oapcity: 0;
+
+								& +.block {
+									& +.seats {
+										transition: $globalTransitions;
+										transform: scale(0.5);
+										opacity: 0;
+										pointer-events: none;
+
+										& +.confirm {
+											opacity: 1;
+
+											.confirm_block,
+											.confirm_id {
+												transform: translateY(0px);
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			& .column {
+				width: $columnWidth;
+				float: left;
+				transition: all 1s $globalEasing;
+				animation: intro 1s .2s forwards;
+				opacity: 0;
+				position: relative;
+				top: 0;
+
+				&.left {
+					padding-right: $appPadding / 2;
+				}
+
+				&.right {
+					padding-left: $appPadding / 2;
+					transform: translateY($columnOffset);
+					width: calc(50% - #{$appPadding});
+					position: absolute;
+					left: 50%;
+					z-index: 1;
+				}
+
+				& .movie {
+					border-radius: $appRadius;
+					margin-bottom: $appPadding;
+					transition: all 1s $globalEasing;
+					perspective: $globalPerspective;
+
+					&_poster {
+						height: $moviePosterHeight;
+						border-top-left-radius: $appRadius;
+						border-top-right-radius: $appRadius;
+						transition: all 1s cubic-bezier(0.8,-0.01, 0.21, 1), background-position-x 1.2s .1s cubic-bezier(0.8,-0.01, 0.21, 1);
+						background-size: auto 240px !important;
+						background-position-x: -140px !important;
+						top: 0px;
+						overflow: hidden;
+
+						img {
+							border-radius: $appRadius;
+							width: 100%;
+							opacity: 0;
+							transition: all 1s;
+						}
+
+						i {
+							@extend %center;
+
+							transition: $globalTransitions;
+							text-align: center;
+							color: #d0021b;
+							opacity: 0;
+							font-size: 50px;
+							top: 104px;
+						}
+
+						&.hateful {
+							background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/h8preview.jpg');
+						}
+
+						&.martian {
+							background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/martianPreview.jpg');
+						}
+
+						&.break {
+							background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pbPreview.jpg');
+						}
+
+						&.furious {
+							background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/f7Preview.jpg');
+						}
+					}
+
+					&_title {
+						padding: $appPadding;
+						border-bottom-left-radius: $appRadius;
+						border-bottom-right-radius: $appRadius;
+						background: $grey;
+						text-align: center;
+						text-transform: uppercase;
+
+						h2 {
+							font-size: $movieFontSize;
+							color: white;
+						}
+
+						h3 {
+							font-size: $movieFontSize - 2;
+							transition: height .4s .4s $globalEasing, opacity 1s $globalEasing, top 1s $globalEasing;
+							height: 0;
+							opacity: 0;
+							overflow: hidden;
+							position: relative;
+							top: -6px;
+							margin: 0;
+							color: #6e6d6d;
+						}
+					}
+				}
+			}
+
+			& .bookings {
+				transition: $globalTransitions;
+				bottom: $appPadding;
+				width: $appWidth - ($appPadding * 2);
+				z-index: -1;
+				position: absolute;
+				border-radius: $appRadius;
+				text-transform: uppercase;
+				transform-origin: 0 -200px;
+				transform: scale(0);
+				cursor: pointer;
+				opacity: 0;
+				animation: pulse 1s infinite;
+
+				&_top {
+					transition: $globalTransitions;
+					border-top-left-radius: $appRadius;
+					border-top-right-radius: $appRadius;
+					cursor: pointer;
+					overflow: hidden;
+					background: #2b2929;
+					color: white;
+					padding: 21px 16px;
+					position: relative;
+					top: 0px;
+
+					&__left {
+						text-align: left;
+						width: 50%;
+						float: left;
+
+						h4 {
+							transition: $globalTransitions;
+						}
+
+						h5, h6 {
+							transition: $globalTransitions;
+							margin: 0;
+							top: 16px;
+							position: absolute;
+							opacity: 0;
+						}
+
+						h6 {
+							top:30px;
+						}
+					}
+
+					&__right {
+						transition: $globalTransitions;
+						width: 50%;
+						float: right;
+						color: #6e6d6d;
+						opacity: 1;
+						text-align: right;
+
+						i {
+							font-size: 9px;
+							margin-left: 3px;
+							position: relative;
+							top: -1px;
+						}
+					}
+
+					h4, h5 {
+						font-size: 12px;
+						margin: 0;
+						transition: all 1s cubic-bezier(0.8,-0.01, 0.21, 1);
+					}
+
+				}
+				&_bottom {
+					background: $red;
+					border-bottom-left-radius: $appRadius;
+					border-bottom-right-radius: $appRadius;
+					overflow: hidden;
+					cursor: pointer;
+					color: white;
+
+
+					& div {
+						float: left;
+						width: 25%;
+						text-align: center;
+						font-size: 10px;
+						padding: 20px 16px;
+					}
+				}
+			}
+
+			& .block {
+				position: absolute;
+				bottom: 180px;
+				width: 100%;
+				perspective: 800px;
+				pointer-events: none;
+				transform: rotatex(40deg);
+
+				.wrap {
+					transition: all 1s 1.3s $globalEasing;
+					transform: rotateX(70deg) scale(2);
+					transform-origin: 50% -60px;
+					opacity: 0;
+					cursor: pointer;
+				}
+
+				&_section {
+					text-align: center;
+					color: white;
+					overflow: hidden;
+					font-size: 11px;
+					clear: left;
+					cursor: pointer;
+					
+					&:nth-of-type(2) {
+						padding: $appPadding 0;
+						div {
+							&:nth-of-type(3) {
+								animation: pulse 1s infinite;
+							}
+						}
+					}
+
+					div {
+						background: $red;
+						border-radius: $appRadius;
+						float: left;
+						padding: 20px;
+						
+					}
+
+					&__mid {
+						width: 176px;
+					}
+
+					&__left {
+						margin-right: $appPadding;
+					}
+
+					&__right {
+						margin-left: $appPadding;
+					}
+
+					&__left, &__right {
+						width: 50px;
+					}
+				}
+			}
+
+			& .seats {
+				opacity: 0;
+				transition: all 1s .4s;
+				position: absolute;
+				z-index: 3;
+				width:100%;
+				height: 120px;
+				left: 0;
+				cursor: pointer;
+				pointer-events: none;
+				top: 280px;
+
+				&_bar {
+					background: $darkGrey;
+					border-bottom: 8px solid darken($darkGrey, 10);
+					cursor: pointer;
+					width:100%;
+					height: 40px;
+					position: absolute;
+					left: 0;		
+					bottom: 0;
+				}
+
+				&_inner {
+					position: absolute;
+					width: 100%;
+					transform: translateY(30px) translateX(17px);
+
+					%seatPart {
+						background: $red;
+						display: block;
+						content: '';
+						position: absolute;
+						width: 40px;
+						height: 40px;
+						border-radius: 4px;
+						top:-20px;
+						transform: translateX(-10px);
+					}
+
+					&__seat {
+						cursor: pointer;
+						width: 60px;
+						float: left;
+						margin-right: 20px;
+						padding: 20px;
+						border-radius: 4px;
+						background: $red;
+						text-align: center;
+						color: white;
+						
+						&:nth-of-type(3) {
+							animation: pulse 1s infinite;
+						}
+
+						&::before {
+							@extend %seatPart;
+						}
+
+						&::after {
+							@extend %seatPart;
+
+							background: darken($darkGrey, 10) !important;
+							top: 30px !important;
+							z-index: -1;
+						}
+					}
+				}
+			}
+
+			%block {
+				border-radius: $appRadius;
+				background: $grey;
+				padding: $appPadding;
+				margin-bottom: $appPadding;
+				color: white;
+				text-align: center;
+				text-transform: uppercase;
+				clear: both;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			& .confirm {
+				transition: $globalTransitions;
+				width:  $appWidth - ($appPadding * 2);
+				pointer-events: none;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				z-index: 4;
+				padding-top: 90px;
+
+				h4, h5, h6, span {
+					margin: 0;
+				}
+
+				h5 {
+					color: $lightGrey;
+					font-size: 10px;
+				}
+
+				&_block {
+					@extend %block;
+
+					&.title {
+						transform: translateY(200px);
+						transition: $globalTransitions;
+					}
+
+					&.summary {
+						transform: translateY(150px);
+						transition: $globalTransitions;
+					}
+
+					h6 {
+						font-size: 13px;
+					}
+
+					&__left,
+					&__right {
+						float: left;
+						width: 50%;
+					}
+				}
+
+				&_id {
+					transition: $globalTransitions;
+					transform: translateY(100px);
+
+					&__top {
+						@extend %block;
+
+						margin-bottom: 0;
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+
+						h6 {
+							font-size: 21px;
+						}
+					}
+
+					&__bottom {
+						@extend %block;
+
+						background: $red;
+						padding: $appPadding;
+						border-top-right-radius: 0;
+						border-top-left-radius: 0;
+						padding: 52px 0px;
+
+						span {
+							clear: left;
+							font-size: 12px;
+							line-height: 62px;
+						}
+
+						img {
+							margin-bottom:40px;
+							display: block;
+							margin: 0 auto;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes intro {
+	from {
+		opacity: 0;
+		top: 200px;
+
+	}
+	to {
+		opacity: 1;
+		top: 0;
+	}
+}
+
+@keyframes flash {
+	0% {
+		background: #d0021b;
+	}
+	
+	50% {
+		background: #d03302;
+	}
+	
+	100% {
+		background: #d0021b;
+	}
+}
+
+@keyframes pulse {
+	from {
+		box-shadow: 0 0 0 0px rgba(0, 0, 0, 1);
+	}
+	
+	to {
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+}

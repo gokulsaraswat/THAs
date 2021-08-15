@@ -1,0 +1,100 @@
+-# Pen content
+
+.app
+	.app_inner
+		.app_inner__header
+			%img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/movieAppHeader.png'}
+		.app_inner__movies
+			%input#scene4{:type => 'checkbox'}
+			%input#scene3{:type => 'checkbox'}
+			%input#scene2{:type => 'checkbox'}
+			%input#scene1{:type => 'checkbox'}
+			.column.left
+				%label{:for => 'scene1'}
+					.movie.click
+						.movie_poster.hateful
+							%i.fa.fa-play
+							%img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/h8Gif.gif'}
+						.movie_title
+							%h2 The Hateful Eight
+							%h3 2H35 - Tarantino
+				.movie.none
+					.movie_poster.martian
+					.movie_title
+						%h2 The Martian
+			.column.right
+				.movie
+					.movie_poster.break
+					.movie_title
+						%h2 Point Break
+				.movie
+					.movie_poster.furious
+					.movie_title
+						%h2 Furious 7
+			.bookings
+				%label{:for => 'scene2'}
+					.bookings_top
+						.bookings_top__left
+							%h4 Select showtime
+							%h5 The Hateful Eight
+							%h6 7:00 pm
+						.bookings_top__right
+							%h5 
+								Sun, Jan 10 
+								%i.fa.fa-chevron-down
+					.bookings_bottom
+						.bookings_bottom__time
+							12:00 pm
+						.bookings_bottom__time
+							3:30 pm
+						.bookings_bottom__time
+							7:00 pm
+						.bookings_bottom__time
+							10:30 pm
+			.block
+				%label{:for => 'scene3'}
+					.wrap
+						-(1..2).each do
+							.block_section
+								.block_section__left
+									$4
+								.block_section__mid
+									$9
+								.block_section__right
+									$4
+			.seats
+				%label{:for => 'scene4'}
+					.seats_bar
+					.seats_inner
+						.seats_inner__seat
+							1
+						.seats_inner__seat
+							2
+						.seats_inner__seat
+							3
+						.seats_inner__seat
+							4+
+			.confirm
+				.confirm_block.title
+					%h4 The Hateful Eight
+				.confirm_block.summary
+					.confirm_block__left
+						%h5 Sun, Jan 10
+						%h6 7:00 pm
+					.confirm_block__right
+						%h5 Section 6
+						%h6 2 seats
+				.confirm_id
+					.confirm_id__top
+						%h5 total
+						%h6 $8
+					.confirm_id__bottom
+						%img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fingerPrint.png'}
+						%span Touch id to confirm
+-# Bottom bar
+
+._pen_title Pure CSS 3D Movie Booking App UI
+._video_id yWXS-xuVGcM
+._pen_id 48112071604bdba85853a96c8958abcc
+
+[[[https://codepen.io/jcoulterdesign/pen/01b9068757aee968ce90c9e8b6782c41]]]

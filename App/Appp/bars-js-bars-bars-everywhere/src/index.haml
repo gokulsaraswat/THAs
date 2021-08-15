@@ -1,0 +1,191 @@
+%section.hero
+  .hero_inner
+    .hero_inner__brand
+      %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/barslogo.png'}
+      .logo_bars
+        .one
+        .two
+        .three
+        .four
+        .five
+    .hero_inner_sub
+      %h2 Bars, bars everywhere!
+      %h3 A simple, easy to use javascript plugin for making statistical bars. Oh, they're responsive too!
+      %h4 Compatible with Chrome, FF, Opera, Safari, IE 10+
+      .love Created by <a href="https://twitter.com/jamiecoulter89" target ="_blank">Jamie Coulter</a>
+    .hero_inner_cta
+      %a.b{:href => 'https://www.jamiecoulter.co.uk/dev/bars.zip'} Get Bars.js
+      %a.b.scroll{:href => '#'} Examples
+%section.bar.top
+  %h2 Bar styles
+  %h3 Pre-built bar themes, more to come soon!
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Thin Bars
+        %p .bar_group__bar.thin
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin{:value => '230'}
+        .bar_group__bar.thin{:value => '130'}
+        .bar_group__bar.thin{:value => '160'}
+        .bar_group__bar.thin{:value => '340'}
+        .bar_group__bar.thin{:value => '290'}
+    .clear
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Thick Bars
+        %p .bar_group__bar.thick
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thick{:value => '230'}
+        .bar_group__bar.thick{:value => '130'}
+        .bar_group__bar.thick{:value => '160'}
+        .bar_group__bar.thick{:value => '340'}
+        .bar_group__bar.thick{:value => '290'}
+    .clear
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Bars with no background
+        %p .bar_group__bar.n_bg
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin.n_bg{:value => '230'}
+        .bar_group__bar.thin.n_bg{:value => '130'}
+        .bar_group__bar.thin.n_bg{:value => '160'}
+        .bar_group__bar.thin.n_bg{:value => '340'}
+        .bar_group__bar.thin.n_bg{:value => '290'}
+    .clear
+%section.alt
+  %section.bar
+    %h2 Value options
+    %h3 Setting maximum values
+    %section.wrap
+      .wrap_left
+        .bar_description
+          %h4 Default max
+          %p By default, Bars.js finds the highest value in a bar group and bases the comparison on that
+      .wrap_right
+        .bar_group
+          .bar_group__bar.thin{:value => '230'}
+          .bar_group__bar.thin{:value => '130'}
+          .bar_group__bar.thin{:value => '160'}
+          .bar_group__bar.thin{:value => '340'}
+          .bar_group__bar.thin{:value => '290'}
+    .clear
+    %section.wrap
+      .wrap_left
+        .bar_description
+          %h4 Defined max of 500
+          %p If you want to change the maximum of the bar the group add {:max => 'Your max'} to the bar group element
+      .wrap_right
+        .bar_group{:max => '500'}
+          .bar_group__bar.thin{:value => '230'}
+          .bar_group__bar.thin{:value => '130'}
+          .bar_group__bar.thin{:value => '160'}
+          .bar_group__bar.thin{:value => '340'}
+          .bar_group__bar.thin{:value => '290'}
+    .clear
+%section.bar
+  %h2 Display option
+  %h3 Show max/min values, tooltips and more.
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Show data labels
+        %p :label => 'Hunger'
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin{:value => '230',:label => 'Oranges'}
+        .bar_group__bar.thin{:value => '130',:label => 'Apples'}
+        .bar_group__bar.thin{:value => '160',:label => 'Grapes'}
+        .bar_group__bar.thin{:value => '340',:label => 'Strawberrys'}
+        .bar_group__bar.thin{:value => '290',:label => 'Pineapples'}
+    .clear
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Show values
+        %p :show_values => 'true'
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin{:value => '343',:label => 'jQuery',:show_values => 'true'}
+        .bar_group__bar.thin{:value => '235',:label => 'AJAX',:show_values => 'true'}
+        .bar_group__bar.thin{:value => '675',:label => 'PHP',:show_values => 'true'}
+        .bar_group__bar.thin{:value => '456',:label => 'SASS',:show_values => 'true'}
+        .bar_group__bar.thin{:value => '245',:label => 'HAML',:show_values => 'true'}
+    .clear
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Custom unit of measure
+        %p :unit => '% etc'
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin{:value => '343',:label => 'Vuaxhall Corsa',:show_values => 'true',:unit => 'mpg'}
+        .bar_group__bar.thin{:value => '235',:label => 'Toyota Celica',:show_values => 'true',:unit => 'mpg'}
+        .bar_group__bar.thin{:value => '675',:label => 'Landrover',:show_values => 'true',:unit => 'mpg'}
+        .bar_group__bar.thin{:value => '456',:label => 'Peagueot 106',:show_values => 'true',:unit => 'mpg'}
+        .bar_group__bar.thin{:value => '245',:label => 'Lawnmower',:show_values => 'true',:unit => 'mpg'}
+    .clear
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Show tooltips
+        %p :tooltip => 'true'
+    .wrap_right
+      .bar_group
+        .bar_group__bar.thin{:value => '343',:label => 'jQuery',:show_values => 'true',:tooltip => 'true'}
+        .bar_group__bar.thin{:value => '235',:label => 'AJAX',:show_values => 'true',:tooltip => 'true'}
+        .bar_group__bar.thin{:value => '675',:label => 'PHP',:show_values => 'true',:tooltip => 'true'}
+        .bar_group__bar.thin{:value => '456',:label => 'SASS',:show_values => 'true',:tooltip => 'true'}
+        .bar_group__bar.thin{:value => '245',:label => 'HAML',:show_values => 'true',:tooltip => 'true'}
+    .clear
+%section.alt
+  %section.bar
+    %h2 Colors
+    %h3 Setting color schemes
+    %section.wrap
+      .wrap_left
+        .bar_description
+          %h4 Gradient bars
+          %p .bar_group__bar.thin.gradient
+      .wrap_right
+        .bar_group
+          .bar_group__bar.thin.gradient{:value => '230'}
+          .bar_group__bar.thin.gradient{:value => '130'}
+          .bar_group__bar.thin.gradient{:value => '160'}
+          .bar_group__bar.thin.gradient{:value => '340'}
+          .bar_group__bar.thin.gradient{:value => '290'}
+    .clear
+    %section.wrap
+      .wrap_left
+        .bar_description
+          %h4 Custom colors
+          %p Assign a new css selector
+      .wrap_right
+        .bar_group{:max => '500'}
+          .bar_group__bar.thin.c_red{:value => '230'}
+          .bar_group__bar.thin.c_green{:value => '130'}
+          .bar_group__bar.thin.c_blue{:value => '160'}
+          .bar_group__bar.thin.c_pink{:value => '340'}
+          .bar_group__bar.thin.c_brown{:value => '290'}
+    .clear
+%section.bar
+  %h2 Effects
+  %h3 Snazzy effects for extra swag
+  %section.wrap
+    .wrap_left
+      .bar_description
+        %h4 Elastic
+        %p .elastic
+    .wrap_right
+      .bar_group{:max => '600'}
+        .bar_group__bar.thin.elastic{:value => '230',:label => 'Oranges'}
+        .bar_group__bar.thin.elastic{:value => '130',:label => 'Apples'}
+        .bar_group__bar.thin.elastic{:value => '160',:label => 'Grapes'}
+        .bar_group__bar.thin.elastic{:value => '340',:label => 'Strawberrys'}
+        .bar_group__bar.thin.elastic{:value => '290',:label => 'Pineapples'}
+    .clear

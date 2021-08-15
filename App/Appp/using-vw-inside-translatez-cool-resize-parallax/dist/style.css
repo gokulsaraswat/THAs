@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: #feae1c;
+  perspective: 800px;
+}
+body div {
+  transform-style: preserve-3d;
+}
+
+.m {
+  color: white;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.w {
+  height: 100vh;
+  position: absolute;
+  transform: translateZ(calc((-150vw) - 1000px));
+  width: 100%;
+}
+.w .s {
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/leafframe.png");
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 460px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.w .s:nth-of-type(1) {
+  transform: translateY(-50%) translateZ(100px) rotate(100deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(2) {
+  transform: translateY(-50%) translateZ(200px) rotate(200deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(3) {
+  transform: translateY(-50%) translateZ(300px) rotate(300deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(4) {
+  transform: translateY(-50%) translateZ(400px) rotate(400deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(5) {
+  transform: translateY(-50%) translateZ(500px) rotate(500deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(6) {
+  transform: translateY(-50%) translateZ(600px) rotate(600deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(7) {
+  transform: translateY(-50%) translateZ(700px) rotate(700deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(8) {
+  transform: translateY(-50%) translateZ(800px) rotate(800deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(9) {
+  transform: translateY(-50%) translateZ(900px) rotate(900deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(10) {
+  transform: translateY(-50%) translateZ(1000px) rotate(1000deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(11) {
+  transform: translateY(-50%) translateZ(1100px) rotate(1100deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(12) {
+  transform: translateY(-50%) translateZ(1200px) rotate(1200deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(13) {
+  transform: translateY(-50%) translateZ(1300px) rotate(1300deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(14) {
+  transform: translateY(-50%) translateZ(1400px) rotate(1400deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(15) {
+  transform: translateY(-50%) translateZ(1500px) rotate(1500deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(16) {
+  transform: translateY(-50%) translateZ(1600px) rotate(1600deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(17) {
+  transform: translateY(-50%) translateZ(1700px) rotate(1700deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(18) {
+  transform: translateY(-50%) translateZ(1800px) rotate(1800deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(19) {
+  transform: translateY(-50%) translateZ(1900px) rotate(1900deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(20) {
+  transform: translateY(-50%) translateZ(2000px) rotate(2000deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(21) {
+  transform: translateY(-50%) translateZ(2100px) rotate(2100deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(22) {
+  transform: translateY(-50%) translateZ(2200px) rotate(2200deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(23) {
+  transform: translateY(-50%) translateZ(2300px) rotate(2300deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(24) {
+  transform: translateY(-50%) translateZ(2400px) rotate(2400deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(25) {
+  transform: translateY(-50%) translateZ(2500px) rotate(2500deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(26) {
+  transform: translateY(-50%) translateZ(2600px) rotate(2600deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(27) {
+  transform: translateY(-50%) translateZ(2700px) rotate(2700deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(28) {
+  transform: translateY(-50%) translateZ(2800px) rotate(2800deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(29) {
+  transform: translateY(-50%) translateZ(2900px) rotate(2900deg);
+  opacity: 1;
+}
+.w .s:nth-of-type(30) {
+  transform: translateY(-50%) translateZ(3000px) rotate(3000deg);
+  opacity: 1;
+}

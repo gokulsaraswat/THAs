@@ -1,0 +1,361 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700);
+*{
+  box-sizing:border-box;
+}
+body{
+  background:#3C3A46;
+  font-family: 'Nunito', sans-serif;
+  height:100vh;
+  overflow:hidden;
+  .container{
+    box-shadow: 0px 28px 40px -20px rgba(0, 0, 0, 0.33);
+    width:600px;
+    position:absolute;
+    top:50%;
+    border-radius:8px;
+    transform:translateY(-50%);
+    left:0;
+    margin:auto;
+    right:0;
+    &_inner{
+      border-radius: 12px;
+      &__list{
+        border-radius:8px;
+        overflow:hidden;
+        .list_item{
+          @for $i from 1 through 10{
+            &:nth-of-type(#{$i}) label .list_item__image,&:nth-of-type(#{$i}) label .list_item__placeholder{
+              top:57px * $i - 42;
+              left:158px;
+            }
+          }
+          &:nth-of-type(1) label .list_item__bg{
+            background:url('https://latimesherocomplex.files.wordpress.com/2015/04/daredevil.jpg');
+          }
+          &:nth-of-type(2) label .list_item__bg{
+            background:url('http://unspoiledpodcasts.com/wp-content/uploads/2014/09/Breaking-Bad.jpg');
+          }
+          &:nth-of-type(3) label .list_item__bg{
+            background:url('http://images.cwtv.com/images/shows/og-image/the-flash.png');
+          }
+          &:nth-of-type(4) label .list_item__bg{
+            background:url('http://flicksided.com/files/2015/05/lost-cast-abc.jpg');
+          }
+          &:nth-of-type(5) label .list_item__bg{
+            background:url('http://www.guusarts.com/wp-content/uploads/2015/04/b28117ea-41bc-47fe-93ef-f82a1f31717b.jpg');
+          }
+          &:nth-of-type(6) label .list_item__bg{
+            background:url('https://assets1.ignimgs.com/2015/06/03/poster-prison-break-season-2jpg-e3aaf9_1280w.jpg');
+          }
+          &:nth-of-type(1) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dd_small.png');
+          }
+          &:nth-of-type(2) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bb_small.png');
+          }
+          &:nth-of-type(3) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tf_small.png');
+          }
+          &:nth-of-type(4) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/l_small.png');
+          }
+          &:nth-of-type(5) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/d_small.png');
+          }
+          &:nth-of-type(6) label .list_item__image{
+            background:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pb_small.png');
+          }
+          &__bg{
+            position: absolute;
+            background-size:cover !important;
+            top: -100%;
+            left: -100%;
+            opacity:0;
+            transition:all .5s;
+            width: 1920px;
+            z-index: -1;
+            height: 1200px;
+          }
+          &__image,&__placeholder{
+            width:26px;
+            height:26px;
+            background-size: 102% !important;
+            position:absolute;
+            left:0;
+            z-index:2;
+            top:0;
+            border-radius:2px;
+            float:right;
+            transition:all 1s .1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+          }
+          &__placeholder{
+            background:#31A993;
+          }
+          label{
+            padding:20px;
+            width: 200px;
+            font-weight:normal;
+            cursor:pointer;
+            color:#A5B9C7;
+            font-size:13px;
+            display:block;
+            background: #536F84;
+            transition:all .2s;
+            &:hover{
+              background:#4C677B;
+              .icon{
+                opacity:1;
+                left:20px;
+              }
+              span{
+                padding-left:20px;
+              }
+            }
+          }
+          input[type="radio"]{
+            display:none;
+          }
+          input[type="radio"]:checked + label .list_item__feature{
+            display:block;
+          }
+          input[type="radio"]:checked + label .list_item__bg{
+            opacity:.4;
+          }
+          input[type="radio"]:checked + label .list_item__image{
+            position:absolute;
+            top:20px;
+            left:220px;
+            width:80px;
+            height:80px;
+          }
+          input[type="radio"]:checked + label{
+            background: -moz-linear-gradient(left, #1DB99D 0%, #32C5AB 100%);
+            background: linear-gradient(left, #1DB99D 0%, #32C5AB 100%);
+            color:white;
+            .icon{
+              opacity:1;
+              left:20px;
+            }
+            span{
+              padding-left:20px;
+            }
+          }
+          input[type="radio"]:checked + label{
+            .ion-android-star{
+              @for $i from 1 through 10{
+                &:nth-of-type(#{$i}){
+                  animation:pop .2s .15s + $i/20 forwards;
+                }
+              }
+            }
+            h1{
+              animation:pop .2s .1s forwards;
+            }
+            h2{
+              animation:pop .2s .15s forwards;
+            }
+            p{
+              animation:pop .6s .5s forwards;
+            }
+            .watch{
+              animation:poptwo .6s .6s forwards;
+            }
+          }
+          .icon{
+            position:absolute;
+            left:0px;
+            font-size:14px;
+            opacity:0;
+          }
+          span,.icon{
+            transition:padding .2s,left .2s, opacity .2s;
+          }
+          &__feature{
+            display:none;
+            width:400px;
+            overflow:hidden;
+            position:absolute;
+            border-top-right-radius:8px;
+            border-bottom-right-radius:8px;
+            right:0;
+            top:0;
+            height:100%;
+            .gif{
+              position: absolute;
+            }
+            .gif_overlay{
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.69);
+            }
+            .information{
+              z-index:2;
+              position:relative;
+              left:120px;
+              h1,h2,p{
+                opacity:0;
+                position:relative;
+                top:7px;
+              }
+              h1{
+                font-size: 16px;
+                margin: 27px 0px 0px 0px;
+              }
+              h2{
+                font-size: 12px;
+                margin: 0px 0px 10px 0px;
+              }
+              .ion-android-star{
+                float:left;
+                color: #EAA739;
+                opacity:0;
+                position:relative;
+                top:4px;
+                margin-right:3px;
+              }
+            }
+            .watch{
+              position:absolute;
+              bottom:10px;
+              left:20px;
+              opacity:0;
+              padding:10px 20px;
+              border-radius:4px;
+              transition:all .2s;
+              border:2px solid white;
+              &:hover{
+                color:#536F84;
+                background:white;
+              }
+              .ion-android-star{
+                float:left;
+                margin-right:10px;
+              }
+            }
+            .description{
+              z-index:2;
+              position:relative;
+              left:20px;
+              top:20px;
+              p{
+                width: 370px;
+                opacity:0;
+                position:relative;
+                top:7px;
+                clear:both;
+                font-size: 11px;
+                line-height: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pop{
+  0%{}
+  100%{top:0;opacity:1;}
+}
+
+@keyframes poptwo{
+  0%{}
+  100%{bottom:20px;opacity:1;}
+}
+
+// Responsive for @d__bailey 
+
+@media (max-width: 624px) {
+  body .container_inner__list .list_item label{
+    width: 100%;
+    padding: 12px 20px;
+  }
+  .container{
+    width:100% !important;
+    padding:20px;
+  }
+  body .container_inner__list .list_item__feature {
+    width: 100%;
+    top: 246px;
+    padding: 20px;
+    left: -10px;
+    right: 30px;
+    height: 138px;
+    border-radius: 0px;
+  }
+  body .container {
+    box-shadow:none;
+  }
+  body .container_inner__list {
+    border-radius: 0px;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    overflow: hidden;
+  }
+  body .container_inner__list .list_item__feature .gif_overlay {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.69);
+  }
+  body .container_inner__list .list_item__feature .watch {
+    position: absolute;
+    bottom: auto;
+    top: 60px;
+    left: auto;
+    right: 20px;
+    height: 42px;
+    opacity: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    border: 2px solid white;
+  }
+  .container_inner__list .list_item__feature .description p {
+    width: 100% !important;
+    display:none;
+  }
+  body .container_inner__list .list_item input[type="radio"]:checked + label .list_item__image {
+position: absolute;
+    top: 285px !important;
+    left: 31px;
+    width: 80px;
+    height: 80px;
+  }
+  .list_item__placeholder {
+    right: 40px !important;
+    left: auto !important;
+  }
+  body .container_inner__list .list_item:nth-of-type(1) label .list_item__image,body .container_inner__list .list_item:nth-of-type(2) label .list_item__image,body .container_inner__list .list_item:nth-of-type(3) label .list_item__image,body .container_inner__list .list_item:nth-of-type(4) label .list_item__image,body .container_inner__list .list_item:nth-of-type(5) label .list_item__image,body .container_inner__list .list_item:nth-of-type(6) label .list_item__image {
+    right: 40px;
+    left: auto;
+  }
+  input[type="radio"]:checked + label{
+    .icon{
+      left:35px !important;
+    }
+  }
+  body .container_inner__list .list_item label:hover .icon {
+    opacity: 1;
+    left: 35px;
+  }
+
+  .list_item{
+    @for $i from 1 through 10{
+      &:nth-of-type(#{$i}) label .list_item__image,&:nth-of-type(#{$i}) label .list_item__placeholder{
+        top:(40px * $i) - 8 !important
+      }
+    }
+  }
+}
+
+@media (max-width: 424px) {
+  .watch{
+    display:none;
+  }
+}

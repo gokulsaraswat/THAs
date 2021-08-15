@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Contact Info &amp;  Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://fonts.gstatic.com'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!--design inspiration kompava.sk-->
+<article class="stores-map">
+      <div class="stores-map__inner container">
+        <div class="row stores-map__header justify-content-center">
+          <div class="col-xl-12">
+            <h2 class="map-header__title"><strong>Predajné miesta</strong> Názov</h2>
+            <div class="map-header__store-section">
+              <select class="form-select form-select-sm mb-2">
+                <option selected value="bratislava">Bratislava</option>
+                <option value="zilina">Žilina</option>
+                <option value="kosice">Košice</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="store_bratislava" class="stores-map__main">
+        <div class="stores js-stores">
+          <div class="map-wrapper">
+            <img src="https://images.unsplash.com/photo-1581922819941-6ab31ab79afc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="Bratislava" class="map">
+            <div class="map-point map-point-bratislava">
+              <div class="map-point__marker"></div>
+              <div class="map-point__marker-radar"></div>
+              <div class="map-point__tooltip"><a href="#">Open in Google Maps</a></div>
+            </div>
+          </div>
+          
+          <div class="content-wrapper">
+            <div class="container">
+                <div class="row">
+                  <div class="content-store col-lg-5 col-md-7 col-sm-9 col-xs-12">
+                    <div class="content-store__inner">
+                      <h2 class="content-store__title">Podniková predajňa <br><strong>Bratislava</strong></h2>
+                      <div class="content-store__contact">
+                        <ul class="contact-list">
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-map-marker-alt"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Adresa</h4>
+                                <div class="contact__value">Uličná 22, 83005 Bratislava</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item number">
+                            <a href="tel:+421186446818" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-phone"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Telefón</h4>
+                                <div class="contact__value">+421186446818</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="mailto:nieco@nieco.com" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-envelope-open"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">E-mail</h4>
+                                <div class="contact__value">nieco@nieco.com</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-clock"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Dostupnosť v čase</h4>
+                                <div class="contact__value">Po-Pia: 7:00 - 15:30</div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul> 
+                      </div>
+
+                      <div class="content-store__more-info">
+                        <div class="opening-hours">
+                          <h4 class="opening-hours__title">Otváracie hodiny</h4>
+                          <ul class="opening-hours__days">
+                            <li><p>Pondelok</p><strong>7:00-15:30</strong></li>
+                            <li><p>Utorok</p><strong>7:00-15:30</strong></li>
+                            <li><p>Streda</p><strong>7:00-17:00</strong></li>
+                            <li><p>Štvrtok</p><strong>7:00-15:30</strong></li>
+                            <li><p>Piatok</p><strong>7:00-15:30</strong></li>
+                          </ul>
+                        </div>
+                        <div class="shop-picture">
+                          <img src="https://picsum.photos/200" width="200px" height="200px" alt="obchod Bratislava">
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="store_zilina" class="stores-map__main">
+        <div class="stores js-stores">
+          <div class="map-wrapper">
+            <img src="https://images.unsplash.com/photo-1581922819941-6ab31ab79afc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="Žilina" class="map">
+            <div class="map-point map-point-zilina">
+              <div class="map-point__marker"></div>
+              <div class="map-point__marker-radar"></div>
+              <div class="map-point__tooltip"><a href="#">Open in Google Maps</a></div>
+            </div>
+          </div>
+          
+          <div class="content-wrapper">
+            <div class="container">
+                <div class="row">
+                  <div class="content-store col-lg-5 col-md-7 col-sm-9 col-xs-12">
+                    <div class="content-store__inner">
+                      <h2 class="content-store__title">Podniková predajňa <br><strong>Žilina</strong></h2>
+                      <div class="content-store__contact">
+                        <ul class="contact-list">
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-map-marker-alt"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Adresa</h4>
+                                <div class="contact__value">Horný Val 7, 01001 Žilina</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item number">
+                            <a href="tel:+421186446818" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-phone"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Telefón</h4>
+                                <div class="contact__value">+421181817183</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="mailto:nieco@nieco.com" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-envelope-open"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">E-mail</h4>
+                                <div class="contact__value">nieco.nieco@nieco.com</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-clock"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Dostupnosť v čase</h4>
+                                <div class="contact__value">Po-Pia: 8:00 - 17:00</div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul> 
+                      </div>
+
+                      <div class="content-store__more-info">
+                        <div class="opening-hours">
+                          <h4 class="opening-hours__title">Otváracie hodiny</h4>
+                          <ul class="opening-hours__days">
+                            <li><p>Pondelok</p><strong>8:00-17:00</strong></li>
+                            <li><p>Utorok</p><strong>8:00-17:00</strong></li>
+                            <li><p>Streda</p><strong>8:00-17:00</strong></li>
+                            <li><p>Štvrtok</p><strong>8:00-17:00</strong></li>
+                            <li><p>Piatok</p><strong>8:00-17:00</strong></li>
+                          </ul>
+                        </div>
+                        <div class="shop-picture">
+                          <img src="https://picsum.photos/200" width="200px" height="200px" alt="obchod Zilina">
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="store_kosice" class="stores-map__main">
+        <div class="stores js-stores">
+          <div class="map-wrapper">
+            <img src="https://images.unsplash.com/photo-1581922819941-6ab31ab79afc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="Kosice" class="map">
+            <div class="map-point map-point-kosice">
+              <div class="map-point__marker"></div>
+              <div class="map-point__marker-radar"></div>
+              <div class="map-point__tooltip"><a href="#">Open in Google Maps</a></div>
+            </div>
+          </div>
+          
+          <div class="content-wrapper">
+            <div class="container">
+                <div class="row">
+                  <div class="content-store col-lg-5 col-md-7 col-sm-9 col-xs-12">
+                    <div class="content-store__inner">
+                      <h2 class="content-store__title">Podniková predajňa <br><strong>Košice</strong></h2>
+                      <div class="content-store__contact">
+                        <ul class="contact-list">
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-map-marker-alt"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Adresa</h4>
+                                <div class="contact__value">Jarná 433, 04011 Košice</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item number">
+                            <a href="tel:+421186446818" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-phone"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Telefón</h4>
+                                <div class="contact__value">+42118991335</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="mailto:nieco@nieco.com" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-envelope-open"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">E-mail</h4>
+                                <div class="contact__value">nieco.kosice@nieco.com</div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="contatct-list__item mail">
+                            <a href="#" class="contact-list__item__wrapper">
+                              <div class="contact__icon phone-icon"><i class="fas fa-clock"></i></div>
+                              <div class="contact__inner">
+                                <h4 class="contact__label">Dostupnosť v čase</h4>
+                                <div class="contact__value">Po-Pia: 9:00 - 17:30</div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul> 
+                      </div>
+
+                      <div class="content-store__more-info">
+                        <div class="opening-hours">
+                          <h4 class="opening-hours__title">Otváracie hodiny</h4>
+                          <ul class="opening-hours__days">
+                            <li><p>Pondelok</p><strong>9:00-17:30</strong></li>
+                            <li><p>Utorok</p><strong>9:00-17:30</strong></li>
+                            <li><p>Streda</p><strong>9:00-17:00</strong></li>
+                            <li><p>Štvrtok</p><strong>9:00-17:30</strong></li>
+                            <li><p>Piatok</p><strong>9:00-17:30</strong></li>
+                          </ul>
+                        </div>
+                        <div class="shop-picture">
+                          <img src="https://picsum.photos/200" width="200px" height="200px" alt="Kosice">
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

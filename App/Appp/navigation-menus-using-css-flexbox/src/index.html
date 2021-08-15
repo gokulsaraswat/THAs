@@ -1,0 +1,129 @@
+<header>
+  <h1>Navigation menus using CSS flexbox</h1>
+  <p>The markup for all examples illustrated below are identical as follow:</p>
+  <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Blog&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Work&quot;&gt;Work&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Resources&quot;&gt;Resources&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Meta&quot;&gt;Meta&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+  <p>The CSS code provided in each of the demo below can be toggled. They are written in the flavour of <a href="http://sass-lang.com/">Sassy CSS</a>.</p>
+</header>
+<section>
+  <h2>Scenario 1</h2>
+  <p>Equal width elements</p>
+  <nav id="sc1">
+    <ul>
+      <li><a href="#" title="Home">Home</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+      <li><a href="#" title="Work">Work</a></li>
+      <li><a href="#" title="Resources">Resources</a></li>
+      <li><a href="#" title="Meta">Meta</a></li>
+    </ul>
+  </nav>
+  <p>This is the equivalent of specifing each element to be an equal fraction of its parent's full width, i.e. each fraction is of identical size and the sum of their widths is equivalent to the parent's full width.</p>
+  <p>This effect is achieved with the help of <code>flex: 1 1 100%</code> on the flex items, which is a shorthand for:</p>
+  <pre><code>flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 100%;</code></pre>
+  <p>The property tells the browser to grow the items equally until they fill the full width of their flex parent, which is the <code>&lt;ul&gt;</code> element in this case. The <code>flex-basis</code> of 100% ensures that all items will be the same size and treated equally.</p>
+  <p class="note">Of course, this effect can be easily replicated with the good old CSS float and percentage width trick, but this will require knowing the number of children before hand, or else one will have to calculate the percentage width with JS instead.</p>
+  <a href="#" class="css-toggle">Show CSS</a>
+  <pre><code>nav {
+  & ul {
+    display: flex;
+    width: 100%;
+    & li {
+      flex: 1 1 100%;
+    }
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Scenario 2</h2>
+  <p>Proportionate, content-based width</p>
+  <nav id="sc2">
+    <ul>
+      <li><a href="#" title="Home">Home</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+      <li><a href="#" title="Work">Work</a></li>
+      <li><a href="#" title="Resources">Resources</a></li>
+      <li><a href="#" title="Meta">Meta</a></li>
+    </ul>
+  </nav>
+  <p>In other words, the width of each element will be proportionate to its relative width compared to the parent. This ensures a more balanced layout in the sense that wider menu items get more spacing</p>
+  <p>Here, we use the property <code>flex: 1 1 auto</code> on the children element. It is the shorthand of:</p>
+  <pre><code>flex-grow: 1;
+flex-shrink: 1;
+flex-basis: auto;</code></pre>
+  <p>Like the previous example, <code>flex-grow: 1</code> allows the children to grow when necessary, but on the condition that the width of each element is based on the size of its content. The latter is achieved with the help of <code>flex-basis: auto</code>.</p>
+  <a href="#" class="css-toggle">Show CSS</a>
+  <pre><code>nav {
+  & ul {
+    display: flex;
+    width: 100%;
+    & li {
+      flex-grow: 1;
+    }
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Scenario 3</h2>
+  <p>Equally spaced elements + natural width + centered within parent</p>
+  <nav id="sc3">
+    <ul>
+      <li><a href="#" title="Home">Home</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+      <li><a href="#" title="Work">Work</a></li>
+      <li><a href="#" title="Resources">Resources</a></li>
+      <li><a href="#" title="Meta">Meta</a></li>
+    </ul>
+  </nav>
+  <p>This is one of the more complicated examples that require a lot of CSS-hacking &mdash; without the flexbox specification, one has to set each item to an inline element and then justify them.</p>
+  <p>The trick here is to declare the wrapping container, <code>&lt;nav&gt;</code>, as well as the list itself, as flex displays &mdash; but we only apply the <code>justify-content: center;</code> property to the wrapping container.</p>
+  <a href="#" class="css-toggle">Show CSS</a>
+  <pre><code>nav {
+  display: flex;
+  justify-content: center;
+  & ul {
+    display: flex;
+    & a {
+      padding: 1rem 2rem;
+    }
+  }
+} </code></pre>
+</section>
+
+<section clsas="fancy">
+  <h2>Fancy example 1</h2>
+  <p>Mixing flexbox with CSS transforms</p>
+  <nav id="fun1">
+    <ul>
+      <li><a href="#" title="Home">Home</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+      <li><a href="#" title="Work">Work</a></li>
+      <li><a href="#" title="Resources">Resources</a></li>
+      <li><a href="#" title="Meta">Meta</a></li>
+    </ul>
+  </nav>
+</section>
+
+<section clsas="fancy">
+  <h2>Fancy example 2</h2>
+  <p>Mixing flexbox with CSS transforms</p>
+  <nav id="fun2">
+    <ul>
+      <li><a href="#" title="Home">Home</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+      <li><a href="#" title="Work">Work</a></li>
+      <li><a href="#" title="Resources">Resources</a></li>
+      <li><a href="#" title="Meta">Meta</a></li>
+    </ul>
+  </nav>
+</section>

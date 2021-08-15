@@ -1,0 +1,413 @@
+// ============================================================== 
+// Global Options
+// ==============================================================
+
+$bar-transition-time:1s;
+
+// ============================================================== 
+// Mixins
+// ==============================================================
+
+@mixin color($id){
+  background:adjust-hue(#E66E25,$id * 10%);
+}
+
+// ============================================================== 
+// Bar style options
+// ==============================================================
+
+// Thin bar options
+
+$thin-outer-width: 100%;
+$thin-outer-height: 4px;
+$thin-outer-radius: $thin-outer-height/2;
+$thin-outer-color: #E4E4E4;
+$thin-inner-width: 0%;
+$thin-inner-height: $thin-outer-height;
+$thin-inner-radius: $thin-outer-radius;
+$thin-inner-color: red;
+$thin-group-spacing:10px;
+
+// Thick bar options
+
+$thick-outer-width: 100%;
+$thick-outer-height: 12px;
+$thick-outer-radius: $thick-outer-height/2;
+$thick-outer-color: #E4E4E4;
+$thick-inner-width: 0%;
+$thick-inner-height: $thick-outer-height;
+$thick-inner-radius: $thick-outer-radius;
+$thick-inner-color: red;
+$thick-group-spacing:10px;
+
+// ============================================================== 
+// Placeholders
+// ==============================================================
+
+%outer{
+  display:block;
+  content:'';
+  position:absolute;
+  z-index:-1;
+}
+
+// Thin bar
+
+%thin_bar--outer{
+  @extend %outer;
+  width:$thin-outer-width;
+  height:$thin-outer-height;
+  border-radius:$thin-outer-radius;
+  background:$thin-outer-color;
+}
+
+%thin_bar--inner{
+  width:$thin-inner-width;
+  height:$thin-inner-height;
+  border-radius:$thin-inner-radius;
+  background:$thin-inner-color;
+  margin-bottom:$thin-group-spacing;
+  transition:width $bar-transition-time;
+}
+
+// Thick bar
+
+%thick_bar--outer{
+  @extend %outer;
+  width:$thick-outer-width;
+  height:$thick-outer-height;
+  border-radius:$thick-outer-radius;
+  background:$thick-outer-color;
+}
+
+%thick_bar--inner{
+  width:$thick-inner-width;
+  height:$thick-inner-height;
+  border-radius:$thick-inner-radius;
+  background:$thick-inner-color;
+  margin-bottom:$thick-group-spacing;
+  transition:width $bar-transition-time;
+}
+
+// ============================================================== 
+// Bars.js styles
+// ==============================================================
+
+body{
+
+  // Data Styles
+  .b_label{
+    color:#929292;
+    font-size:10px;
+  }
+  .bar_label_min,.bar_label_max{
+    @extend .b_label;
+  }
+  .bar_label_max{
+    position:absolute;
+    right:0;
+  }
+  .bar_label_min{
+    position:absolute;
+    left:0;
+  }
+  .b_tooltip{
+    transition:all $bar-transition-time;
+    position:relative;
+    float:left;
+    left:100%;
+    padding: 4px 10px 7px 10px;
+    background-color: rgba(67, 66, 76, 0.81);
+    transform:translateX(-50%) translateY(-30px);
+    border-radius: 2px;
+    line-height: 11px;
+    span{
+      @extend .b_label;
+      color: white;
+    }
+  }
+  .b_tooltip--tri{
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: '';
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: rgba(67, 66, 76, 0.81) transparent transparent transparent;
+  }
+
+  // Bar colors
+  @for $i from 1 through 100{
+    .bar_group__bar:nth-of-type(#{$i}){
+      @include color($i);
+    }
+  }
+
+  .bar_group{
+    position:relative;
+
+    // Effects
+    .elastic{
+      background:#FF3357;
+      transition-timing-function: cubic-bezier(0.500, 0.250, 0.375, 1.335);
+      transition-duration:1s;
+    }
+    .gradient{
+      &:after{
+        content:'';
+        display:block;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(255, 255, 255, 0.39)));
+        height:100%;
+        width:100%;
+        border-radius:100px;
+      }
+    }
+
+    // Visual styles
+    &__bar{
+      &.n_bg{
+        &:before{
+          display:none !important;
+        }
+      }
+      &.thin{
+        @extend %thin_bar--inner;
+        &::before{
+          @extend %thin_bar--outer;
+        }
+      }
+      &.thick{
+        @extend %thick_bar--inner;
+        &::before{
+          @extend %thick_bar--outer;
+        }
+      }
+      
+    }
+  }  
+}
+
+// ============================================================== 
+// Page styles - Not part of Bars.js styles
+// ==============================================================
+// Responsive
+// Responive breakpoints
+$screen-xlarge: 1600px;
+$screen-large: 1360px;
+$screen-medium: 1024px;
+$screen-small: 900px;
+$screen-xsmall: 500px;
+$screen-xxsmall: 530px;
+$screen-xxxsmall: 263px;
+// Responsive mixin
+// @include when(width){styles}
+
+@mixin when($width){
+  @media screen and (max-width: $width) {
+    @content
+  }
+}
+
+body{
+  margin:0;
+  font-family:'montserrat';
+  .clear{
+    clear:both;
+  }
+  .bar{
+    box-sizing:border-box;
+    width:800px;
+    margin:0 auto;
+    @include when($screen-small){
+      width:100%;
+      padding:30px;
+    }
+    h2{
+      font-size:28px;
+      margin:60px 0px 3px 0px;
+      color: #232531;
+    }
+    h3{
+      font-size: 12px;
+      color: #8092AB;
+      margin: 0px 0px 60px 0px;
+      font-weight: normal;
+    }
+    h4{
+      font-size:18px;
+      margin:0px 0px 3px 0px;
+      color: #232531;
+    }
+  }
+
+  // Custom colors
+  .c_red{background:#E03E3E !important;}
+  .c_green{background:#ADEA38 !important;}
+  .c_blue{background:#6BAED6 !important;}
+  .c_pink{background:#DC5C84 !important;}
+  .c_brown{background:#824629 !important;}
+
+  .wrap{
+    position:relative;
+    margin-bottom:50px;
+    &_left{
+      height:100%;
+      border-right: 1px solid #e0e6ef;
+      width: 300px;
+      margin-right: 100px;
+      margin-bottom:30px;
+      float: left;position: absolute;
+      @include when($screen-small){
+        width:100%;
+        position:relative;padding-bottom:30px;border-right: 0px solid #e0e6ef;border-bottom: 1px solid #e0e6ef;
+      }
+      p{
+        font-size: 11px;
+        color: #8092AB;
+        margin: 11px 0px 0px 0px;
+        font-weight: lighter;
+        width: 80%;
+        line-height: 17px;
+      }
+    }
+    &_right{
+      float:right;
+      width:400px;
+      position:relative;
+      margin: 30px 0px;@include when($screen-small){
+        width:100%;
+      }
+    }
+  }
+  .alt{
+    background:#F7F7F7;
+    padding:40px 0px;
+    position:relative;
+    z-index:-2;
+  }
+  .hero{
+    background:#232531;
+    padding:100px 50px;
+    text-align:center;
+    h2{
+      color:white;
+    }
+    h3{
+      color:#8E92AB;
+      font-size:12px;
+      font-weight:normal;
+      margin-bottom:10px;
+    }
+    .love{
+      font-size: 10px;
+    color: rgb(142, 146, 171);
+    margin: 60px 0px 60px 0px;
+    }
+    h4{
+      font-size: 10px;
+    color: #E2204B;
+    margin: 10px;
+    }
+    
+    a{
+      color:#E2204B;
+    }
+    a.b{
+      text-decoration:none;
+      color:#8E92AB;
+      font-size:12px;
+      padding:12px 28px;
+      margin:10px;
+      border:2px solid #8E92AB;
+      border-radius:30px;
+      transition:all .3s;
+      &:hover{
+        color:white;
+        border:2px solid white;
+      }
+    }
+    &_inner{
+      &__brand{
+        img{
+          @include when($screen-xxsmall){display:none;
+        }
+        } width:400px;
+        position:relative;
+        margin:0 auto 40px auto;
+       
+        .logo_bars{
+          @include when($screen-xxsmall){
+            position: relative;
+    left: 0;
+    bottom: 30px;
+    width: 42px;
+    margin: auto;
+    right: 0;
+          }
+           position:absolute;
+          left: 125px;
+          bottom: 10px;
+          %l_bar{
+            height:0px;
+            position:absolute;
+            bottom:0;
+            border-radius:20px;
+            float:left;
+            margin-right:10px;
+            width:6px;
+          }
+          .one{
+            @extend %l_bar;
+            background:#E15525;
+            animation:one .6s .4s forwards;
+          }
+          .two{
+            @extend %l_bar;
+            left:12px;
+            animation:two .6s .6s forwards;
+            background:#EDBF40;
+          }
+          .three{
+            @extend %l_bar;
+            left:24px;
+            animation:three .6s .8s forwards;
+            background:#85C557;
+          }
+          .four{
+            @extend %l_bar;
+            left:36px;
+            background:#5EC5C5;
+            animation:two .6s 1s forwards
+          }
+          .five{
+            @extend %l_bar;
+            left:48px;
+            background:#7653A2;
+            animation:one .6s 1.2s forwards
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// Logo animations
+@keyframes one{
+  from{height:0}
+  to{height:20px;}
+}
+@keyframes two{
+  from{height:0}
+  to{height:36px;}
+}
+@keyframes three{
+  from{height:0}
+  to{height:56px;}
+}

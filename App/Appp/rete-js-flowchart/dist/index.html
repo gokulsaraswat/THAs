@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - rete.js flowchart</title>
+  <script> var data= {
+  id: "events@0.1.0",
+  nodes: {
+    "2": {
+      id: 2,
+      data: {},
+      group: null,
+      inputs: [],
+      outputs: [
+        {
+          connections: [
+            {
+              node: 3,
+              input: 0
+            }
+          ]
+        },
+        {
+          connections: [
+            {
+              node: 3,
+              input: 1
+            }
+          ]
+        }
+      ],
+      position: [114, 133],
+      title: "Keydown event"
+    },
+    "3": {
+      id: 3,
+      data: {},
+      group: null,
+      inputs: [
+        {
+          connections: [
+            {
+              node: 2,
+              output: 0
+            }
+          ]
+        },
+        {
+          connections: [
+            {
+              node: 2,
+              output: 1
+            }
+          ]
+        }
+      ],
+      outputs: [
+        {
+          connections: [
+            {
+              node: 10,
+              input: 0
+            }
+          ]
+        },
+        {
+          connections: [
+            {
+              node: 11,
+              input: 0
+            }
+          ]
+        }
+      ],
+      position: [443, 112],
+      title: "Enter pressed"
+    },
+    "10": {
+      id: 10,
+      data: {
+        msg: "Enter!"
+      },
+      group: null,
+      inputs: [
+        {
+          connections: [
+            {
+              node: 3,
+              output: 0
+            }
+          ]
+        }
+      ],
+      outputs: [],
+      position: [773, 106],
+      title: "Alert"
+    },
+    "11": {
+      id: 11,
+      data: {
+        msg: "Another key pressed"
+      },
+      group: null,
+      inputs: [
+        {
+          connections: [
+            {
+              node: 3,
+              output: 1
+            }
+          ]
+        }
+      ],
+      outputs: [],
+      position: [766, 292],
+      title: "Alert"
+    }
+  },
+  groups: {}
+};
+</script><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h4 class="title">Press enter or another key</h4>
+<div id="rete" class="node-editor"></div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/rete@1.0.0-alpha.9/build/rete.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/alight@0.14.1/alight.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/rete-alight-render-plugin@0.1.5/build/alight-render-plugin.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/rete-connection-plugin@0.1.2/build/connection-plugin.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/rete-context-menu-plugin@0.1.4/build/context-menu-plugin.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/rete-task-plugin@0.1.7/build/task-plugin.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

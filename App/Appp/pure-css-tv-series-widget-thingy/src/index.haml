@@ -1,0 +1,28 @@
+- @show = [{:name => 'Daredevil',:episode => '26',:description => 'The first in a planned series of shows detailing the Marvel universe, "Daredevil" follows Matt Murdock, attorney by day and vigilante by night. Blinded in an accident as a child, Murdock uses his heightened senses as Daredevil, fighting crime on the streets of New York after the sun goes down. His efforts are not welcomed by powerful businessman Wilson Fisk -- aka Kingpin -- and others whose interests collide with those of Daredevil',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/dd_gif.gif'},{:name => 'Breaking bad',:episode => '62',:description => 'Mild-mannered high school chemistry teacher Walter White thinks his life cant get much worse. His salary barely makes ends meet, a situation not likely to improve once his pregnant wife gives birth, and their teenage son is battling cerebral palsy. But Walter is dumbstruck when he learns he has terminal cancer. Realizing that his illness probably will ruin his family financially, Walter makes a desperate bid to earn as much money as he can in the time he has left by turning an old RV into a meth lab on wheels',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/bb_gif.gif'},{:name => 'The flash',:episode => '27',:description => 'Barry Allen is a Central City police forensic scientist with a reasonably happy life, despite the childhood trauma of a mysterious red and yellow being killing his mother and framing his father. All that changes when a massive particle accelerator accident leads to Barry being struck by lightning in his lab. Coming out of coma nine months later, Barry and his new friends at STAR labs find that he now has the ability to move at superhuman speed. Furthermore, Barry learns that he is but one of many affected by that event, most of whom are using their powers for evil',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/flash_guf.gif'},{:name => 'Lost',:episode => '3453',:description => 'The survivors of Oceanic Flight 815 were 1,000 miles off course when they crashed on a lush, mysterious island. Each person possesses a shocking secret, but theyve got nothing on the island itself, which harbors a monstrous security system, a series of underground bunkers and a group of violent survivalists hidden in the shadows',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/lost_gif.gif'},{:name => 'Dexter',:episode => 'Too many',:description => 'Orphaned at age three, when his mother was brutally murdered in a shipping container, and harboring a traumatic secret, Dexter (Michael C. Hall) was adopted by Miami policeman Harry Morgan (James Remar), who recognized his homicidal tendencies and taught him to channel his gruesome passion for killing in a "constructive" way—by killing only heinous criminals (such as child molesters, mob assassins, rapists, serial killers of the innocent, etc.) who have slipped through the justice system',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/dexter_gif.gif'},{:name => 'Prison break',:episode => '120',:description => 'Michael Scofield is a desperate man in a desperate situation. His brother, Lincoln Burrows, was convicted of a crime he didnt commit and put on Death Row. Michael holds up a bank to get himself incarcerated alongside his brother in Fox River State Penitentiary, then sets in motion a series of elaborate plans to break Lincoln out and prove his innocence. Once out of jail, their perils arent over -- the brothers must flee to escape recapture and battle an intricate political conspiracy that puts everyones life at risk',:gif => 'https://www.jamiecoulter.co.uk/dev/codepen/pb_gif.gif'}]
+.container
+  .container_inner
+    .container_inner__list
+      - @show.each do |series|
+        .list_item
+          %input{:type => 'radio',:id => "movie-#{series[:name]}",:name => 'movie',:checked => 'checked'}
+          %label{:for => "movie-#{series[:name]}"}
+            .icon.ion-ios-videocam
+            %span #{series[:name]}
+            .list_item__placeholder
+            .list_item__image
+            .list_item__bg
+            %section.list_item__feature
+              %img.gif{:src => "#{series[:gif]}"}
+              .gif_overlay
+              .information
+                %h1 #{series[:name]}
+                %h2 #{series[:episode]} episodes
+                .stars 
+                  -(1..5).each do
+                    .ion-android-star
+              .description
+                %p #{series[:description]}
+              .watch
+                .ion-android-star 
+                Watch now
+                

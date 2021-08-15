@@ -1,0 +1,52 @@
+:root {
+  --font-primary: sans-serif;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+.header {
+  grid-area: header;
+  background-color: #0079c1;
+}
+
+.control-panel {
+  grid-area: control-panel;
+  background-color: #333;
+}
+
+.map {
+  grid-area: map;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 60px auto 100px;
+  grid-template-areas:
+    "header"
+    "map"
+    "control-panel";
+  width: 100vw;
+  height: 100vh;
+}
+
+.box {
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 544px) {
+  .wrapper {
+/*     grid-template-columns: 40% auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:
+      "header   header"
+      "sidebar  map"; */
+  }
+}
