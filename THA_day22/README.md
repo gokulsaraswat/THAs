@@ -1,7 +1,3 @@
-## <a href="https://thedeepakchaturvedi-meme-creator.netlify.app/">https://thedeepakchaturvedi-meme-creator.netlify.app/</a>
-
----
-
 # <b>I do it for the memes</b>
 
 ### Create your own memes and download them locally.

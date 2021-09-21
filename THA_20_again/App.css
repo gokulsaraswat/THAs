@@ -1,0 +1,21 @@
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ .App {
+   margin-top: 30px;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   height:100vh;
+   flex-direction: column;
+ }
+
+.App button {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+.App input {
+  margin :10px;
+}
